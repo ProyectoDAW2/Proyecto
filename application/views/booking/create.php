@@ -60,24 +60,6 @@ $(".submit").click(function(){
 			}
 		}
 	});
-//BUSCAMOS RESERVAS
-	$.ajax("<?= base_url() ?>booking/listarReservaPost", {
-		type: "POST",
-		dataType: "text",
-		data: {
-			date: date,
-			hours: hours
-		},
-		complete: function(data){
-			var dateC=data[0];
-			console.log(dateC);
-			var hourC=data[1];0
-			var dateCalendar=document.getElementById("datePicked");
-			if(dateC.value=dateCalendar.value){
-				$(".hours").attr("disabled", true);
-			}
-		}
-	});
 });
 
 	$('#calendar').fullCalendar({
@@ -89,7 +71,22 @@ $(".submit").click(function(){
 		firstDay: 1,
 		editable: true,
 		dayRender: function(date, cell) {
-			$(cell).append("<div class='spheres'></div><div class='spheres'></div><div class='spheres'></div><div class='spheres'></div><div class='spheres'></div><div class='spheres'></div><div class='spheres'></div>");
+			$(cell).append("<div class='spheres' value='8:20-9:15'></div><div class='spheres' value='9:15-10:10'></div><div class='spheres' value='10:10-11:00'></div><div class='spheres' value='11:00-11:35'></div><div class='spheres' value='11:35-12:30'></div><div class='spheres' value='12:30-13:25'></div><div class='spheres' value='13:25-14:20'></div>");
+
+			//Buscaremos las reservas de ese aula al renderizar los días
+			$.ajax("<?= base_url() ?>booking/listarReservaPost", {
+				type: "POST",
+				dataType: "json",
+				contentType: "application/json",
+				success: function(data){
+					var length=data.length;
+					for (i=0;i<length;i++) {
+						var post=data[i];
+						$("[data-date="+post.fecha+"]").find(".spheres[value='"+post.hora+"']").val("+post.hora+").css("background-color", "red");
+						console.log("Reservado el "+ post.fecha +" a las "+post.hora);
+					}
+				}
+			});
 		},
 		dayClick: function(date, jsEvent, view)
 		{
