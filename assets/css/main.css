@@ -40,7 +40,11 @@
 .spheres
 {
     display: block;
+<<<<<<< HEAD
     background: black;
+=======
+    background: green;
+>>>>>>> 65a3ffe024199f36d07e10b55bd9012fc0ab60ac
     border-radius: 100%;
     height: 15px;
     width: 15px;
@@ -50,6 +54,7 @@
     margin-top: 75%;
 }
 
+<<<<<<< HEAD
 .spheres booked
 {
     background: red;
@@ -58,4 +63,11 @@
 #calendar
 {
     background-color:white;
+=======
+#calendar
+{
+    background-color:white;
+    width: 900px;
+    height:600px;
+>>>>>>> 65a3ffe024199f36d07e10b55bd9012fc0ab60ac
 }

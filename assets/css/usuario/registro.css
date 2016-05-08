@@ -5,7 +5,11 @@
 }
 
 body {
+<<<<<<< HEAD
   font-family: 'Book Antiqua', sans-serif;
+=======
+  font-family: 'Nunito', sans-serif;
+>>>>>>> 65a3ffe024199f36d07e10b55bd9012fc0ab60ac
   color: #384047;
 }
 

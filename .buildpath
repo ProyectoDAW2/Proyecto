@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <buildpath>
 	<buildpathentry kind="src" path=""/>
+<<<<<<< HEAD
 	<buildpathentry kind="con" path="org.eclipse.php.core.LANGUAGE"/>
+=======
+>>>>>>> 65a3ffe024199f36d07e10b55bd9012fc0ab60ac
 </buildpath>

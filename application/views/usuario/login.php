@@ -8,19 +8,25 @@
                 <input type="text" id="user" name="user" class="large" placeholder="Usuario"/>
             </div>
         </div>
+
         <div class="element-password" title="Contrase&ntilde;a">
+
             <label class="title"></label>
             <div class="item-cont">
                 <input type="password" name="password" id="password"class="large" placeholder="Contraseña"/>
             <span class=""></span>
             </div>
         </div>
+        
         <div class="element-checkbox" title="Recordar contrase&ntilde;a para pr&oacute;ximas entradas">
+
             <label class="title"></label>
             <div class="column column1">
                 <label>
                     <input type="checkbox" name="recordar" id="recordar" value="Recordar contraseña"/ >
+
                     <span>Recordar contrase&ntilde;a</span>
+
                 </label>
             </div>
             <div class="element-input">
