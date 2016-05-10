@@ -8,9 +8,12 @@ class Usuario extends CI_Controller
 
     /*----- Registrar usuarios -----*/
     public function registrar() {
-        $this->load->view ('templates/header');
+        //$this->load->view ('templates/header');
+        $datos['pantalla']= "registro";
+        $this->load->view ('templates/header2', $datos);
         $this->load->view ('usuario/formuRegistro');
-        $this->load->view ('templates/footer');
+        $this->load->view ('templates/footer2');
+        //$this->load->view ('templates/footer');
     }
 
     public function registrarPost() {
@@ -55,10 +58,13 @@ class Usuario extends CI_Controller
     /*----- Login usuarios -----*/
 
     public function login() {
+    	$datos['pantalla']= "login";
         $this->load->helper ('form');
-        $this->load->view ('templates/header');
+        //$this->load->view ('templates/header');
+        $this->load->view ('templates/header2', $datos);
         $this->load->view ('usuario/login');
-        $this->load->view ('templates/footer');
+        $this->load->view ('templates/footer2');
+        //$this->load->view ('templates/footer');
     }
 
     public function loginPost() {

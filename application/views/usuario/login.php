@@ -13,7 +13,7 @@
 
             <label class="title"></label>
             <div class="item-cont">
-                <input type="password" name="password" id="password"class="large" placeholder="Contraseña"/>
+                <input type="password" name="password" id="password" class="large" placeholder="Contrase&ntilde;a"/>
             <span class=""></span>
             </div>
         </div>
@@ -23,7 +23,7 @@
             <label class="title"></label>
             <div class="column column1">
                 <label>
-                    <input type="checkbox" name="recordar" id="recordar" value="Recordar contraseña"/ >
+                    <input type="checkbox" name="recordar" id="recordar" value="Recordar contrase&ntilde;a"/ >
 
                     <span>Recordar contrase&ntilde;a</span>
 

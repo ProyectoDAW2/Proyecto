@@ -15,14 +15,18 @@
 
     </head>
     <body>
-
+<div class="container-content">
       <form action="<?=base_url('usuario/registrarPost')?>" method="post">
       
-        <h1>Registro</h1>
+        <div class="title"><h1>Registro</h1></div>
 
           <legend><span class="number">1</span>Informaci&oacute;n Usuario</legend>
-          <label for="name">Nick:</label>
-          <input type="text" id="nick" name="nick">
+          <div class="element-input">
+          	<label for="name">Nick:</label>
+          	<div class="item-cont">
+          		<input type="text" id="nick" name="nick">
+            </div>
+          </div>
           
           <label for="password">Contrase&ntilde;a:</label>
           <input type="password" id="password" name="password">
@@ -43,7 +47,7 @@
         
         
       </form>
-      
+</div> <!-- End of container -->
     </body>
 </html>
 
