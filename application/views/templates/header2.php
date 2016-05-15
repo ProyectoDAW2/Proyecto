@@ -6,7 +6,8 @@
     <link href='<?= base_url() ?>assets/css/main.css' rel='stylesheet' />
     <link href='<?= base_url() ?>assets/css/bootstrap/business-casual.css' rel='stylesheet' />
     <?php }else{?>
-    <link href='<?= base_url() ?>assets/css/usuario/registro.css' rel='stylesheet' />
+    <link href='<?= base_url() ?>assets/css/bootstrap/bootstrap-330.css' rel='stylesheet'/>
+    <link href='<?= base_url() ?>assets/css/usuario/registro2.css' rel='stylesheet' />
     <?php }?>
     
     <!-- SCRIPTS -->

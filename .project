@@ -1,49 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-<<<<<<< HEAD
 	<name>ProyectoCalendario</name>
-=======
-	<name>CI</name>
->>>>>>> 65a3ffe024199f36d07e10b55bd9012fc0ab60ac
 	<comment></comment>
 	<projects>
 	</projects>
 	<buildSpec>
 		<buildCommand>
-<<<<<<< HEAD
-			<name>org.eclipse.wst.common.project.facet.core.builder</name>
-=======
 			<name>org.eclipse.wst.validation.validationbuilder</name>
->>>>>>> 65a3ffe024199f36d07e10b55bd9012fc0ab60ac
 			<arguments>
 			</arguments>
 		</buildCommand>
 		<buildCommand>
-<<<<<<< HEAD
-			<name>org.eclipse.wst.validation.validationbuilder</name>
-=======
 			<name>org.eclipse.dltk.core.scriptbuilder</name>
->>>>>>> 65a3ffe024199f36d07e10b55bd9012fc0ab60ac
-			<arguments>
-			</arguments>
-		</buildCommand>
-		<buildCommand>
-<<<<<<< HEAD
-			<name>org.eclipse.dltk.core.scriptbuilder</name>
-=======
-			<name>org.eclipse.wst.common.project.facet.core.builder</name>
->>>>>>> 65a3ffe024199f36d07e10b55bd9012fc0ab60ac
 			<arguments>
 			</arguments>
 		</buildCommand>
 	</buildSpec>
 	<natures>
-<<<<<<< HEAD
 		<nature>org.eclipse.php.core.PHPNature</nature>
-		<nature>org.eclipse.wst.common.project.facet.core.nature</nature>
-=======
-		<nature>org.eclipse.wst.common.project.facet.core.nature</nature>
-		<nature>org.eclipse.php.core.PHPNature</nature>
->>>>>>> 65a3ffe024199f36d07e10b55bd9012fc0ab60ac
 	</natures>
 </projectDescription>

@@ -6,19 +6,54 @@ class Usuario extends CI_Controller
 		$this->login();
 	}
 
+	public function foto(){
+		$this->load->view('usuario/pruebaFoto');
+	}
+	
+	public function fotoPost(){
+		$nombre = $_FILES ['imagenPerfil']['name'];
+		//console.log($nombre);
+		$carpeta = "C://xampp/htdocs/ProyectoCalendario/assets/imagenes/perfil/";
+		//copy ( $_FILES['imagenUsuario']['tmp_name'], $carpeta . $nombre );
+		
+		//echo "El fichero $nombre se almacen&oacute; en $carpeta";
+		//return "<img src=".base_url()."assets/imagenes/perfil/".$nombre.">";
+		mkdir(base_url()."assets/imagenes/perfil", 0777, true);
+		move_uploaded_file($_FILES['imagenPerfil']['tmp_name'], $carpeta.$nombre);
+		$imagen= "<img src=".base_url().'assets/imagenes/perfil/'.$nombre.">";
+		echo $imagen;
+		
+	}
+	
+	public function fotoPerfil(){
+		$nombre= $_REQUEST['nombreFoto'];
+		$imagenEnviada= $_REQUEST['imagenUsuario'];
+		$carpeta= base_url()."assets/imagenes/perfil/";
+		
+		
+		
+		//Damos permisos a la carpeta para que se pueda guardar la foto (si no da error)
+		mkdir(base_url()."assets/imagenes/perfil", 0777, true);
+		move_uploaded_file($_FILES[$imagenEnviada]['tmp_name'], $carpeta.$nombre);
+		
+		$imagen= "<img src=".base_url().'assets/imagenes/perfil/'.$nombre.">";
+		echo $imagen;
+	}
+	
     /*----- Registrar usuarios -----*/
     public function registrar() {
         //$this->load->view ('templates/header');
         $datos['pantalla']= "registro";
         $this->load->view ('templates/header2', $datos);
-        $this->load->view ('usuario/formuRegistro');
+        //$this->load->view ('usuario/formuRegistro');
+        $this->load->view ('usuario/registro');
         $this->load->view ('templates/footer2');
-        //$this->load->view ('templates/footer');
     }
 
     public function registrarPost() {
         $nick= $_REQUEST ['nick'];
         $password= $_REQUEST ['password'];
+        $password2= $_REQUEST['password2'];
         $correo= $_REQUEST ['correo'];
         $clave= $_REQUEST ['clave'];
         $res= $_REQUEST ['res'];
@@ -26,7 +61,7 @@ class Usuario extends CI_Controller
         $rol= "";
         $longitudCorreo= strlen ($correo);
 
-        $digitoRol= substr ($clave, -1); //cogemos el �ltimo caracter de la clave, para saber el rol
+        $digitoRol= substr ($clave, -1); //cogemos el ultimo caracter de la clave, para saber el rol
 
         if($digitoRol==1){
             $rol= "profesor";
@@ -35,16 +70,22 @@ class Usuario extends CI_Controller
         else{
             $rol= "alumno";
         }
+        
         $this->load->model ('Model_Usuario', 'mu');
-        $existeClave= $this->mu->comprobarClave ($clave);
-
+        $existeClave= $this->mu->comprobarClave($clave);
+		
         if($existeClave!="") {
             $id= $existeClave;
             $_SESSION ['idUsuario']= $id;
-
-            if($res==true && $longitudCorreo<46) {
-                $this->mu->completarRegistro ($nick, $password, $correo, $rol, $clave, $id);
-                $this->listar();
+            
+            if($password == $password2){
+            	if($res==true && $longitudCorreo<46) {
+                	$this->mu->completarRegistro ($nick, $password, $correo, $rol, $clave, $id);
+                	$this->login();
+            	}
+            }
+            else{
+            	$this->load->view('usuario/formuRegistro');
             }
         }
         else {
@@ -136,17 +177,30 @@ class Usuario extends CI_Controller
     public function perfil() {
         $id= isset ($_SESSION['idUsuario']) ? $_SESSION ['idUsuario'] : null;
         $datos ['idUsuario']=$id;
-        $this->load->view ('templates/header');
+        //$this->load->view ('templates/header');
         $this->load->view ('usuario/perfil', $datos);
-        $this->load->view ('templates/footer');
+        //$this->load->view ('templates/footer');
     }
 
 	public function perfilPost() {
 		$nick= $_REQUEST ['nick'];
 		$passActual= $_REQUEST ['passwordActual'];
 		$password= $_REQUEST ['passwordNueva'];
+		$password2= $_REQUEST['passwordNueva2'];
 		$correo= $_REQUEST ['correo'];
 		$res= $_REQUEST ['res'];
+		
+		$nombre = $_FILES ['imagenPerfil']['name'];
+		//console.log($nombre);
+		$carpeta = "C://xampp/htdocs/ProyectoCalendario/assets/imagenes/perfil/";
+		//copy ( $_FILES['imagenUsuario']['tmp_name'], $carpeta . $nombre );
+		
+		//echo "El fichero $nombre se almacen&oacute; en $carpeta";
+		//return "<img src=".base_url()."assets/imagenes/perfil/".$nombre.">";
+		mkdir(base_url()."assets/imagenes/perfil", 0777, true);
+		move_uploaded_file($_FILES['imagenPerfil']['tmp_name'], $carpeta.$nombre);
+		$datos['imagen']= "<img style='width: 60px;height: 60px;border-radius:50%;' src=".base_url().'assets/imagenes/perfil/'.$nombre.">";
+		
 		
 		if($res!=false) {
 			
@@ -157,7 +211,7 @@ class Usuario extends CI_Controller
 				$this->mu->cambiarPerfil ($id, $nick, $password, $correo);
 
                 $this->load->view ('templates/header');
-                $this->load->view ('usuario/perfilPost');
+                $this->load->view ('usuario/perfilPost', $datos);
                 $this->load->view ('templates/footer');
             }
 			else{
@@ -205,7 +259,7 @@ class Usuario extends CI_Controller
 			$cabeceras .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
 			$cabeceras .= 'From: Servidor <recuperacion.reyfernando@gmail.com>' . "\r\n";
 			// Se envia el correo al usuario
-			mail($correo, "Recuperar contrase�a", $mensaje, $cabeceras);
+			mail($correo, "Recuperar contrase&ntilde;a", $mensaje, $cabeceras);
 		}
 		else {
 			$this->load->view('errors/noCorreo');

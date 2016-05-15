@@ -7,6 +7,7 @@ function registrar()
             
             var nickCorrecto=false;
             var passCorrecta= false;
+            var pass2Correcta= false;
             var emailCorrecto= false;
             
             if(/^\w{3,30}$/.test(nickname))
@@ -19,6 +20,7 @@ function registrar()
                 if(pass==pass2)
                 {
                     passCorrecta=true;
+                    pass2Correcta= true;
                 }
 
             }
@@ -26,11 +28,15 @@ function registrar()
             if(/^\w+([\-_]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,4})+$/.test(email))
             {
                 emailCorrecto=true;
-            }  
+            }
 
-            if(nickCorrecto && passCorrecta && emailCorrecto)
+            if(nickCorrecto && passCorrecta && pass2Correcta && emailCorrecto)
             {
 				document.getElementById("res").value= true;
-            }   
+            } 
+            else{
+            	event.preventDefault();
+            }
+            
             
         }

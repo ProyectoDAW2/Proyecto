@@ -1,7 +1,7 @@
 function modify(){
             var nickname= document.getElementById("nick").value;
             var pass= document.getElementById("passwordNueva").value;
-            var pass2= document.getElementById("password2").value;
+            var pass2= document.getElementById("passwordNueva2").value;
             var email= document.getElementById("correo").value;
             
             var nickCorrecto=false;

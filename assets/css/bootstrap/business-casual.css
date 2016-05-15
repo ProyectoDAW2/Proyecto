@@ -104,6 +104,26 @@ hr {
     margin: 0 auto 0;
 }
 
+.image{
+	width: 130px;
+	height: 100px;
+	margin-left: 620px;	
+	margin-top: 10px;
+}
+
+.titleApp{
+	font-family: "Book Antiqua";
+	font-size: 18px;
+	font-weigth: 300;
+	margin-left: 455px;	
+}
+
+.enlaceRegistro{
+	float:left;
+	margin-top: 10px;
+	margin-left: 25px;	
+}
+
 footer {
     background: rgba(255,255,255,0.9);
     position: absolute;
@@ -248,7 +268,7 @@ footer p {
     position: fixed;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -35%);
     background-color: white;
 
 }
