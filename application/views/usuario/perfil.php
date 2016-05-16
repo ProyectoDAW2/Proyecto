@@ -59,7 +59,7 @@
 		  <div class="tamanio input-group">
                 <span class="input-group-btn">
                     <span class="btn btn-danger btn-file">
-                        Browse&hellip; <input type="file" id="imagenPerfil" name="imagenPerfil" multiple>
+                        Examinar&hellip; <input type="file" id="imagenPerfil" name="imagenPerfil" multiple>
                     </span>
                 </span>
                 <input type="text" id="nombreImagen" name="nombreImagen" class="form-control" readonly>

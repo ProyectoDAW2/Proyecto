@@ -177,9 +177,9 @@ class Usuario extends CI_Controller
     public function perfil() {
         $id= isset ($_SESSION['idUsuario']) ? $_SESSION ['idUsuario'] : null;
         $datos ['idUsuario']=$id;
-        //$this->load->view ('templates/header');
+        $this->load->view ('templates/header');
         $this->load->view ('usuario/perfil', $datos);
-        //$this->load->view ('templates/footer');
+        $this->load->view ('templates/footer');
     }
 
 	public function perfilPost() {
@@ -190,7 +190,7 @@ class Usuario extends CI_Controller
 		$correo= $_REQUEST ['correo'];
 		$res= $_REQUEST ['res'];
 		
-		$nombre = $_FILES ['imagenPerfil']['name'];
+		$nombre = $_SESSION['idUsuario'].".jpg";
 		//console.log($nombre);
 		$carpeta = "C://xampp/htdocs/ProyectoCalendario/assets/imagenes/perfil/";
 		//copy ( $_FILES['imagenUsuario']['tmp_name'], $carpeta . $nombre );
@@ -199,16 +199,16 @@ class Usuario extends CI_Controller
 		//return "<img src=".base_url()."assets/imagenes/perfil/".$nombre.">";
 		mkdir(base_url()."assets/imagenes/perfil", 0777, true);
 		move_uploaded_file($_FILES['imagenPerfil']['tmp_name'], $carpeta.$nombre);
-		$datos['imagen']= "<img style='width: 60px;height: 60px;border-radius:50%;' src=".base_url().'assets/imagenes/perfil/'.$nombre.">";
-		
+		//$datos['imagen']= "<img style='width: 60px;height: 60px;border-radius:50%;' src=".base_url().'assets/imagenes/perfil/'.$nombre.">";
+		$datos['imagen']= $nombre;
 		
 		if($res!=false) {
-			
+			$idUsuario= $_SESSION['idUsuario'];
 			$this->load->model ('Model_Usuario','mu');
-			$id= $this->mu->encontrarUsuarioPorPassword ($passActual);
+			//$id= $this->mu->encontrarUsuarioPorPassword ($passActual, $idUsuario);
 			
-			if($id!=0) {
-				$this->mu->cambiarPerfil ($id, $nick, $password, $correo);
+			if($idUsuario!=0) {
+				$this->mu->cambiarPerfil ($idUsuario, $nick, $password, $correo);
 
                 $this->load->view ('templates/header');
                 $this->load->view ('usuario/perfilPost', $datos);
