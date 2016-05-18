@@ -211,8 +211,9 @@ class Usuario extends CI_Controller
 				$this->mu->cambiarPerfil ($idUsuario, $nick, $password, $correo);
 
                 $this->load->view ('templates/header');
-                $this->load->view ('usuario/perfilPost', $datos);
-                $this->load->view ('templates/footer');
+                //$this->load->view ('usuario/perfilPost', $datos);
+                $this->load->view('usuario/perfil', $datos);
+                $this->load->view('templates/footer');
             }
 			else{
                 $this->load->view ('templates/header');

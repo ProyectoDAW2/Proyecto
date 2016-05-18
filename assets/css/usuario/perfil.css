@@ -1,12 +1,31 @@
 .form-horizontal{
 	position: relative;
 	width: 98%;
-	margin-top: 100px;	
+	margin-top: 80px;
 }
 
 .imagenPerfil{
 	margin-left: 468px;	
 	margin-bottom: 20px;
+}
+
+#contentImagenPerfil{
+	width: 150px;
+	height: 150px;
+	border-radius: 50%;
+	background-image: url("http://localhost/ProyectoCalendario/assets/imagenes/perfil/ydyujcgh.jpg");
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: contain;
+	box-shadow: 8px 5px 8px 3px #888888;
+	margin-left: 120px;	
+	margin-top: -35px;
+}
+
+.img-circle{
+	margin-left: 190px;	
+	margin-top: -60px;
+	margin-bottom: 45px;
 }
 
 .botonPerfil{

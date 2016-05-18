@@ -45,6 +45,16 @@
   	        
   	    });
   	});
+
+  	<?php if(isset($imagen)): ?>
+  		swal({
+  	  	     title: "",
+  	  		 text: "Datos cambiados correctamente",
+  	  		 type: "success",
+  	  		 confirmButtonText: "Continuar"
+  	  	});
+  	<?php endif; ?>
+  	
     </script>
 
 </head>
@@ -54,7 +64,7 @@
 		
 		<!-- Imagen perfil --> 
 		<div class="form-group">
-			<!-- <div id="imagenPerfil" class="imagenPerfil"><img src="<?= base_url() ?>assets/imagenes/perfil/default.jpg"/></div> -->
+			<div id="contentImagenPerfil"></div>
 		  <label class="col-md-4 control-label" for="fotoPerfil">Foto perfil</label>
 		  <div class="tamanio input-group">
                 <span class="input-group-btn">

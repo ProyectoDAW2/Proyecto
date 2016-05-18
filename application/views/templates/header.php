@@ -4,6 +4,7 @@
     <!-- CSS -->
     <link href='<?= base_url() ?>assets/css/main.css' rel='stylesheet' />
     <link href='<?= base_url() ?>assets/css/bootstrap/business-casual.css' rel='stylesheet' />
+    <link rel="stylesheet" type="text/css" href="<?= base_url() ?>assets/sweetalert-master/dist/sweetalert.css">
     <!--
     <link href='<?= base_url() ?>assets/css/fullcalendar/fullcalendar.css' rel='stylesheet'/>
     <link href='<?= base_url() ?>assets/css/fullcalendar/fullcalendar.min.css' rel='stylesheet'/>
@@ -21,6 +22,8 @@
     <script type='text/javascript' src='<?= base_url() ?>assets/js/bootstrap/bootstrap.js'></script>
     <script type='text/javascript' src='<?= base_url() ?>assets/js/fullcalendar/moment.js'></script>
     <script type='text/javascript' src='<?= base_url() ?>assets/js/fullcalendar/fullcalendar.min.js'></script>
+    <script type="text/javascript" src="<?= base_url() ?>assets/sweetalert-master/dist/sweetalert.min.js"></script> 
+    
 </head>
 <body>
 <div class="navbar-header">
