@@ -17,14 +17,14 @@
     <!-- Custom CSS -->
     <link href="<?= base_url() ?>assets/templateBootstrap/css/freelancer.css" rel="stylesheet">
     
-   
-    
+
     <!-- Custom Fonts -->
     <link href="<?= base_url() ?>assets/templateBootstrap/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
 	
-	
+	<!-- Registro -->
+	<link href="<?= base_url() ?>assets/css/usuario/registro2.css" rel="stylesheet">
   
 
 </head>

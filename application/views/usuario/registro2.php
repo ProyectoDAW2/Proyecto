@@ -48,7 +48,7 @@
                         </div>
                         <input type="text" id="res" name="res" hidden/>
 						<div class="form-group ">
-							<button type="submit" onclick="registrar()" class="btn btn-danger btn-lg btn-block login-button">Registrarme</button>
+							<button type="submit" onclick="registrar()" class="btn boton letraBoton btn-lg btn-block login-button">Registrarme</button>
 						</div>
 						<div class="login-register">
 				            <a href="<?= base_url('usuario/login') ?>">Login</a>
