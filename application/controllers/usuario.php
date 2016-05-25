@@ -30,8 +30,6 @@ class Usuario extends CI_Controller
 		$imagenEnviada= $_REQUEST['imagenUsuario'];
 		$carpeta= base_url()."assets/imagenes/perfil/";
 		
-		
-		
 		//Damos permisos a la carpeta para que se pueda guardar la foto (si no da error)
 		mkdir(base_url()."assets/imagenes/perfil", 0777, true);
 		move_uploaded_file($_FILES[$imagenEnviada]['tmp_name'], $carpeta.$nombre);
@@ -44,10 +42,10 @@ class Usuario extends CI_Controller
     public function registrar() {
         //$this->load->view ('templates/header');
         $datos['pantalla']= "registro";
-        $this->load->view ('templates/header2', $datos);
+        $this->load->view ('templates/headerSinCabecera', $datos);
         //$this->load->view ('usuario/formuRegistro');
-        $this->load->view ('usuario/registro');
-        $this->load->view ('templates/footer2');
+        $this->load->view ('usuario/registro2');
+        $this->load->view ('templates/footer3');
     }
 
     public function registrarPost() {
@@ -85,13 +83,13 @@ class Usuario extends CI_Controller
             	}
             }
             else{
-            	$this->load->view('usuario/formuRegistro');
+            	$this->load->view('usuario/registro2');
             }
         }
         else {
-            $this->load->view ('templates/header');
+            $this->load->view ('templates/headerSinCabecera');
             $this->load->view ('errors/noClave');
-            $this->load->view ('templates/footer');
+            $this->load->view ('templates/footer3');
         }
 
     }
@@ -124,9 +122,9 @@ class Usuario extends CI_Controller
             		$this->load->view ('objetoreservable/editarAulas');
             	}
                 else{
-                	$this->load->view ('templates/header');
-                	$this->load->view ('usuario/perfil');
-                	$this->load->view ('templates/header');
+                	$this->load->view ('templates/header3');
+                	$this->load->view ('usuario/perfil2');
+                	$this->load->view ('templates/footer3');
                 }
                 $anyo= time()+31536000;
                 if($remember==TRUE) {
@@ -135,9 +133,9 @@ class Usuario extends CI_Controller
             }
         }
         else{
-            $this->load->view ('templates/header');
+            $this->load->view ('templates/header3');
             $this->load->view ('errors/noUsuario');
-            $this->load->view ('templates/footer');
+            $this->load->view ('templates/footer3');
         }
     }
 
@@ -182,9 +180,9 @@ class Usuario extends CI_Controller
     public function perfil() {
         $id= isset ($_SESSION['idUsuario']) ? $_SESSION ['idUsuario'] : null;
         $datos ['idUsuario']=$id;
-        $this->load->view ('templates/header');
-        $this->load->view ('usuario/perfil', $datos);
-        $this->load->view ('templates/footer');
+        $this->load->view ('templates/header3');
+        $this->load->view ('usuario/perfil2', $datos);
+        $this->load->view ('templates/footer3');
     }
 
 	public function perfilPost() {
@@ -216,22 +214,22 @@ class Usuario extends CI_Controller
 			if($idUsuario!=0) {
 				$this->mu->cambiarPerfil ($idUsuario, $nick, $password, $correo);
 
-                $this->load->view ('templates/header');
+                $this->load->view ('templates/header3');
                 //$this->load->view ('usuario/perfilPost', $datos);
 				
-				$this->load->view('usuario/perfil', $datos);
-                $this->load->view('templates/footer');
+				$this->load->view('usuario/perfil2', $datos);
+                $this->load->view('templates/footer3');
             }
 			else{
-                $this->load->view ('templates/header');
+                $this->load->view ('templates/header3');
                 $this->load->view ('errors/noPassword');
-                $this->load->view ('templates/footer');
+                $this->load->view ('templates/footer3');
             }
 		}
 		else {
-            $this->load->view ('templates/header');
+            $this->load->view ('templates/header3');
             $this->load->view ('errors/noModificarPerfil');
-            $this->load->view ('templates/footer');
+            $this->load->view ('templates/footer3');
         }
 		
 	}
@@ -239,7 +237,9 @@ class Usuario extends CI_Controller
     /*----- Recuperar contraseña de la cuenta -----*/
 
 	public function recuperar() {
+		$this->load->view ('templates/headerSinCabecera');
 		$this->load->view('usuario/recuperar');
+		$this->load->view ('templates/footer3');
 	}
 	
 	public function recuperarPost() {
@@ -259,10 +259,10 @@ class Usuario extends CI_Controller
 			$this->mu->cambiarPass($correo,$cadena);
 			
 			//El mensaje va junto. En el se adjuntar�n la cadena aleatoria y el nick.
-			$mensaje='Restablece tus datos.
-			Hemos recibido una petici�n para restablecer los datos de tu cuenta.
-			Nueva contrase�a '.$cadena.'
-			Nombre de usuario';
+			$mensaje="Restablece tus datos.
+			Hemos recibido una petici&oacute;n para restablecer los datos de tu cuenta.
+			Nueva contrase&ntilde;a ".$cadena."
+			Nombre de usuario";
 			$cabeceras='MIME-Version: 1.0' . "\r\n";
 			$cabeceras .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
 			$cabeceras .= 'From: Servidor <recuperacion.reyfernando@gmail.com>' . "\r\n";
@@ -272,6 +272,14 @@ class Usuario extends CI_Controller
 		else {
 			$this->load->view('errors/noCorreo');
 		}
+	}
+	public function contacto()
+	{
+		$id= isset ($_SESSION['idUsuario']) ? $_SESSION ['idUsuario'] : null;
+		$datos ['idUsuario']=$id;
+		$this->load->view ('templates/header3');
+		$this->load->view ('usuario/contacto', $datos);
+		$this->load->view ('templates/footer3');
 	}
 }
 ?>

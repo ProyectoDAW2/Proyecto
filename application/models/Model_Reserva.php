@@ -12,6 +12,8 @@ class Model_Reserva extends RedBean_SimpleModel{
 		$reserva->usuario=$usuario;
 		$reserva->or=$oR;
 		$reserva->usuarionombre=$usuario->nombre;
+		//CREO PARA EJEMPLO
+		$reserva->numAula=$oR->numAula;
 		$reserva->ornombre=$oR->nombre;
 		$reservasOR=$this->getCrear($idOR);
 		foreach($reservasOR as $reservaOR){
@@ -40,8 +42,8 @@ class Model_Reserva extends RedBean_SimpleModel{
 		return $reserva;
 	}
 	
-	public function getTodasReservas($idAula){
-		$reserva=R::find('reserva', 'or_id LIKE ? ',[$idAula]);
+	public function getTodasReservas($numAula){
+		$reserva=R::find('reserva', 'num_aula LIKE ? ',[$numAula]);
 		return $reserva;
 	}
 	
