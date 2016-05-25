@@ -23,8 +23,8 @@
 		  <label class="col-md-4 control-label" for="fotoPerfil">Foto perfil</label>
 		  <div class="tamanio input-group">
                 <span class="input-group-btn">
-                    <span class="btn btn-danger btn-file">
-                        Examinar&hellip; <input type="file" id="imagenPerfil" name="imagenPerfil" multiple>
+                    <span class="colorFondoBoton btn btn-file">
+                        <span class="letraBoton">Examinar&hellip;</span> <input type="file" id="imagenPerfil" name="imagenPerfil" multiple>
                     </span>
                 </span>
                 <input type="text" id="nombreImagen" name="nombreImagen" class="form-control" readonly>
@@ -84,7 +84,7 @@
 		  <label class="col-md-4 control-label" for="guardar"></label>
 		  <div class="col-md-4">
 		    <!-- <button id="guardar" name="guardar" class="botonPerfil btn btn-danger" onclick="modify()">Guardar cambios</button> -->
-		    <input type="submit" id="guardar" name="guardar" class="botonPerfil btn btn-danger"  value="Guardar cambios" onclick="modify()">
+		    <input type="submit" id="guardar" name="guardar" class="colorFondoBoton letraBoton botonPerfil btn"  value="Guardar cambios" onclick="modify()">
 		  </div>
 		</div>
 		

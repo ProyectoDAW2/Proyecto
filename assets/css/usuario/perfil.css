@@ -47,7 +47,7 @@
   text-align: right;
   filter: alpha(opacity=0);
   opacity: 0;
-  background: red;
+  background-color: #2c3e50;
   cursor: inherit;
   display: block;
 }
@@ -60,4 +60,12 @@ input[readonly] {
 .tamanio{
 	width: 32.3%;
 	padding-left: 15px;	
+}
+
+.colorFondoBoton{
+	background-color: #2c3e50;	
+}
+
+.letraBoton{
+	color: white;	
 }
