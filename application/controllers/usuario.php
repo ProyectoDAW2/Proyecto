@@ -199,6 +199,8 @@ class Usuario extends CI_Controller
 			
 			$passwordCorrecta= $this->mu->encontrarUsuarioPorPassword($passActual);
 			
+			$datos['passIncorrecta']= "password";
+			
 			if($passwordCorrecta){
 				$nombre = $_SESSION['idUsuario'].".jpg";
 				//echo $nombre;
@@ -211,7 +213,6 @@ class Usuario extends CI_Controller
 				move_uploaded_file($_FILES['imagenPerfil']['tmp_name'], $carpeta.$nombre);
 				//$datos['imagen']= "<img style='width: 60px;height: 60px;border-radius:50%;' src=".base_url().'assets/imagenes/perfil/'.$nombre.">";
 				$datos['imagen']= $nombre;
-				//echo $datos['imagen'];
 				
 				if($idUsuario!=0) {
 					$this->mu->cambiarPerfil ($idUsuario, $nick, $password, $correo);
@@ -223,15 +224,21 @@ class Usuario extends CI_Controller
 	                $this->load->view('templates/footerPerfil');
 	            }
 				else{
-	                $this->load->view('templates/header3');
+	                /*$this->load->view('templates/header3');
 	                $this->load->view('errors/noPassword');
-	                $this->load->view('templates/footer3');
+	                $this->load->view('templates/footer3');*/
+					$this->load->view('templates/headerPerfil');
+	                $this->load->view('usuario/perfil2', $datos);
+	                $this->load->view('templates/footerPerfil');
 	            }
 			}
 			else{
-	            $this->load->view('templates/header3');
+	            /*$this->load->view('templates/header3');
 	            $this->load->view('errors/noPassword');
-	            $this->load->view('templates/footer3');
+	            $this->load->view('templates/footer3');*/
+	            $this->load->view('templates/headerPerfil');
+	            $this->load->view('usuario/perfil2', $datos);
+	            $this->load->view('templates/footerPerfil');
 	        }
 			
 			

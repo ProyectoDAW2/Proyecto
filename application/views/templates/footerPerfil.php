@@ -33,7 +33,16 @@
   	  		 confirmButtonText: "Continuar"
   	  	});
   	<?php endif; ?>
-  	
+
+
+  	<?php if(isset($passIncorrecta)):?>
+		swal({
+  	     title: "Revisa los datos",
+  		 text: "",
+  		 type: "error",
+  		 confirmButtonText: "Aceptar"
+  		});
+	<?php endif; ?>
     </script>
 </body>
 </html>
