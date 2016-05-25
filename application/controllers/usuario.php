@@ -100,7 +100,7 @@ class Usuario extends CI_Controller
 
     public function login() {
     	$datos['pantalla']= "login";
-        $this->load->helper ('form');
+        //$this->load->helper ('form');
         //$this->load->view ('templates/header');
         $this->load->view ('templates/header2', $datos);
         $this->load->view ('usuario/login');
@@ -120,9 +120,14 @@ class Usuario extends CI_Controller
             $id=$existeUsuario;
             $_SESSION['idUsuario']= $id;
             if($id==true){
-                $this->load->view ('templates/header');
-                $this->load->view ('usuario/loginPost');
-                $this->load->view ('templates/header');
+            	if($id == 1){
+            		$this->load->view ('objetoreservable/editarAulas');
+            	}
+                else{
+                	$this->load->view ('templates/header');
+                	$this->load->view ('usuario/perfil');
+                	$this->load->view ('templates/header');
+                }
                 $anyo= time()+31536000;
                 if($remember==TRUE) {
                     setcookie ('recuerdame', $_POST ['user'], $anyo);
@@ -201,6 +206,7 @@ class Usuario extends CI_Controller
 		move_uploaded_file($_FILES['imagenPerfil']['tmp_name'], $carpeta.$nombre);
 		//$datos['imagen']= "<img style='width: 60px;height: 60px;border-radius:50%;' src=".base_url().'assets/imagenes/perfil/'.$nombre.">";
 		$datos['imagen']= $nombre;
+
 		
 		if($res!=false) {
 			$idUsuario= $_SESSION['idUsuario'];
@@ -212,7 +218,8 @@ class Usuario extends CI_Controller
 
                 $this->load->view ('templates/header');
                 //$this->load->view ('usuario/perfilPost', $datos);
-                $this->load->view('usuario/perfil', $datos);
+				
+				$this->load->view('usuario/perfil', $datos);
                 $this->load->view('templates/footer');
             }
 			else{

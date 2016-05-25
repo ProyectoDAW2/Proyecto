@@ -3,9 +3,18 @@ session_start();
 class ObjetoReservable extends CI_Controller{
 	
 	public function index(){
+		/*
 		$this -> load -> view ('templates / header');
 		$this -> load -> view ('objetoReservable / crear');
-		$this -> load -> view ('templates / footer');
+		$this -> load -> view ('templates / footer');*/
+		$id=isset ($_SESSION ['idUsuario']) ? $_SESSION ['idUsuario'] : null;
+		$datos ['idUsuario']=$id;
+		
+		if($id!=null){
+			if($id == 1){
+				$this->load->view('objetoReservable/editarAulas');
+			}
+		}
 	}
 
 	public function modificar(){
@@ -14,31 +23,31 @@ class ObjetoReservable extends CI_Controller{
 		
 		if ($id!=null){
 			if ($id == 1){
-				$this -> load -> view ('templates / header');
-				$this -> load -> view ('objetoReservable / modificar', $datos);
-				$this -> load -> view ('templates / footer');
+				//$this -> load -> view ('templates / header');
+				$this->load->view ('objetoReservable/modificar', $datos);
+				//$this -> load -> view ('templates / footer');
 			}
 			else{
-				$this -> load -> view ('templates / header');
-				$this -> load -> view ('errors / accesoProhibido', $datos);
-				$this -> load -> view ('templates / footer');
+				//$this -> load -> view ('templates / header');
+				$this->load->view('errors/accesoProhibido', $datos);
+				//$this -> load -> view ('templates / footer');
 			}
 		}
 		else{
-			$this -> load -> view ('templates / header');
-			$this -> load -> view ('errors / accesoProhibido', $datos);
-			$this -> load -> view ('templates / footer');
+			//$this -> load -> view ('templates / header');
+			$this->load->view('errors/accesoProhibido', $datos);
+			//$this -> load -> view ('templates / footer');
 		}
 	}
 	public function crear(){
-		$this -> load -> view ('templates / header');
-		$this -> load -> view ('objetoReservable / crear');
-		$this -> load -> view ('templates / footer');
+		//$this -> load -> view ('templates / header');
+		$this ->load-> view('objetoReservable/crear');
+		//$this -> load -> view ('templates / footer');
 	}
 	public function borrar(){
-		$this -> load -> view ('templates / header');
-		$this -> load -> view ('objetoReservable / borrar');
-		$this -> load -> view ('templates / footer');
+		//$this -> load -> view ('templates / header');
+		$this ->load->view('objetoReservable/borrar');
+		//$this -> load -> view ('templates / footer');
 	}
 	
 	public function modificarPost(){
@@ -96,6 +105,17 @@ class ObjetoReservable extends CI_Controller{
 		$this -> load -> view ('templates / header');
 		$this -> load -> view ('objetoReservable/listar', $datos);
 		$this -> load -> view ('templates / footer');
+	}
+	
+	public function buscarAula(){
+		$num= $_REQUEST['numaula'];
+		
+		$this->load->model('Model_ObjetoReservable', 'mo');
+		$datosAula= $this->mo->getDatosAula($num);
+		
+		$datos['datosAula']= $datosAula;
+		
+		$this->load->view('objetoReservable/editarAulas', $datos);
 	}
 	
 }

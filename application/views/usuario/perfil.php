@@ -32,6 +32,7 @@
    	});
 
   	$(document).ready( function() {
+  	  	$("#contentImagenPerfil").css("background-image", "url(http://localhost/ProyectoCalendario/assets/imagenes/perfil/<?= $_SESSION['idUsuario'] ?>.jpg)");
   	    $('.btn-file :file').on('fileselect', function(event, numFiles, label) {
   	        
   	        var input = $(this).parents('.input-group').find(':text'),
@@ -62,9 +63,10 @@
     <form  action="<?= base_url('usuario/perfilPost') ?>" method="post" class="form-horizontal" enctype="multipart/form-data">
 		<fieldset>
 		
+		<div id="contentImagenPerfil"></div>
+		
 		<!-- Imagen perfil --> 
 		<div class="form-group">
-			<div id="contentImagenPerfil"></div>
 		  <label class="col-md-4 control-label" for="fotoPerfil">Foto perfil</label>
 		  <div class="tamanio input-group">
                 <span class="input-group-btn">

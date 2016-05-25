@@ -110,5 +110,10 @@ class Model_ObjetoReservable extends RedBean_SimpleModel{
 				array(':cat' => $categoria, ':red' => $red, ':proyector' => $proyector, ':equipos' => $numEquipos, ':capacidad' => $capacidad));
 		}
 	}
+	
+	public function getDatosAula($num){
+		return R::getAll('select num_aula, nombre, capacidad, categoria, num_equipos, red, proyector from objetoreservable where num_aula= :num',
+		array(':num' => $num));
+	}
 }
 ?>
