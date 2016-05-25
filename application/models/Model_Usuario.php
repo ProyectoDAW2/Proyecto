@@ -43,20 +43,21 @@ class Model_Usuario extends RedBean_SimpleModel{
 		R::store($usuario);
 	}
 	
-	public function encontrarUsuarioPorPassword($passActual, $idUsuario){
+	public function encontrarUsuarioPorPassword($passActual){
 		$usuarios= R::findAll('usuario');
-		$id= 0;
+		//$id= 0;
+		$res= false;
 		
 		foreach($usuarios as $usuario)
 		{
-			if($usuario->id==$idUsuario)
+			if($usuario->password==$passActual)
 			{
-				$id=$usuario->id;
+				$res= true;
 			}
 				
 		}
 
-		return $id;
+		return $res;
 	}
 	
 	public function cambiarPerfil($idUsuario, $nick, $password, $correo){

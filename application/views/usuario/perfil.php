@@ -5,7 +5,7 @@
  	<script src="<?= base_url() ?>assets/js/usuario/perfil.js" type="text/javascript"></script>
  	<script src="<?=base_url() ?>assets/js/usuario/imagenPerfil.js" type="text/javascript"></script>
     
-	<!-- Añadimos los estilos css de registro -->
+	<!-- Añadimos los estilos css de perfil -->
     <link rel="stylesheet" href="<?= base_url() ?>assets/css/usuario/perfil.css">
     
     <!-- Añadimos archivos de bootstrap -->

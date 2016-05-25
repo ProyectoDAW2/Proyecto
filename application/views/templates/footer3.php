@@ -1,7 +1,5 @@
 <!-- jQuery -->
     <script src="<?= base_url() ?>assets/jquery/jquery-2.2.3.min.js"></script>
-  
- 
     
     <!-- Bootstrap Core JavaScript -->
     <script src="<?= base_url() ?>assets/templateBootstrap/js/bootstrap.min.js"></script>
@@ -16,8 +14,7 @@
     <script src="<?= base_url() ?>assets/templateBootstrap/js/jqBootstrapValidation.js"></script>
     <script src="<?= base_url() ?>assets/templateBootstrap/js/contact_me.js"></script>
     
-   
-  
+
     <!-- Custom Theme JavaScript -->
     <script src="<?= base_url() ?>assets/templateBootstrap/js/freelancer.js"></script>
     
@@ -25,15 +22,16 @@
     <script src='<?= base_url() ?>assets/js/main.js'></script>
     <script  src='<?= base_url() ?>assets/js/fullcalendar/moment.js'></script>
     <script  src='<?= base_url() ?>assets/js/fullcalendar/fullcalendar.min.js'></script>
-       <script src="<?= base_url() ?>assets/js/reserva/filtrar.js" ></script> 
+    <script src="<?= base_url() ?>assets/js/reserva/filtrar.js" ></script> 
        
  
   
 	<!-- Perfil --> 
 	<script src="<?= base_url() ?>assets/js/usuario/perfil.js" type="text/javascript"></script>
- 	<script src="<?=base_url() ?>assets/js/usuario/imagenPerfil.js" type="text/javascript"></script>
- 	 	      <!-- Slider -->
-  <script src="<?= base_url() ?>assets/sliderNoUi/nouislider.min.js"></script>
+ 	<script src="<?= base_url() ?>assets/js/usuario/imagenPerfil.js" type="text/javascript"></script>
+ 	
+ 	<!-- Slider -->
+  	<script src="<?= base_url() ?>assets/sliderNoUi/nouislider.min.js"></script>
 
     <!-- Registro -->
 	<script type="text/javascript" src="<?= base_url() ?>assets/js/usuario/registro.js"></script>

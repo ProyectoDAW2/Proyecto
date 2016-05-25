@@ -122,9 +122,9 @@ class Usuario extends CI_Controller
             		$this->load->view ('objetoreservable/editarAulas');
             	}
                 else{
-                	$this->load->view ('templates/header3');
+                	$this->load->view ('templates/headerPerfil');
                 	$this->load->view ('usuario/perfil2');
-                	$this->load->view ('templates/footer3');
+                	$this->load->view ('templates/footerPerfil');
                 }
                 $anyo= time()+31536000;
                 if($remember==TRUE) {
@@ -180,9 +180,9 @@ class Usuario extends CI_Controller
     public function perfil() {
         $id= isset ($_SESSION['idUsuario']) ? $_SESSION ['idUsuario'] : null;
         $datos ['idUsuario']=$id;
-        $this->load->view ('templates/header3');
+        $this->load->view ('templates/headerPerfil');
         $this->load->view ('usuario/perfil2', $datos);
-        $this->load->view ('templates/footer3');
+        $this->load->view ('templates/footerPerfil');
     }
 
 	public function perfilPost() {
@@ -193,38 +193,48 @@ class Usuario extends CI_Controller
 		$correo= $_REQUEST ['correo'];
 		$res= $_REQUEST ['res'];
 		
-		$nombre = $_SESSION['idUsuario'].".jpg";
-		//console.log($nombre);
-		$carpeta = "C://xampp/htdocs/ProyectoCalendario/assets/imagenes/perfil/";
-		//copy ( $_FILES['imagenUsuario']['tmp_name'], $carpeta . $nombre );
-		
-		//echo "El fichero $nombre se almacen&oacute; en $carpeta";
-		//return "<img src=".base_url()."assets/imagenes/perfil/".$nombre.">";
-		mkdir(base_url()."assets/imagenes/perfil", 0777, true);
-		move_uploaded_file($_FILES['imagenPerfil']['tmp_name'], $carpeta.$nombre);
-		//$datos['imagen']= "<img style='width: 60px;height: 60px;border-radius:50%;' src=".base_url().'assets/imagenes/perfil/'.$nombre.">";
-		$datos['imagen']= $nombre;
-
-		
 		if($res!=false) {
 			$idUsuario= $_SESSION['idUsuario'];
 			$this->load->model ('Model_Usuario','mu');
-			//$id= $this->mu->encontrarUsuarioPorPassword ($passActual, $idUsuario);
 			
-			if($idUsuario!=0) {
-				$this->mu->cambiarPerfil ($idUsuario, $nick, $password, $correo);
-
-                $this->load->view ('templates/header3');
-                //$this->load->view ('usuario/perfilPost', $datos);
+			$passwordCorrecta= $this->mu->encontrarUsuarioPorPassword($passActual);
+			
+			if($passwordCorrecta){
+				$nombre = $_SESSION['idUsuario'].".jpg";
+				//echo $nombre;
+				$carpeta = "C://xampp/htdocs/ProyectoCalendario/assets/imagenes/perfil/";
+				//copy ( $_FILES['imagenUsuario']['tmp_name'], $carpeta . $nombre );
 				
-				$this->load->view('usuario/perfil2', $datos);
-                $this->load->view('templates/footer3');
-            }
+				//echo "El fichero $nombre se almacen&oacute; en $carpeta";
+				//return "<img src=".base_url()."assets/imagenes/perfil/".$nombre.">";
+				mkdir(base_url()."assets/imagenes/perfil", 0777, true);
+				move_uploaded_file($_FILES['imagenPerfil']['tmp_name'], $carpeta.$nombre);
+				//$datos['imagen']= "<img style='width: 60px;height: 60px;border-radius:50%;' src=".base_url().'assets/imagenes/perfil/'.$nombre.">";
+				$datos['imagen']= $nombre;
+				//echo $datos['imagen'];
+				
+				if($idUsuario!=0) {
+					$this->mu->cambiarPerfil ($idUsuario, $nick, $password, $correo);
+	
+	                $this->load->view ('templates/headerPerfil');
+	                //$this->load->view ('usuario/perfilPost', $datos);
+					
+					$this->load->view('usuario/perfil2', $datos);
+	                $this->load->view('templates/footerPerfil');
+	            }
+				else{
+	                $this->load->view('templates/header3');
+	                $this->load->view('errors/noPassword');
+	                $this->load->view('templates/footer3');
+	            }
+			}
 			else{
-                $this->load->view ('templates/header3');
-                $this->load->view ('errors/noPassword');
-                $this->load->view ('templates/footer3');
-            }
+	            $this->load->view('templates/header3');
+	            $this->load->view('errors/noPassword');
+	            $this->load->view('templates/footer3');
+	        }
+			
+			
 		}
 		else {
             $this->load->view ('templates/header3');

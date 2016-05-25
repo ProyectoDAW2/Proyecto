@@ -1,5 +1,6 @@
 function modify(){
             var nickname= document.getElementById("nick").value;
+            var passActual= document.getElementById("passwordActual").value;
             var pass= document.getElementById("passwordNueva").value;
             var pass2= document.getElementById("passwordNueva2").value;
             var email= document.getElementById("correo").value;
@@ -19,7 +20,7 @@ function modify(){
 				nickVacio= true;
             }
             if(/^(?=.*\d)(?=.*[a-zA-Z])(\W*).{6,10}$/.test(pass)){
-                if(pass==pass2){
+                if(pass==pass2 && (passActual!="" || passActual!=null)){
                     passCorrecta=true;
                 }
             }
