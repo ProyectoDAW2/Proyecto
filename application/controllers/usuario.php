@@ -44,10 +44,10 @@ class Usuario extends CI_Controller
     public function registrar() {
         //$this->load->view ('templates/header');
         $datos['pantalla']= "registro";
-        $this->load->view ('templates/header2', $datos);
+        $this->load->view ('templates/headerSinCabecera', $datos);
         //$this->load->view ('usuario/formuRegistro');
-        $this->load->view ('usuario/registro');
-        $this->load->view ('templates/footer2');
+        $this->load->view ('usuario/registro2');
+        $this->load->view ('templates/footer3');
     }
 
     public function registrarPost() {
@@ -89,9 +89,9 @@ class Usuario extends CI_Controller
             }
         }
         else {
-            $this->load->view ('templates/header');
+            $this->load->view ('templates/headerSinCabecera');
             $this->load->view ('errors/noClave');
-            $this->load->view ('templates/footer');
+            $this->load->view ('templates/footer3');
         }
 
     }
@@ -177,9 +177,9 @@ class Usuario extends CI_Controller
     public function perfil() {
         $id= isset ($_SESSION['idUsuario']) ? $_SESSION ['idUsuario'] : null;
         $datos ['idUsuario']=$id;
-        $this->load->view ('templates/header');
-        $this->load->view ('usuario/perfil', $datos);
-        $this->load->view ('templates/footer');
+        $this->load->view ('templates/header3');
+        $this->load->view ('usuario/perfil2', $datos);
+        $this->load->view ('templates/footer3');
     }
 
 	public function perfilPost() {
@@ -232,7 +232,9 @@ class Usuario extends CI_Controller
     /*----- Recuperar contraseña de la cuenta -----*/
 
 	public function recuperar() {
+		$this->load->view ('templates/headerSinCabecera');
 		$this->load->view('usuario/recuperar');
+		$this->load->view ('templates/footer3');
 	}
 	
 	public function recuperarPost() {
@@ -265,6 +267,14 @@ class Usuario extends CI_Controller
 		else {
 			$this->load->view('errors/noCorreo');
 		}
+	}
+	public function contacto()
+	{
+		$id= isset ($_SESSION['idUsuario']) ? $_SESSION ['idUsuario'] : null;
+		$datos ['idUsuario']=$id;
+		$this->load->view ('templates/header3');
+		$this->load->view ('usuario/contacto', $datos);
+		$this->load->view ('templates/footer3');
 	}
 }
 ?>

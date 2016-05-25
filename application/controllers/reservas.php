@@ -1,6 +1,6 @@
 <?php
 session_start();
-class Booking extends CI_Controller
+class reservas extends CI_Controller
 {
 	public function index(){
 		$this->create();
@@ -8,9 +8,9 @@ class Booking extends CI_Controller
 
 	public function create(){
 		$datos['idUsuario']= isset($_SESSION['idUsuario']) ? $_SESSION['idUsuario']:null;
-		$this->load->view('templates/header');
-		$this->load->view('booking/create',$datos);
-		$this->load->view('templates/footer');
+		$this->load->view('templates/header3');
+		$this->load->view('reservas/indexProfesor',$datos);
+		$this->load->view('templates/footer3');
 	}
 
 	public function createPost(){
@@ -18,35 +18,24 @@ class Booking extends CI_Controller
 		//TODO: Coger desde la sesión
 		$userId=1;
 		//TODO: Coger desde url o javascript
-		$classroom=2;
+		//$classroom=2;
 		$date=$_POST['date'];
 		$hours=$_POST['hours'];
+		//$numAula=$_POST['numAula'];
+		$idAula=$_POST['idAula'];
+
 
 		$this->load->model('Model_Reserva','mr');
 
 		$isValid=true;
 		for($i=0; $i<count($hours); $i++){
-			$result=$this->mr->create($userId, $classroom, $date, $hours[$i]);
+			$result=$this->mr->create($userId, $idAula, $date, $hours[$i]);
 			if(!$result) $isValid=false;
-		}
-		if($isValid){
-			echo json_encode([
-				"code"=>"S001",
-				"isValid"=>true,
-				"message"=>"OK"
-			]);
-		}
-		else {
-			echo json_encode([
-				"code"=>"E001",
-				"isValid"=>false,
-				"message"=>"Error create data"
-			]);
 		}
 	}
 
 	public function listar(){
-		$this->load->view('booking/listar');
+		$this->load->view('reservas/listar');
 	}
 
 	public function listarPost(){
@@ -54,37 +43,43 @@ class Booking extends CI_Controller
 		$this->load->model('Model_Reserva', 'mr');
 		$reservas= $this->mr->getTodos($idUsuario);
 		$datos['reservas']= $reservas;
-		$this->load->view('booking/listarPost', $datos);
+		$this->load->view('reservas/listarPost', $datos);
 	}
 	//Vamos a hacer una lista de reserva por aula para luego recogerlo en el horario.
 	public function listarReserva(){
-		$this->load->view('booking/listarReserva');
+
+		$numAula=$_POST['num'];
+
+		$_SESSION['num']=$numAula;
+		echo $numAula;
 	}
 
 	public function listarReservaPost(){
-		$idAula=2;
+
+		$aulaElegida=isset($_SESSION['num']) ? $_SESSION['num']:null;
+
 		$this->load->model('Model_Reserva', 'mr');
-		$reservas= $this->mr->getTodasReservas($idAula);
+		$reservas= $this->mr->getTodasReservas($aulaElegida);
 		$datos['reservas']= $reservas;
-		$this->load->view('booking/listarReservaPost', $datos);
+		$this->load->view('reservas/listarReservaPost', $datos);
 	}
 
 	public function borrar(){
-		$this->load->view('booking/borrar');
+		$this->load->view('reservas/borrar');
 	}
 
 	public function borrarPost(){
 		$id=$_REQUEST['id'];
 		$this->load->model('Model_Reserva', 'mr');
 		$this->mr->borrar($id);
-		$this->load->view('booking/borrarPost');
+		$this->load->view('reservas/borrarPost');
 	}
 	
 	public function filtrar(){
 		$this->load->model('Model_ObjetoReservable', 'mo');
 		$categorias= $this->mo->getCategoria();
 		$datos['categorias']= $categorias;
-		$this->load->view('booking/filtrado', $datos);
+		$this->load->view('reservas/create', $datos);
 	}
 
 	public function filtrarPost(){
@@ -110,7 +105,8 @@ class Booking extends CI_Controller
 		$resultado= $this->mo->getAulasDisponibles($categoria, $red, $proyector, $numEquipos, $capacidad);
 		
 		$datos['aulas']= $resultado;
-		$this->load->view('booking/filtradoPost', $datos);
+		$this->load->view('reservas/filtradoPost', $datos);
 	}
+	
 }
 	
