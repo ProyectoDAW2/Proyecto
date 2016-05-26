@@ -2,16 +2,27 @@
 <head>
 <title>Calendar</title>
 <!-- CSS -->
+<<<<<<< HEAD
 <link href=http://reservasfernandovi.esy.es/assets/css/calendar/bootstrap-combined.min.css" type="text/css" rel="stylesheet" />
 <link href="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.7.1/fullcalendar.min.css" type="text/css" rel="stylesheet" />
 <link href="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.7.1/fullcalendar.print.css" media="print" type="text/css" rel="stylesheet" />
 		<link href=http://reservasfernandovi.esy.es/assets/css/calendar/calendario.css" type="text/css" rel="stylesheet" />
+=======
+<link href="<?= base_url() ?>assets/css/calendar/bootstrap-combined.min.css" type="text/css" rel="stylesheet" />
+<link href="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.7.1/fullcalendar.min.css" type="text/css" rel="stylesheet" />
+<link href="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.7.1/fullcalendar.print.css" media="print" type="text/css" rel="stylesheet" />
+		<link href="<?= base_url() ?>assets/css/calendar/calendario.css" type="text/css" rel="stylesheet" />
+>>>>>>> 8b60565d2d2ecbdfc7f6f8d9029e39a332260f97
 
 		<!-- SCRIPTS -->
 		<script class="cssdesk" src="//ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js" type="text/javascript"></script>
 		<script class="cssdesk" src="//ajax.googleapis.com/ajax/libs/jqueryui/1.8.23/jquery-ui.min.js" type="text/javascript"></script>
 		<script class="cssdesk" src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.1.0/js/bootstrap.min.js" type="text/javascript"></script>
+<<<<<<< HEAD
 		<!--<script class="cssdesk" src=http://reservasfernandovi.esy.es/assets/js/calendar/fullcalendar.min.js" type="text/javascript"></script>-->
+=======
+		<!--<script class="cssdesk" src="<?= base_url() ?>assets/js/calendar/fullcalendar.min.js" type="text/javascript"></script>-->
+>>>>>>> 8b60565d2d2ecbdfc7f6f8d9029e39a332260f97
 		<script type="text/javascript" src="http://momentjs.com/downloads/moment.js"></script>
 		<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.7.1/fullcalendar.min.js"></script>
 

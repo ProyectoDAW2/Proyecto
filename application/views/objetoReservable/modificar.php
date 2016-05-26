@@ -1,6 +1,10 @@
 
 <h1>MODIFICAR DATOS</h1>
+<<<<<<< HEAD
 <form action="http://reservasfernandovi.esy.es/objetoReservable/modificarPost" method="post">
+=======
+<form action="<?=base_url('objetoReservable/modificarPost')?>" method="post">
+>>>>>>> 8b60565d2d2ecbdfc7f6f8d9029e39a332260f97
 
 		
 

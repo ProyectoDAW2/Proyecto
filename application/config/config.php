@@ -23,7 +23,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
+<<<<<<< HEAD
 $config['base_url'] = 'http://reservasfernandovi.esy.es/';
+=======
+$config['base_url'] = 'http://localhost/ProyectoCalendario/';
+>>>>>>> 8b60565d2d2ecbdfc7f6f8d9029e39a332260f97
 
 /*
 |--------------------------------------------------------------------------

@@ -1,6 +1,7 @@
 <html>
 <head>
     <meta charset="utf-8">
+<<<<<<< HEAD
     <!-- Aï¿½adimos el cï¿½digo javascript de perfil -->
  	<script src="http://reservasfernandovi.esy.es/assets/js/usuario/perfil.js" type="text/javascript"></script>
  	<script src="http://reservasfernandovi.esy.es/assets/js/usuario/imagenPerfil.js" type="text/javascript"></script>
@@ -19,6 +20,26 @@
     <script type='text/javascript' src='http://reservasfernandovi.esy.es/assets/jquery/jquery-ui.min.js'></script>
     <script type='text/javascript' src='http://reservasfernandovi.esy.es/assets/jquery/jquery.min.js'></script>
     <script type='text/javascript' src='http://reservasfernandovi.esy.es/assets/jquery/jquery.js'></script>
+=======
+    <!-- Añadimos el código javascript de perfil -->
+ 	<script src="<?= base_url() ?>assets/js/usuario/perfil.js" type="text/javascript"></script>
+ 	<script src="<?=base_url() ?>assets/js/usuario/imagenPerfil.js" type="text/javascript"></script>
+    
+	<!-- Añadimos los estilos css de perfil -->
+    <link rel="stylesheet" href="<?= base_url() ?>assets/css/usuario/perfil.css">
+    
+    <!-- Añadimos archivos de bootstrap -->
+    <script type='text/javascript' src='<?= base_url() ?>assets/js/bootstrap/bootstrap.min.js'></script>
+    <script type='text/javascript' src='<?= base_url() ?>assets/js/bootstrap/bootstrap.js'></script>
+    <link rel="stylesheet" href="<?= base_url() ?>assets/css/bootstrap/bootstrap.css">
+    <link rel="stylesheet" href="<?= base_url() ?>assets/css/bootstrap/bootstrap.min.css">
+    
+    <!-- Añadimos archivos de jquery -->
+    <script type='text/javascript' src='<?= base_url() ?>assets/jquery/jquery-1.12.3.min.js'></script>
+    <script type='text/javascript' src='<?= base_url() ?>assets/jquery/jquery-ui.min.js'></script>
+    <script type='text/javascript' src='<?= base_url() ?>assets/jquery/jquery.min.js'></script>
+    <script type='text/javascript' src='<?= base_url() ?>assets/jquery/jquery.js'></script>
+>>>>>>> 8b60565d2d2ecbdfc7f6f8d9029e39a332260f97
     
     <script type="text/javascript">
     $(document).on('change', '.btn-file :file', function() {
@@ -60,7 +81,11 @@
 
 </head>
 <body>
+<<<<<<< HEAD
     <form  action="http://reservasfernandovi.esy.es/usuario/perfilPost" method="post" class="form-horizontal" enctype="multipart/form-data">
+=======
+    <form  action="<?= base_url('usuario/perfilPost') ?>" method="post" class="form-horizontal" enctype="multipart/form-data">
+>>>>>>> 8b60565d2d2ecbdfc7f6f8d9029e39a332260f97
 		<fieldset>
 		
 		<div id="contentImagenPerfil"></div>

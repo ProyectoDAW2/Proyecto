@@ -154,7 +154,11 @@ $(function(){
 	alert("refrescando el calendario"+num);
 	console.log("el num es"+id);
 	
+<<<<<<< HEAD
 	$.ajax("http://reservasfernandovi.esy.es/reservas/listarReserva", {
+=======
+	$.ajax("<?= base_url() ?>reservas/listarReserva", {
+>>>>>>> 8b60565d2d2ecbdfc7f6f8d9029e39a332260f97
 		type: "POST",
 		contentType: "application/x-www-form-urlencoded",
 		dataType: 'text',
@@ -185,8 +189,13 @@ $(function(){
 					$(".fc-other-month").addClass("disabled");
 					$(".spheres").addClass("disabled");
 
+<<<<<<< HEAD
 					//Buscaremos las reservas de ese aula al renderizar los dï¿½as
 					$.ajax("http://reservasfernandovi.esy.es/reservas/listarReservaPost", {
+=======
+					//Buscaremos las reservas de ese aula al renderizar los días
+					$.ajax("<?= base_url() ?>reservas/listarReservaPost", {
+>>>>>>> 8b60565d2d2ecbdfc7f6f8d9029e39a332260f97
 						type: "POST",
 						success: function(data){
 							var length=data.length;
@@ -210,7 +219,11 @@ $(function(){
  //<------$(this).click(function(){
 
 $(".submit").click(function(){
+<<<<<<< HEAD
 	//TODO: comprobaciï¿½n de los datos
+=======
+	//TODO: comprobación de los datos
+>>>>>>> 8b60565d2d2ecbdfc7f6f8d9029e39a332260f97
 	var hours=$("#bookingModal .hours:checked");
 	var hoursParsed=[];
 	var idAula=id;
@@ -226,7 +239,11 @@ $(".submit").click(function(){
 	}
 	console.log("las hours son"+dates);
 	for(var i=0; i<dateArray.length; i++) {
+<<<<<<< HEAD
 		$.ajax("http://reservasfernandovi.esy.es/reservas/createPost", {
+=======
+		$.ajax("<?= base_url() ?>reservas/createPost", {
+>>>>>>> 8b60565d2d2ecbdfc7f6f8d9029e39a332260f97
 			type: "POST",
 			data: {
 				"date": dateArray[i],
@@ -276,7 +293,11 @@ $(document).on('click', '.fc-day-header', function(){
 			hoursParsed.push($(hours[i]).val());
 		}
 		console.log(hoursParsed);
+<<<<<<< HEAD
 		$.ajax("http://reservasfernandovi.esy.es/reservas/createPost", {
+=======
+		$.ajax("<?= base_url() ?>reservas/createPost", {
+>>>>>>> 8b60565d2d2ecbdfc7f6f8d9029e39a332260f97
 			type: "POST",
 			data: {
 				"date": $("#bookingModal .date").text(),

@@ -22,4 +22,8 @@
 </script>
 <h1>Datos cambiados</h1>
 <!-- <div style="width: 100px; height: 100px;"><?php echo $imagen ?></div> -->
+<<<<<<< HEAD
 <div id="imagenUsuario"><!-- <img id="imagen" src="http://reservasfernandovi.esy.es/assets/imagenes/perfil/<?= $imagen ?>"> --></div>
+=======
+<div id="imagenUsuario"><!-- <img id="imagen" src="<?= base_url() ?>assets/imagenes/perfil/<?= $imagen ?>"> --></div>
+>>>>>>> 8b60565d2d2ecbdfc7f6f8d9029e39a332260f97

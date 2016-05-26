@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 $(document).ready(function () {
     //Si se clicka un día se abre una ventana con las horas.
     $(".modalContainer .backdrop").click(function () {
@@ -142,3 +143,13 @@ $(document).ready(function () {
         modal.removeClass("hidden");
     });
 });
+=======
+$(document).ready(
+    function () {
+        $(".modalContainer .backdrop").click(function () {
+            console.log($(this));
+            $(this).parent().addClass("hidden");
+        });
+    }
+);
+>>>>>>> 8b60565d2d2ecbdfc7f6f8d9029e39a332260f97

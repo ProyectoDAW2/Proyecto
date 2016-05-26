@@ -1,10 +1,17 @@
 <html>
     <head> 
 		<meta name="viewport" content="width=device-width, initial-scale=1">
+<<<<<<< HEAD
 		<link rel="stylesheet" type="text/css" href="http://reservasfernandovi.esy.es/assets/css/bootstrap/bootstrap-330.css">
 
 		<!-- Website CSS style -->
 		<link rel="stylesheet" type="text/css" href="http://reservasfernandovi.esy.es/assets/css/usuario/registro2.css">
+=======
+		<link rel="stylesheet" type="text/css" href="<?= base_url() ?>assets/css/bootstrap/bootstrap-330.css">
+
+		<!-- Website CSS style -->
+		<link rel="stylesheet" type="text/css" href="<?= base_url() ?>assets/css/usuario/registro2.css">
+>>>>>>> 8b60565d2d2ecbdfc7f6f8d9029e39a332260f97
 
 		<!-- Website Font style -->
 	    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
@@ -88,6 +95,10 @@
 		</div>
 
 		<script type="text/javascript" src="assets/js/bootstrap/bootstrap.js"></script>
+<<<<<<< HEAD
 		<script type="text/javascript" src="http://reservasfernandovi.esy.es/assets/js/usuario/registro.js"></script>
+=======
+		<script type="text/javascript" src="<?= base_url() ?>assets/js/usuario/registro.js"></script>
+>>>>>>> 8b60565d2d2ecbdfc7f6f8d9029e39a332260f97
 	</body>
 </html>

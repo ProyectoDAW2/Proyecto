@@ -19,14 +19,22 @@
                         </div>
                         <div class="row control-group">
                             <div class="form-group col-xs-12 floating-label-form-group controls">
+<<<<<<< HEAD
                                 <label>Contraseï¿½a</label>
+=======
+                                <label>Contraseña</label>
+>>>>>>> 8b60565d2d2ecbdfc7f6f8d9029e39a332260f97
                                 <input type="password" class="form-control" name="password" id="password"  placeholder="Contrase&ntilde;a"/>
                                 <p class="help-block text-danger"></p>
                             </div>
                         </div>
                          <div class="row control-group">
                             <div class="form-group col-xs-12 floating-label-form-group controls">
+<<<<<<< HEAD
                                 <label>Repite Contraseï¿½a</label>
+=======
+                                <label>Repite Contraseña</label>
+>>>>>>> 8b60565d2d2ecbdfc7f6f8d9029e39a332260f97
                       			<input type="password" class="form-control" name="password2" id="password2"  placeholder="Repite contrase&ntilde;a"/>
                                 <p class="help-block text-danger"></p>
                             </div>
@@ -51,7 +59,11 @@
 							<button type="submit" onclick="registrar()" class="btn boton letraBoton btn-lg btn-block login-button">Registrarme</button>
 						</div>
 						<div class="login-register">
+<<<<<<< HEAD
 				            <a href="http://reservasfernandovi.esy.es/usuario/login">Login</a>
+=======
+				            <a href="<?= base_url('usuario/login') ?>">Login</a>
+>>>>>>> 8b60565d2d2ecbdfc7f6f8d9029e39a332260f97
 				         </div>
 					</form>
                 </div>

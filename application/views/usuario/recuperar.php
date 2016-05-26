@@ -7,7 +7,11 @@
                 </div>
             </div>
             <div class="row">
+<<<<<<< HEAD
             <form id="restablecerDatos" action="http://reservasfernandovi.esy.es/usuario/recuperarPost" method="post">
+=======
+            <form id="restablecerDatos" action="<?=base_url('usuario/recuperarPost')?>" method="post">
+>>>>>>> 8b60565d2d2ecbdfc7f6f8d9029e39a332260f97
                 <div class="col-lg- col-lg-offset-3">
                     <p>Escribe el email asociado a tu cuenta para recuperar tus datos necesarios</p>
                 </div>
@@ -30,7 +34,11 @@
 
 
 
+<<<<<<< HEAD
 <!--  ASï¿½ ES COMO ESTABA ANTES DE PASARLO CON BOOTSTRAP
+=======
+<!--  ASÍ ES COMO ESTABA ANTES DE PASARLO CON BOOTSTRAP
+>>>>>>> 8b60565d2d2ecbdfc7f6f8d9029e39a332260f97
 
 <form id="restablecerDatos" action="<?=base_url('usuario/recuperarPost')?>" method="post">
 Escribe el email asociado a tu cuenta para recuperar tus datos<br>
