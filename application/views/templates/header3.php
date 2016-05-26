@@ -12,31 +12,31 @@
     <title>Gestor de Espacios</title>
 
     <!-- Bootstrap Core CSS - Uses Bootswatch Flatly Theme: http://bootswatch.com/flatly/ -->
-    <link href="<?= base_url() ?>assets/templateBootstrap/css/bootstrap2.min.css" rel="stylesheet">
+
+    <link href="http://reservasfernandovi.esy.es/assets/templateBootstrap/css/bootstrap2.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link href="<?= base_url() ?>assets/templateBootstrap/css/freelancer.css" rel="stylesheet">
+    <link href="http://reservasfernandovi.esy.es/assets/templateBootstrap/css/freelancer.css" rel="stylesheet">
     
     <!-- Filtrado y Calendario -->
-	<link href='<?= base_url() ?>assets/css/main.css' rel='stylesheet' />
-	    <link href='<?= base_url() ?>assets/css/fullcalendar/fullcalendar.css' rel='stylesheet'/>
+	<link href='http://reservasfernandovi.esy.es/assets/css/main.css' rel='stylesheet' />
+	    <link href='http://reservasfernandovi.esy.es/assets/css/fullcalendar/fullcalendar.css' rel='stylesheet'/>
 	
     <link href='//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.7.1/fullcalendar.min.css' type='text/css' rel='stylesheet' />
     <link href='//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.7.1/fullcalendar.print.css' media='print' type='text/css' rel='stylesheet' />
     
     <!-- Slider -->
-    <link href="<?= base_url() ?>assets/sliderNoUi/nouislider.min.css" rel="stylesheet">
+
+    <link href="http://reservasfernandovi.esy.es/assets/sliderNoUi/nouislider.min.css" rel="stylesheet">
     
     <!-- Custom Fonts -->
-    <link href="<?= base_url() ?>assets/templateBootstrap/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="http://reservasfernandovi.esy.es/assets/templateBootstrap/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
 	
-	<!-- Añadimos los estilos css de Usuario/Perfil -->
-    <link rel="stylesheet" href="<?= base_url() ?>assets/css/usuario/perfil.css">
-    
-   
-  
+	<!-- Aï¿½adimos los estilos css de Usuario/Perfil -->
+    <link rel="stylesheet" href="http://reservasfernandovi.esy.es/assets/css/usuario/perfil.css">
+
 
 </head>
 
@@ -53,7 +53,9 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="<?= base_url() ?>reservas">Gestor Espacios</a>
+
+                <a class="navbar-brand" href="http://reservasfernandovi.esy.es/reservas">Gestor Espacios</a>
+
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -63,13 +65,15 @@
                         <a href="#page-top"></a>
                     </li>
                     <li class="page-scroll">
-                        <a href="<?= base_url() ?>reservas">Reservas</a>
+
+                        <a href="http://reservasfernandovi.esy.es/reservas">Reservas</a>
                     </li>
                     <li class="page-scroll">
-                        <a href="<?= base_url() ?>usuario/perfil">Perfil</a>
+                        <a href="http://reservasfernandovi.esy.es/usuario/perfil">Perfil</a>
                     </li>
                     <li class="page-scroll">
-                        <a href="<?= base_url() ?>usuario/contacto">Contacto</a>
+                        <a href="http://reservasfernandovi.esy.es/usuario/contacto">Contacto</a>
+
                     </li>
                 </ul>
             </div>

@@ -4,19 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-		<!-- Añadimos los estilos css de registro -->
-        <link rel="stylesheet" href="<?= base_url() ?>assets/css/usuario/registro.css">
+		<!-- Aï¿½adimos los estilos css de registro -->
+        <link rel="stylesheet" href="http://reservasfernandovi.esy.es/assets/css/usuario/registro.css">
         
-        <!-- Añadimos fuentes de letra de google, para que quede más bonito -->
+        <!-- Aï¿½adimos fuentes de letra de google, para que quede mï¿½s bonito -->
         <!-- <link href='http://fonts.googleapis.com/css?family=Nunito:400,300' rel='stylesheet' type='text/css'> -->
 
-		<!-- Añadimos el código javascript de registro -->
- 		<script src="<?= base_url() ?>assets/js/usuario/registro.js" type="text/javascript"></script>
+		<!-- Aï¿½adimos el cï¿½digo javascript de registro -->
+ 		<script src="http://reservasfernandovi.esy.es/assets/js/usuario/registro.js" type="text/javascript"></script>
 
     </head>
     <body>
 <div class="container-content">
-      <form action="<?=base_url('usuario/registrarPost')?>" method="post">
+
+      <form action="http://reservasfernandovi.esy.es/usuario/registrarPost" method="post">
       
         <div class="title"><h1>Registro</h1></div>
 

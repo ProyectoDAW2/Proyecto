@@ -5,4 +5,4 @@
 			<?php endforeach; ?>
 <?php endforeach;?>
 
-<a href="<?=base_url('reserva/filtrar')?>">Buscar m&aacute;s aulas</a> 
+<a href="http://reservasfernandovi.esy.es/reserva/filtrar">Buscar m&aacute;s aulas</a>

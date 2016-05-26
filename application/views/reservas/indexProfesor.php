@@ -15,9 +15,7 @@
 						<div class="caption-content">
 							<i class="fa fa-search-plus fa-3x"></i>
 						</div>
-					</div> <img
-					src="<?= base_url() ?>assets/templateBootstrap/img/portfolio/cabin.png"
-					class="img-responsive" alt="">
+					</div> <img src="http://reservasfernandovi.esy.es/assets/templateBootstrap/img/portfolio/cabin.png" class="img-responsive" alt="">
 				</a>
 			</div>
 			<div class="col-sm-6 portfolio-item">
@@ -27,9 +25,7 @@
 						<div class="caption-content">
 							<i class="fa fa-search-plus fa-3x"></i>
 						</div>
-					</div> <img
-					src="<?= base_url() ?>assets/templateBootstrap/img/portfolio/cake.png"
-					class="img-responsive" alt="">
+					</div> <img src="http://reservasfernandovi.esy.es/assets/templateBootstrap/img/portfolio/cake.png" class="img-responsive" alt="">
 				</a>
 			</div>
 
@@ -186,8 +182,6 @@
 
 						<label class="col-sm-12 control-label">Tipo de evento</label>
 
-
-
 						<p>
 							<button class="submit">Confirm booking</button>
 
@@ -207,6 +201,9 @@
 </div>
 </div>
 <script type="text/javascript">
+
+	console.log("el num es");
+
 $(function(){
 	var date=new Date();
 	var num="";
@@ -353,5 +350,6 @@ $.ajax("<?= base_url() ?>reservas/createPost", {
 	}
 });
 */
+
 </script>
 

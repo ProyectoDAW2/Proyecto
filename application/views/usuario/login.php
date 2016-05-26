@@ -1,8 +1,10 @@
 
 <div class="container-content">
-	<img class="image" src="<?= base_url() ?>assets/img/logo.png"/>
+
+	<img class="image" src="http://reservasfernandovi.esy.es/assets/img/logo.png"/>
 	<h3 class="titleApp">Reserva de aulas IES REY FERNANDO VI</h3>
-    <form action="<?=base_url('usuario/loginPost')?>" method="post" class="form">
+    <form action="http://reservasfernandovi.esy.es/usuario/loginPost" method="post" class="form">
+
         <div class="title"><h2>Login</h2></div>
         <div class="element-input">
             <label class="title"></label>
@@ -39,6 +41,8 @@
             </div>
             <span class="clearfix"></span>
         </div>
-        <div class="submit"><a class="enlaceRegistro" href="<?= base_url('usuario/registrar') ?>">Reg&iacute;strate aqu&iacute;</a><input type="submit" value="Entrar"/></div>
+
+        <div class="submit"><a class="enlaceRegistro" href="http://reservasfernandovi.esy.es/usuario/registrar">Reg&iacute;strate aqu&iacute;</a><input type="submit" value="Entrar"/></div>
+
     </form>
 </div> <!--End of container-content-->

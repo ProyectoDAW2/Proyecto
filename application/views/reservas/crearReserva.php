@@ -154,7 +154,7 @@ $(function(){
 	alert("refrescando el calendario"+num);
 	console.log("el num es"+id);
 	
-	$.ajax("<?= base_url() ?>reservas/listarReserva", {
+	$.ajax("http://reservasfernandovi.esy.es/reservas/listarReserva", {
 		type: "POST",
 		contentType: "application/x-www-form-urlencoded",
 		dataType: 'text',
@@ -185,8 +185,8 @@ $(function(){
 					$(".fc-other-month").addClass("disabled");
 					$(".spheres").addClass("disabled");
 
-					//Buscaremos las reservas de ese aula al renderizar los días
-					$.ajax("<?= base_url() ?>reservas/listarReservaPost", {
+					//Buscaremos las reservas de ese aula al renderizar los dias
+					$.ajax("http://reservasfernandovi.esy.es/reservas/listarReservaPost", {
 						type: "POST",
 						success: function(data){
 							var length=data.length;
@@ -210,6 +210,7 @@ $(function(){
  //<------$(this).click(function(){
 
 $(".submit").click(function(){
+	
 	//TODO: comprobación de los datos
 	var hours=$("#bookingModal .hours:checked");
 	var hoursParsed=[];
@@ -226,7 +227,8 @@ $(".submit").click(function(){
 	}
 	console.log("las hours son"+dates);
 	for(var i=0; i<dateArray.length; i++) {
-		$.ajax("<?= base_url() ?>reservas/createPost", {
+
+		$.ajax("http://reservasfernandovi.esy.es/reservas/createPost", {
 			type: "POST",
 			data: {
 				"date": dateArray[i],
@@ -276,7 +278,8 @@ $(document).on('click', '.fc-day-header', function(){
 			hoursParsed.push($(hours[i]).val());
 		}
 		console.log(hoursParsed);
-		$.ajax("<?= base_url() ?>reservas/createPost", {
+		
+		$.ajax("http://reservasfernandovi.esy.es/reservas/createPost", {
 			type: "POST",
 			data: {
 				"date": $("#bookingModal .date").text(),

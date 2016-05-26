@@ -12,22 +12,25 @@
     <title>Freelancer - Start Bootstrap Theme</title>
 
     <!-- Bootstrap Core CSS - Uses Bootswatch Flatly Theme: http://bootswatch.com/flatly/ -->
-    <link href="<?= base_url() ?>assets/templateBootstrap/css/bootstrap2.min.css" rel="stylesheet">
+
+    <link href="http://reservasfernandovi.esy.es/assets/templateBootstrap/css/bootstrap2.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link href="<?= base_url() ?>assets/templateBootstrap/css/freelancer.css" rel="stylesheet">
+    <link href="http://reservasfernandovi.esy.es/assets/templateBootstrap/css/freelancer.css" rel="stylesheet">
     
     <!-- Filtrado y Calendario -->
-	<link href='<?= base_url() ?>assets/css/main.css' rel='stylesheet' />
+	<link href='http://reservasfernandovi.esy.es/assets/css/main.css' rel='stylesheet' />
+
  	<link href='//arshaw.com/js/fullcalendar-1.5.3/fullcalendar/fullcalendar.css' rel='stylesheet' />
     <link href='//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.7.1/fullcalendar.min.css' type='text/css' rel='stylesheet' />
     <link href='//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.7.1/fullcalendar.print.css' media='print' type='text/css' rel='stylesheet' />
     
     <!-- Slider -->
-    <link href="<?= base_url() ?>assets/sliderNoUi/nouislider.min.css" rel="stylesheet">
+    <link href="http://reservasfernandovi.esy.es/assets/sliderNoUi/nouislider.min.css" rel="stylesheet">
     
     <!-- Custom Fonts -->
-    <link href="<?= base_url() ?>assets/templateBootstrap/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="http://reservasfernandovi.esy.es/assets/templateBootstrap/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
     <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
 
@@ -411,43 +414,34 @@
 
 
     <!-- jQuery -->
-    <script src="<?= base_url() ?>assets/templateBootstrap/js/jquery.js"></script>
+
+    <script src="http://reservasfernandovi.esy.es/assets/templateBootstrap/js/jquery.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="<?= base_url() ?>assets/templateBootstrap/js/bootstrap.min.js"></script>
+    <script src="http://reservasfernandovi.esy.es/assets/templateBootstrap/js/bootstrap.min.js"></script>
 
     <!-- Plugin JavaScript -->
     <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
-    <script src="<?= base_url() ?>assets/templateBootstrap/js/classie.js"></script>
-    <script src="<?= base_url() ?>assets/templateBootstrap/js/cbpAnimatedHeader.js"></script>
+    <script src="http://reservasfernandovi.esy.es/assets/templateBootstrap/js/classie.js"></script>
+    <script src="http://reservasfernandovi.esy.es/assets/templateBootstrap/js/cbpAnimatedHeader.js"></script>
 
     <!-- Contact Form JavaScript -->
-    <script src="<?= base_url() ?>assets/templateBootstrap/js/jqBootstrapValidation.js"></script>
-    <script src="<?= base_url() ?>assets/templateBootstrap/js/contact_me.js"></script>
+    <script src="http://reservasfernandovi.esy.es/assets/templateBootstrap/js/jqBootstrapValidation.js"></script>
+    <script src="http://reservasfernandovi.esy.es/assets/templateBootstrap/js/contact_me.js"></script>
 
     <!-- Custom Theme JavaScript -->
-    <script src="<?= base_url() ?>assets/templateBootstrap/js/freelancer.js"></script>
+    <script src="http://reservasfernandovi.esy.es/assets/templateBootstrap/js/freelancer.js"></script>
     
     <!-- Particulares  -->
-    <script src='<?= base_url() ?>assets/js/main.js'></script>
-    <script src="<?= base_url() ?>assets/js/reserva/filtrar.js" ></script>
-    <script  src='<?= base_url() ?>assets/js/fullcalendar/moment.js'></script>
-    <script  src='<?= base_url() ?>assets/js/fullcalendar/fullcalendar.min.js'></script>
+    <script src='http://reservasfernandovi.esy.es/assets/js/main.js'></script>
+    <script src="http://reservasfernandovi.esy.es/assets/js/reserva/filtrar.js" ></script>
+    <script  src='http://reservasfernandovi.esy.es/assets/js/fullcalendar/moment.js'></script>
+    <script  src='http://reservasfernandovi.esy.es/assets/js/fullcalendar/fullcalendar.min.js'></script>
   
   <!-- Slider -->
-  <script src="<?= base_url() ?>assets/sliderNoUi/nouislider.min.js"></script>
-	 
-    
-    
-    
+  <script src="http://reservasfernandovi.esy.es/assets/sliderNoUi/nouislider.min.js"></script>
 
 </body>
-
-
-
-
-
-
 
 
 <script type="text/javascript">
@@ -462,7 +456,7 @@ $(function(){
 	alert("refrescando el calendario"+num);
 	console.log("el num es"+id);
 	
-	$.ajax("<?= base_url() ?>reservas/listarReserva", {
+	$.ajax("http://reservasfernandovi.esy.es/reservas/listarReserva", {
 		type: "POST",
 		contentType: "application/x-www-form-urlencoded",
 		dataType: 'text',
@@ -493,8 +487,9 @@ $(function(){
 					$(".fc-other-month").addClass("disabled");
 					$(".spheres").addClass("disabled");
 
-					//Buscaremos las reservas de ese aula al renderizar los días
-					$.ajax("<?= base_url() ?>reservas/listarReservaPost", {
+
+					//Buscaremos las reservas de ese aula al renderizar los dias
+					$.ajax("http://reservasfernandovi.esy.es/reservas/listarReservaPost", {
 						type: "POST",
 						success: function(data){
 							var length=data.length;
@@ -518,6 +513,7 @@ $(function(){
  //<------$(this).click(function(){
 
 $(".submit").click(function(){
+
 	//TODO: comprobación de los datos
 	var hours=$("#bookingModal .hours:checked");
 	var hoursParsed=[];
@@ -534,7 +530,8 @@ $(".submit").click(function(){
 	}
 	console.log("las hours son"+dates);
 	for(var i=0; i<dateArray.length; i++) {
-		$.ajax("<?= base_url() ?>reservas/createPost", {
+
+		$.ajax("http://reservasfernandovi.esy.es/reservas/createPost", {
 			type: "POST",
 			data: {
 				"date": dateArray[i],
@@ -584,7 +581,8 @@ $(document).on('click', '.fc-day-header', function(){
 			hoursParsed.push($(hours[i]).val());
 		}
 		console.log(hoursParsed);
-		$.ajax("<?= base_url() ?>reservas/createPost", {
+		
+		$.ajax("http://reservasfernandovi.esy.es/reservas/createPost", {
 			type: "POST",
 			data: {
 				"date": $("#bookingModal .date").text(),

@@ -1,9 +1,7 @@
 
 <h1>MODIFICAR DATOS</h1>
-<form action="<?=base_url('objetoReservable/modificarPost')?>" method="post">
 
-		
-
+<form action="http://reservasfernandovi.esy.es/objetoReservable/modificarPost" method="post">
 
 <input type="text" name="id" value="<?= $idUsuario ?>" hidden><br>
 <label>Nombre</label> <input type="text" name="nombre"><br>

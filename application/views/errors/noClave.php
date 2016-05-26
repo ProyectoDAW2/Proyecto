@@ -8,7 +8,7 @@
             </div>
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2">
-                    <p>Si bien es usted del centro, por favor, compruebe su clave y vuelva a intentarlo <a href="<?=base_url('usuario/registrar')?>">aqu&iacute</a></p>
+                    <p>Si bien es usted del centro, por favor, compruebe su clave y vuelva a intentarlo <a href="http://reservasfernandovi.esy.es/usuario/registrar">aqu&iacute</a></p>
                 </div>
                 
             </div>

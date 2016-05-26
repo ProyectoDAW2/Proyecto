@@ -1,8 +1,3 @@
-
-
-
-
-
 <section id="perfil">
   <div class="container">
   <div class="row">
@@ -13,7 +8,8 @@
             </div>
             <div class="row">
   
-    <form  action="<?= base_url('usuario/perfilPost') ?>" method="post" class="form-horizontal" enctype="multipart/form-data">
+    <form  action="http://reservasfernandovi.esy.es/usuario/perfilPost" method="post" class="form-horizontal" enctype="multipart/form-data">
+
 		<fieldset>
 			<div id="contentImagenPerfil"></div>
 		
