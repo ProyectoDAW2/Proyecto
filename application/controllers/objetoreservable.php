@@ -46,8 +46,24 @@ class ObjetoReservable extends CI_Controller{
 	}
 	public function borrar(){
 		//$this -> load -> view ('templates / header');
-		$this ->load->view('objetoReservable/borrar');
+		//$this ->load->view('objetoReservable/borrar');
 		//$this -> load -> view ('templates / footer');
+		$numAula= $_REQUEST['numeroAula'];
+		
+		$this->load->model('Model_ObjetoReservable', 'mo');
+		$respuesta= $this->mo->borrar($numAula);
+		
+		if($respuesta){
+			$datos['borradoCorrecto']= $respuesta;
+			$this->load->view('templates/header3');
+			$this->load->view('objetoreservable/editarAulas', $datos);
+			$this->load->view('templates/footer3');
+		}
+		else{
+			$datos['borradoIncorrecto']= $respuesta;
+			$this->load->view('objetoreservable/editarAulas', $datos);
+		}
+		
 	}
 	
 	public function modificarPost(){
@@ -115,7 +131,9 @@ class ObjetoReservable extends CI_Controller{
 		
 		$datos['datosAula']= $datosAula;
 		
+		$this->load->view('templates/header3');
 		$this->load->view('objetoReservable/editarAulas', $datos);
+		$this->load->view('templates/footer3');
 	}
 	
 }

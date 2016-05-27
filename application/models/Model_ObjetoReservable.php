@@ -31,12 +31,14 @@ class Model_ObjetoReservable extends RedBean_SimpleModel{
 		R::store($oR);
 	}
 	
-	public function borrar($id){
-		//Borramos por ID (al menos por ahora)
-		$oR=R::load('objetoreservable',$id);
+	public function borrar($numeroAula){
+		//Borramos por numero de aula (porque es unico)
+		$oR= R::findOne( 'objetoreservable', ' num_aula = ? ', [ $numeroAula ] );
+		//$oR=R::load('objetoreservable',$id);
 		$reserva=R::load('reserva',$oR->id);
 		R::trash($oR);
 		R::trash($reserva);
+		return true;
 	}
 	
 	public function getCategoria(){

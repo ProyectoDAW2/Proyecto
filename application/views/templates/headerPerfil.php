@@ -31,16 +31,16 @@
     <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
 	
-	<!-- A�adimos los estilos css de Usuario/Perfil -->
+	<!-- Perfil -->
     <link rel="stylesheet" href="http://reservasfernandovi.esy.es/assets/css/usuario/perfil.css">
     
    
-  <!-- A�adimos el c�digo javascript de perfil -->
+  <!-- Perfil -->
  	<script src="http://reservasfernandovi.esy.es/assets/js/usuario/perfil.js" type="text/javascript"></script>
  	<script src="<?=base_url() ?>assets/js/usuario/imagenPerfil.js" type="text/javascript"></script>
     
 	
-    <!-- A�adimos archivos de bootstrap -->
+    <!-- Bootstrap -->
     <script type='text/javascript' src='http://reservasfernandovi.esy.es/assets/js/bootstrap/bootstrap.min.js'></script>
     <script type='text/javascript' src='http://reservasfernandovi.esy.es/assets/js/bootstrap/bootstrap.js'></script>
     
@@ -59,9 +59,9 @@
     <script src="http://reservasfernandovi.esy.es/assets/templateBootstrap/js/freelancer.js"></script>
     
     
-    <!-- A�adimos archivos del sweetalert -->
+    <!-- SweetAlert -->
     <script src="http://reservasfernandovi.esy.es/assets/sweetalert-master/dist/sweetalert.min.js"></script> 
-   <link rel="stylesheet" type="text/css" href="http://reservasfernandovi.esy.es/assets/sweetalert-master/dist/sweetalert.css">
+    <link rel="stylesheet" type="text/css" href="http://reservasfernandovi.esy.es/assets/sweetalert-master/dist/sweetalert.css">
 
 </head>
 
