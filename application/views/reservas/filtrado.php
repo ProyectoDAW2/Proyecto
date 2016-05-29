@@ -5,12 +5,12 @@
   	<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
   	
   	<!-- Añadimos los estilos de la pantalla de filtrar -->
-  	<link rel="stylesheet" href="<?= base_url() ?>assets/css/reserva/filtrar.css" type="text/css">
+  	<link rel="stylesheet" href="http://reservasfernandovi.esy.es/assets/css/reserva/filtrar.css" type="text/css">
 
 	<script type="text/javascript" src="http://form-serialize.googlecode.com/svn/trunk/serialize-0.2.min.js" ></script>
 
 	<!-- Añadimos el código javascript de filtrar -->
- 	<script src="<?= base_url() ?>assets/js/reserva/filtrar.js" type="text/javascript"></script>  
+ 	<script src="http://reservasfernandovi.esy.es/assets/js/reserva/filtrar.js" type="text/javascript"></script>  
  
 	<meta charset="utf-8">
 

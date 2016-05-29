@@ -5,7 +5,7 @@ class Model_Reserva extends RedBean_SimpleModel{
 		$usuario=r::load('usuario',$idUsuario);
 		$oR=r::load('objetoReservable',$idOR);
 		$reservaExiste=false;//Controla si reserva existe o no 
-		
+
 		$reserva=R::dispense('reserva');
 		$reserva->fecha=$fecha;
 		$reserva->hora=$horaCogida;

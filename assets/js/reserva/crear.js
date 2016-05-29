@@ -2,14 +2,14 @@ $(function(){
 	var date=new Date();
 
 $(".submit").click(function(){
-	//TODO: comprobaciÃ³n de los datos
+	//TODO: comprobacion de los datos
 	var hours=$("#bookingModal .hours:checked");
 	var hoursParsed=[];
 	for(var i=0; i<hours.length; i++){
 		hoursParsed.push($(hours[i]).val());
 	}
 	console.log(hoursParsed);
-	$.ajax("http://localhost/ProyectoCalendario/booking/createPost", {
+	$.ajax("http://reservasfernandovi.esy.es/booking/createPost", {
 		type: "POST",
 		dataType: "JSON",
 		data: {
@@ -25,7 +25,7 @@ $(".submit").click(function(){
 		}
 	});
 //BUSCAMOS RESERVAS
-	$.ajax("http://localhost/ProyectoCalendario/booking/listarReservaPost", {
+	$.ajax("http://reservasfernandovi.esy.es/booking/listarReservaPost", {
 		type: "POST",
 		dataType: "text",
 		data: {

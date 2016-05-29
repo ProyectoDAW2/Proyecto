@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <body>
 <h1>Modificar Reserva</h1>
-<form action="<?=base_url('reserva/crearPost')?>" method="post">
+<form action="http://reservasfernandovi.esy.es/reserva/crearPost" method="post">
 	<label>idUsario</label> <input type="text" name="idUsuario"><br>
 	<label>idObjeto Reservable</label> <input type="text" name="idOR"><br>
 	<label>Fecha</label> <input type="date" name="fecha"><br>

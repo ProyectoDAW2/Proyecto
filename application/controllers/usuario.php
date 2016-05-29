@@ -119,7 +119,9 @@ class Usuario extends CI_Controller
             $_SESSION['idUsuario']= $id;
             if($id==true){
             	if($id == 1){
-            		$this->load->view ('objetoreservable/editarAulas');
+            		$this->load->view('templates/header3');
+            		$this->load->view('objetoreservable/editarAulas');
+            		$this->load->view('templates/footer3');
             	}
                 else{
                 	$this->load->view ('templates/headerPerfil');

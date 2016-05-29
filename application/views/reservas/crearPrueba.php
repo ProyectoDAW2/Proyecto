@@ -10,7 +10,7 @@
 </head>
 <body>
 <h1>Crear Reserva</h1>
-<form action="<?=base_url('reserva/crearPost')?>" method="post">
+<form action="http://reservasfernandovi.esy.es/reserva/crearPost" method="post">
 	<input type="text" name="idUsuario" value="<?= $idUsuario ?>" hidden><br>
 	<label>idObjeto Reservable</label> <input type="text" name="idOR"><br>
 	<label>Fecha</label> <input type="date" name="fecha"><br>

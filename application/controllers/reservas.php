@@ -14,8 +14,9 @@ class reservas extends CI_Controller
 	}
 
 	public function createPost(){
+
 		//TODO: Comprobar parametros
-		//TODO: Coger desde la sesión
+		//TODO: Coger desde la sesion
 		$userId=1;
 		//TODO: Coger desde url o javascript
 		//$classroom=2;
@@ -31,6 +32,7 @@ class reservas extends CI_Controller
 		for($i=0; $i<count($hours); $i++){
 			$result=$this->mr->create($userId, $idAula, $date, $hours[$i]);
 			if(!$result) $isValid=false;
+
 		}
 	}
 
@@ -79,7 +81,7 @@ class reservas extends CI_Controller
 		$this->load->model('Model_ObjetoReservable', 'mo');
 		$categorias= $this->mo->getCategoria();
 		$datos['categorias']= $categorias;
-		$this->load->view('reservas/create', $datos);
+		$this->load->view('reservas/indexProfesor', $datos);
 	}
 
 	public function filtrarPost(){

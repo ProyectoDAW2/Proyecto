@@ -1,17 +1,21 @@
 <?php
 class Model_ObjetoReservable extends RedBean_SimpleModel{
 
-	public function modify ($id, $nombre, $tipo, $numAula,$capacidad, $categoria,$numEquipos, $red, $proyector)	{
-		$oR=r::load('objetoreservable',$id); //Gracias al id identificamos al or al que modificaremos los datos
-		//De momento desconozco el id
+	public function modify ($numAulaOriginal, $nombre, $tipo, $numAula, $capacidad, $categoria, $numEquipos, $red, $proyector)	{
+		//$oR=r::load('objetoreservable',$id);
+		//Buscamos al aula por si numero original de aula (en el caso de que hubiese sido cambiado por el admin)
+		$oR= R::findOne( 'objetoreservable', ' num_aula = ? ', [ $numAulaOriginal ] );
+		
 		$oR->nombre=$nombre;
 		$oR->tipo=$tipo;
-		$oR->numAula=$numAula;
+		$oR->num_aula=$numAula;
 		$oR->categoria=$categoria;
-		$oR->numEquipos=$numEquipos;
+		$oR->num_equipos=$numEquipos;
 		$oR->red=$red;
 		$oR->proyector=$proyector;
 		R::store($oR);
+		
+		return true;
 	}
 
 	public function getTodos(){
@@ -31,12 +35,14 @@ class Model_ObjetoReservable extends RedBean_SimpleModel{
 		R::store($oR);
 	}
 	
-	public function borrar($id){
-		//Borramos por ID (al menos por ahora)
-		$oR=R::load('objetoreservable',$id);
+	public function borrar($numeroAula){
+		//Borramos por numero de aula (porque es unico)
+		$oR= R::findOne( 'objetoreservable', ' num_aula = ? ', [ $numeroAula ] );
+		//$oR=R::load('objetoreservable',$id);
 		$reserva=R::load('reserva',$oR->id);
 		R::trash($oR);
 		R::trash($reserva);
+		return true;
 	}
 	
 	public function getCategoria(){

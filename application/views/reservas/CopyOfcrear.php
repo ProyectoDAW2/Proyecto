@@ -2,16 +2,16 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<link rel="stylesheet" href="<?= base_url() ?>assets/css/reserva/crear.css">
-<link rel="stylesheet" href="<?= base_url() ?>assets/css/main.css">
+
+<link rel="stylesheet" href="http://reservasfernandovi.esy.es/assets/css/reserva/crear.css">
+<link rel="stylesheet" href="http://reservasfernandovi.esy.es/assets/css/main.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 <script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
-<script src="<?= base_url() ?>assets/jquery/jqueryGeneral/jquery-2.1.4.js"></script>
-<script src="<?= base_url() ?>assets/jquery/jquery-ui-1.11.4.custom/jquery-ui.min.js"></script>
-<script src="<?= base_url() ?>assets/jquery/jquery-ui-1.11.4.custom/jquery-ui.js"></script>
-<script src="<?= base_url() ?>assets/js/reserva/traduccionEspanyol.js"></script>
-<script src="<?= base_url() ?>assets/js/reserva/diasFestivos.js"></script>
-
+<script src="http://reservasfernandovi.esy.es/assets/jquery/jqueryGeneral/jquery-2.1.4.js"></script>
+<script src="http://reservasfernandovi.esy.es/assets/jquery/jquery-ui-1.11.4.custom/jquery-ui.min.js"></script>
+<script src="http://reservasfernandovi.esy.es/assets/jquery/jquery-ui-1.11.4.custom/jquery-ui.js"></script>
+<script src="http://reservasfernandovi.esy.es/assets/js/reserva/traduccionEspanyol.js"></script>
+<script src="http://reservasfernandovi.esy.es/assets/js/reserva/diasFestivos.js"></script>
 
 <script>
 $(function reservandoHoras() {
@@ -43,13 +43,15 @@ $(function () {
         $("#fecha2").datepicker( "destroy" );
         $("#fecha2").css("visibility", "hidden");
     })
+
     $.datepicker.setDefaults($.datepicker.regional['es']); //Traduccion Español
+
 
 //FUNCION PARA EL COMPORTAMIENTO DE LOS DATEPICKER
     function datepickerModelado(elDatepicker) {
         $(elDatepicker).datepicker({
             minDate: new Date(),
-            buttonImage: "<?= base_url() ?>assets/imagenes/reserva/button-calendar.gif",
+            buttonImage: "http://reservasfernandovi.esy.es/assets/imagenes/reserva/button-calendar.gif",
             buttonImageOnly: true,
             buttonText: "Abre el calendario",
             showOn: "both",
@@ -66,7 +68,8 @@ $(function () {
 </head>
 <body>
 <h1>Crear Reserva</h1>
-<form action="<?=base_url('reserva/crearPost')?>" method="post">
+
+<form action="http://reservasfernandovi.esy.es/reserva/crearPost" method="post">
 	<input type="text" name="idUsuario" value="<?= $idUsuario ?>" hidden><br>
 	<label>idObjeto Reservable</label> <input type="text" name="idOR"><br>
 	<label>Fecha</label>        
