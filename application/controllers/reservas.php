@@ -83,8 +83,12 @@ class reservas extends CI_Controller
 		$this->load->view('reservas/borrarPost');
 	}
 	
+
 	/*public function filtrar(){
-		
+		$this->load->model('Model_ObjetoReservable', 'mo');
+		$categorias= $this->mo->getCategoria();
+		$datos['categorias']= $categorias;
+		$this->load->view('reservas/indexProfesor', $datos);
 	}*/
 
 	public function filtrarPost(){

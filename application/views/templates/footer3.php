@@ -38,5 +38,7 @@
 	<!-- Editar Aulas -->
 	<script type="text/javascript" src="http://reservasfernandovi.esy.es/assets/js/objetoreservable/editarAulas.js"></script>
 
+	   <!-- Select Buttons -->
+	<script src="http://reservasfernandovi.esy.es/assets/Select-Bootstrap/dist/js/bootstrap-select.js"></script>
 </body>
 </html>

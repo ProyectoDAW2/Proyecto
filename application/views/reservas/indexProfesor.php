@@ -98,15 +98,16 @@
 				<div class="col-lg-12">
 					<h2>Calendario</h2>
 					<hr class="star-primary">
-					<div class="col-md-4 col-xd-12 col-md-offset-2">
+					<div class="col-md-6 col-xd-12 col-md-offset-1">
 						<div class="modal-body">
 							<h4>Filtrado</h4>
+							<hr class="star-primary">
 							<p>
+							
 								Categor&iacute;a 
-								<select name="categoria" id="categoria">
+								<select class="selectpicker" name="categoria" id="categoria" data-style="btn-primary" >
 									<option value="todas" selected>Todas</option>
                                         <?php foreach ($categorias as $categoria):?>
-                                        <?php var_dump($categorias)?>
                                          <?php foreach($categoria as $categ=>$nombre): ?>
                                          <option value="<?= $nombre ?>">
                                          <?= $nombre?>
@@ -115,12 +116,15 @@
                                           <?php endforeach;?>
                                     </select>
 							</p>
-							<label for="fancy-checkbox-default" class="[ btn btn-default active ]"> Red </label>
-
-							<div class="checkbox">
-								<label> <input type="checkbox" name="red" id="red"> Red </label>
-							</div>
-							<p>Proyector <input type="checkbox" name="proyector" id="proyector"/></p>
+							<label class="btn btn-primary active">
+    						<input type="checkbox" name="red" id="red"/> Red
+    						</label>
+    						<label class="btn btn-primary active">
+    						<input type="checkbox" name="proyector" id="proyector"/> Proyector
+    						</label>							
+							
+							
+							
 							<p><label for="equipos">N&uacute;mero de equipos:</label></p>
 							<p><div id="sliderEquipos"></div></p>
 							<p><br> <label for="capacidad">Capacidad del aula:</label></p>
@@ -129,9 +133,11 @@
 							<button type="submit" id="enviarFiltro" class="btn btn-success btn-md">Enviar</button>
 						</div>
 					</div>
-					<div class="col-md-4">
+					<div class="col-md-3">
+					
 						<div class="modal-body">
 							<h4>Aulas Disponibles</h4>
+							<hr class="star-primary">
 							<div id="aulas" name="aulas"></div>
 						</div>
 					</div>

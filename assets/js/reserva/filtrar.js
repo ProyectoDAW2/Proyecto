@@ -6,9 +6,9 @@ function accionAJAX() {
 
 $(function() {
 	
-	var numEquipos = document.getElementById('sliderEquipos');
 
-	noUiSlider.create(numEquipos, {
+
+	noUiSlider.create(document.getElementById('sliderEquipos'), {
 		start: 0,
 		range: {
 			min: 0,
@@ -22,9 +22,9 @@ $(function() {
 		}
 	});
 	
-	var capacidad = document.getElementById('sliderCapacidad');
+	
 
-	noUiSlider.create(capacidad, {
+	noUiSlider.create(document.getElementById('sliderCapacidad'), {
 		start: 0,
 		range: {
 			min: 0,
@@ -52,8 +52,8 @@ $(function() {
 	}
 	$("#enviarFiltro").click(function () {
 		var categoria = document.getElementById('categoria').value;
-		equipos = numEquipos.noUiSlider.get();
-		capacidad = capacidad.noUiSlider.get();
+		equipos = document.getElementById('sliderEquipos').noUiSlider.get();
+		capacidad = document.getElementById('sliderCapacidad').noUiSlider.get();
 		console.log(capacidad);
 		$.ajax("reservas/filtrarPost", {
 			type: "POST",
