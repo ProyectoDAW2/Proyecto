@@ -1,3 +1,3 @@
 
-<h3>Reserva borrada correctamente.</h3>
+<h3>Reserva borrada correctamente</h3>
 

@@ -9,8 +9,8 @@
 			</div>
 		</div>
 		<div class="row">
-			<div class="col-sm-6 portfolio-item">
-				<a href="#reservasAulas" class="portfolio-link" data-toggle="modal">
+			<div class="col-sm-4 portfolio-item">
+				<a href="#reservas1" class="portfolio-link" data-toggle="modal">
 					<div class="caption">
 						<div class="caption-content">
 							<i class="fa fa-search-plus fa-3x"></i>
@@ -18,8 +18,8 @@
 					</div> <img src="http://reservasfernandovi.esy.es/assets/templateBootstrap/img/portfolio/cabin.png" class="img-responsive" alt="">
 				</a>
 			</div>
-			<div class="col-sm-6 portfolio-item">
-				<a href="#portfolioModal2" class="portfolio-link"
+			<div class="col-sm-4 portfolio-item">
+				<a href="#reservas2" class="portfolio-link"
 					data-toggle="modal">
 					<div class="caption">
 						<div class="caption-content">
@@ -28,6 +28,16 @@
 					</div> <img src="http://reservasfernandovi.esy.es/assets/templateBootstrap/img/portfolio/cake.png" class="img-responsive" alt="">
 				</a>
 			</div>
+               <div class="col-sm-4 portfolio-item">
+                    <a href="#reservas3" class="portfolio-link" data-toggle="modal">
+                        <div class="caption">
+                            <div class="caption-content">
+                                <i class="fa fa-search-plus fa-3x"></i>
+                            </div>
+                        </div>
+                        <img src="http://reservasfernandovi.esy.es/assets/templateBootstrap/img/portfolio/circus.png" class="img-responsive" alt="">
+                    </a>
+                </div>
 
 		</div>
 	</div>
@@ -86,7 +96,7 @@
 </div>
 
 <!-- Portfolio Modals -->
-<div class="portfolio-modal modal fade" id="reservasAulas" tabindex="-1" role="dialog" aria-hidden="true">
+<div class="portfolio-modal modal fade" id="reservas1" tabindex="-1" role="dialog" aria-hidden="true">
 	<div class="modal-content">
 		<div class="close-modal" data-dismiss="modal">
 			<div class="lr">
@@ -195,17 +205,61 @@
 						</p>
 
 					</div>
-				</div>
-
+        </div>
+        
 			</div>
 			<button type="button" class="btn btn-default" data-dismiss="modal">
-				<i class="fa fa-times"></i> Close
+				<i class="fa fa-times"></i>Cerrar
 			</button>
 
 		</div>
 	</div>
 </div>
+     <div class="portfolio-modal modal fade" id="reservas2" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl">
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <div class="modal-body">
+                            <h2>Project Title</h2>
+                            <hr class="star-primary">
+                            <img src="http://reservasfernandovi.esy.es/assets/templateBootstrap/img/portfolio/cake.png" class="img-responsive img-centered" alt="">
+                            <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i>Cerrar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>  
+
+     <div class="portfolio-modal modal fade" id="reservas3" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl">
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <div class="modal-body">
+                            <h2>Project Title</h2>
+                            <hr class="star-primary">
+                            <img src="http://reservasfernandovi.esy.es/assets/templateBootstrap/img/portfolio/circus.png" class="img-responsive img-centered" alt="">
+                            <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i>Cerrar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>  
+
 </div>
 </div>
-
-
