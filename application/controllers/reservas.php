@@ -7,7 +7,13 @@ class reservas extends CI_Controller
 	}
 
 	public function create(){
-		$datos['idUsuario']= isset($_SESSION['idUsuario']) ? $_SESSION['idUsuario']:null;
+		//Esto es la parte del filtrado (recuperar categorias)
+		$this->load->model('Model_ObjetoReservable', 'mo');
+		$categorias= $this->mo->getCategoria();
+		$datos['categorias']= $categorias;
+		//$this->load->view('reservas/create', $datos);
+		
+		//$datos['idUsuario']= isset($_SESSION['idUsuario']) ? $_SESSION['idUsuario']:null;
 		$this->load->view('templates/header3');
 		$this->load->view('reservas/indexProfesor',$datos);
 		$this->load->view('templates/footer3');
@@ -77,12 +83,9 @@ class reservas extends CI_Controller
 		$this->load->view('reservas/borrarPost');
 	}
 	
-	public function filtrar(){
-		$this->load->model('Model_ObjetoReservable', 'mo');
-		$categorias= $this->mo->getCategoria();
-		$datos['categorias']= $categorias;
-		$this->load->view('reservas/create', $datos);
-	}
+	/*public function filtrar(){
+		
+	}*/
 
 	public function filtrarPost(){
 		$categoria= "";

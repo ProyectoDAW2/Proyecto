@@ -106,6 +106,7 @@
 								<select name="categoria" id="categoria">
 									<option value="todas" selected>Todas</option>
                                         <?php foreach ($categorias as $categoria):?>
+                                        <?php var_dump($categorias)?>
                                          <?php foreach($categoria as $categ=>$nombre): ?>
                                          <option value="<?= $nombre ?>">
                                          <?= $nombre?>

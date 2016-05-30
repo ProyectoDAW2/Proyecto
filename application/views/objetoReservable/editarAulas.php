@@ -8,50 +8,69 @@
             </div>
             <div class="row">
 		<form action="http://reservasfernandovi.esy.es/objetoreservable/buscarAula" method="post">
-			<input type="text" id="numaula" name="numaula"/>
-			<input type="submit" id="buscar" name="buscar" value="Buscar"/>
+			<div class="col-sm-12 col-md-12 text-center portfolio-item">
+				<input type="text" id="numaula" name="numaula" onchange="numAulaNumerico(this.value)"/>
+				<input type="submit" id="buscar" name="buscar" value="Buscar"/>
+			
 			<!-- <input type="submit" id="crearAula" name="crearAula" value="Crear un aula nueva"/> -->
-			<a href="http://reservasfernandovi.esy.es/objetoreservable/crear">Crear un aula nueva</a>
+			<!-- <div class="col-sm-6 portfolio-item"> -->
+				<td><a href="#crearAula" class="portfolio-link" data-toggle="modal">Crear un aula nueva</a></td>
+			</div>
+			<!-- <a href="http://reservasfernandovi.esy.es/objetoreservable/crear">Crear un aula nueva</a> -->
 			
 		</form>
 				<?php if(isset($datosAula)):?>
-				<table id="listaAulas" name="listaAulas">
-				<tr><td>N&uacute;m. Aula</td><td>Nombre</td><td>Capacidad</td><td>Categor&iacute;a</td><td>N&uacute;m. Equipos</td><td>Red</td><td>Proyector</td></tr>
-					<?php foreach($datosAula as $aula):?>
-						<tr>
-						<?php foreach($aula as $clave=>$valor):?>
-							<?php if($clave=="num_aula"):?>
-								<?php $numeroAula= $valor?>
-							<?php endif;?>
-							<?php if($clave=="nombre"):?>
-								<?php $nombreAula= $valor?>
-							<?php endif;?>
-							<?php if($clave=="categoria"):?>
-								<?php $categoriaAula= $valor?>
-							<?php endif;?>
-							<?php if($clave=="red"):?>
-								<?php $redAula= $valor?>
-							<?php endif;?>
-							<?php if($clave=="proyector"):?>
-								<?php $proyectorAula= $valor?>
-							<?php endif;?>
-							<?php if($clave=="num_equipos"):?>
-								<?php $numeroEquipos= $valor?>
-							<?php endif;?>
-							<?php if($clave=="capacidad"):?>
-								<?php $capacidadAula= $valor?>
-							<?php endif;?>
-								<td><?= $valor ?></td>
-							
-						<?php endforeach;?>
-							<!-- <td><a href="http://reservasfernandovi.esy.es/objetoreservable/modificar?numeroAula=<?= $numeroAula ?>">modificar</a></td> -->
-							<div class="col-sm-6 portfolio-item">
-								<td><a href="#modAula" class="portfolio-link" data-toggle="modal">modificar</a></td>
-							</div>
-							<td><a href="http://reservasfernandovi.esy.es/objetoreservable/borrar?numeroAula=<?= $numeroAula ?>">borrar</a></td>
-						</tr>
-					<?php endforeach;?>
-					</table>
+					<?php if($datosAula!=false):?>
+					<div class="col-sm-12 col-md-12 text-center">
+						<table id="listaAulas" name="listaAulas">
+							<tr><td>N&uacute;m. Aula</td><td>Nombre</td><td>Capacidad</td><td>Categor&iacute;a</td><td>N&uacute;m. Equipos</td><td>Red</td><td>Proyector</td></tr>
+								<?php foreach($datosAula as $aula):?>
+									<tr>
+									<?php foreach($aula as $clave=>$valor):?>
+										<?php if($clave=="num_aula"):?>
+											<?php $numeroAula= $valor?>
+										<?php endif;?>
+										<?php if($clave=="nombre"):?>
+											<?php $nombreAula= $valor?>
+										<?php endif;?>
+										<?php if($clave=="categoria"):?>
+											<?php $categoriaAula= $valor?>
+										<?php endif;?>
+										<?php if($clave=="red"):?>
+											<?php $redAula= $valor?>
+										<?php endif;?>
+										<?php if($clave=="proyector"):?>
+											<?php $proyectorAula= $valor?>
+										<?php endif;?>
+										<?php if($clave=="num_equipos"):?>
+											<?php $numeroEquipos= $valor?>
+										<?php endif;?>
+										<?php if($clave=="capacidad"):?>
+											<?php $capacidadAula= $valor?>
+										<?php endif;?>
+											<td><?= $valor ?></td>
+										
+									<?php endforeach;?>
+										<!-- <td><a href="http://reservasfernandovi.esy.es/objetoreservable/modificar?numeroAula=<?= $numeroAula ?>">modificar</a></td> -->
+										<div class="col-sm-6 portfolio-item">
+											<td><a href="#modAula" class="portfolio-link" data-toggle="modal">modificar</a></td>
+										</div>
+										<td><a href="http://reservasfernandovi.esy.es/objetoreservable/borrar?numeroAula=<?= $numeroAula ?>">borrar</a></td>
+									</tr>
+								<?php endforeach;?>
+						</table>
+					</div>
+					<?php endif; ?>
+					<?php if($datosAula==false):?>
+						<script type="text/javascript">
+							swal({
+					  	     	title: "",
+					  		 	text: "No existe un aula con ese n\u00FAmero",
+					  		 	type: "error",
+					  		 	confirmButtonText: "Aceptar"
+					  		});
+						</script>
+					<?php endif; ?>
 				<?php endif; ?>
 		
 	</div>	
@@ -125,7 +144,8 @@
 							<p><br> <label for="capacidad">Capacidad del aula:</label></p>
 							<p><input type="text" id="capacidad" name="capacidad" value="<?= $capacidadAula ?>"></p>
 							<br> <br>
-							<input type="submit" id="enviarMods" class="btn btn-success btn-md" value="Enviar">
+							<input type="text" id="resModificar" name="resModificar" hidden>
+							<input type="submit" id="enviarMods" class="btn btn-success btn-md" value="Enviar" onclick="validarDatosModificar()">
 						</form>
 						</div>
 					</div>
@@ -137,6 +157,80 @@
 				  		 	text: "Aula modificada correctamente",
 				  		 	type: "success",
 				  		 	confirmButtonText: "Continuar"
+				  		});
+					<?php endif; ?>
+					</script>
+
+		</div>
+	</div>
+	
+<div class="portfolio-modal modal fade" id="crearAula" tabindex="-1" role="dialog" aria-hidden="true">
+	<div class="modal-content">
+		<div class="close-modal" data-dismiss="modal">
+			<div class="lr">
+				<div class="rl"></div>
+			</div>
+		</div>
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12">
+					<h2>Crear aula</h2>
+					<hr class="star-primary">
+					<div class="col-md-8 col-xd-12 col-md-offset-2">
+						<div class="modal-body">
+							<form action="http://reservasfernandovi.esy.es/objetoreservable/crear" method="post">
+		
+								<p><label for="numeroAulaNueva">N&uacute;mero de aula</label></p>
+								<p><input type="text" id="numeroAulaNueva" name="numeroAulaNueva"></p>
+							
+								<p><label for="nombreAulaNueva">Nombre</label></p>
+								<p><input type="text" id="nombreAulaNueva" name="nombreAulaNueva"></p>
+							
+								<p><label for="categoriaAulaNueva">Categor&iacute;a</label></p>
+								<p><input type="text" id="categoriaAulaNueva" name="categoriaAulaNueva"></p>
+								
+								<p>Red <input type="checkbox" name="redAulaNueva" id="redAulaNueva"/></p>
+								<p>Proyector <input type="checkbox" name="proyectorAulaNueva" id="proyectorAulaNueva"/></p>
+
+								<p><label for="equiposAulaNueva">N&uacute;mero de equipos:</label></p>
+								<p><input type="text" id="equiposAulaNueva" name="equiposAulaNueva"></p>
+								<p><br> <label for="capacidadAulaNueva">Capacidad del aula:</label></p>
+								<p><input type="text" id="capacidadAulaNueva" name="capacidadAulaNueva"></p>
+								<br> <br>
+								<input type="text" id="resValidarCrear" name="resValidarCrear" hidden>
+								
+								<input type="submit" id="enviarAulaNueva" class="btn btn-success btn-md" value="Enviar" onclick="validarDatosCrear()">
+								
+							</form>
+						</div>
+					</div>
+					
+					<script type="text/javascript">
+					<?php if(isset($crearCorrecto)):?>
+						<?php if($crearCorrecto):?>
+							swal({
+					  	     	title: "",
+					  		 	text: "Aula creada correctamente",
+					  		 	type: "success",
+					  		 	confirmButtonText: "Continuar"
+					  		});
+						<?php endif; ?>
+						<?php if($crearCorrecto==false):?>
+							swal({
+					  	     	title: "",
+					  		 	text: "El aula no ha podido crearse. Por favor, revise los datos.",
+					  		 	type: "error",
+					  		 	confirmButtonText: "Aceptar"
+					  		});
+						<?php endif; ?>
+					<?php endif; ?>
+					
+					<?php if(isset($numeroExistente)):?>
+						swal({
+				  	     	title: "",
+				  		 	text: "El n\u00FAmero de aula ya existe",
+				  		 	type: "error",
+				  		 	confirmButtonText: "Aceptar"
 				  		});
 					<?php endif; ?>
 					</script>
