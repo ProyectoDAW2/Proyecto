@@ -2,7 +2,6 @@
 class Model_ObjetoReservable extends RedBean_SimpleModel{
 
 	public function modify ($numAulaOriginal, $nombre, $tipo, $numAula, $capacidad, $categoria, $numEquipos, $red, $proyector)	{
-		//$oR=r::load('objetoreservable',$id);
 		//Buscamos al aula por si numero original de aula (en el caso de que hubiese sido cambiado por el admin)
 		$oR= R::findOne( 'objetoreservable', ' num_aula = ? ', [ $numAulaOriginal ] );
 		
@@ -10,6 +9,7 @@ class Model_ObjetoReservable extends RedBean_SimpleModel{
 		$oR->tipo=$tipo;
 		$oR->num_aula=$numAula;
 		$oR->categoria=$categoria;
+		$oR->capacidad=$capacidad;
 		$oR->num_equipos=$numEquipos;
 		$oR->red=$red;
 		$oR->proyector=$proyector;
@@ -22,17 +22,18 @@ class Model_ObjetoReservable extends RedBean_SimpleModel{
 		return R::findAll('objetoreservable');
 	}
 	
-	public function crear ($nombre, $tipo, $numAula,$capacidad, $categoria,$numEquipos, $red, $proyector){
+	public function crear ($nombre, $tipo, $num_aula, $capacidad, $categoria, $num_equipos, $red, $proyector){
 		$oR=R::dispense('objetoreservable');
 		$oR->nombre=$nombre;
 		$oR->tipo=$tipo;
-		$oR->numAula=$numAula;
+		$oR->num_aula=$num_aula;
 		$oR->categoria=$categoria;
-		$oR->numEquipos=$numEquipos;
+		$oR->capacidad=$capacidad;
+		$oR->num_equipos=$num_equipos;
 		$oR->red=$red;
 		$oR->proyector=$proyector;
-		//$oR-> xownObjetoreservableList= array();
 		R::store($oR);
+		return true;
 	}
 	
 	public function borrar($numeroAula){
@@ -49,24 +50,18 @@ class Model_ObjetoReservable extends RedBean_SimpleModel{
 		return R::getAll("SELECT DISTINCT categoria FROM objetoreservable");
 	}
 	
-	public function getAulasDisponibles($categoria, $red, $proyector, $numEquipos, $capacidad){
-		/*return R::findLike('objetoreservable',  [
-				'categoria' => $categoria,
-				'red' => $red,
-				'proyector'=>$proyector
-		] );*/
-		
+	public function getAulasDisponibles($categoria, $red, $proyector, $numEquipos, $capacidad){	
 		/*Con getAll, aunque devuelve un array multidimensional, nos permite seleccionar
-		 * un campo concreto en la select. Asï¿½, evitamos que devuelve el objeto entero y es mï¿½s
+		 * un campo concreto en la select. Asi, evitamos que devuelve el objeto entero y es mas
 		 * sencillo a la hora de visualizarlo*/
 		
-		/*Comprobamos que, si red o proyector estï¿½n a no (es decir, no los han checkeado)
+		/*Comprobamos que, si red o proyector estan a no (es decir, no los han checkeado)
 		 * no hace falta buscar por ellos, dado que al usuario no le importa que haya o no, puesto
-		 * que solo le interesa que tenga lo que ï¿½l ha marcado*/
+		 * que solo le interesa que tenga lo que ha marcado*/
 		
-		/*Estamos comprobando tambiï¿½n si la categorï¿½a a filtrar es todas, ya que la consulta tiene que ser
+		/*Estamos comprobando tambien si la categoria a filtrar es todas, ya que la consulta tiene que ser
 		 * algo "especialita", por ahora la dejaremos con esta cantidad de if, porque no puedo
-		 * reutilizar la misma estructura, asï¿½ que he tenido que aï¿½adir 4 if mï¿½s. En el futuro, si 
+		 * reutilizar la misma estructura, asi que he tenido que añadir 4 if mas. En el futuro, si 
 		 * descubro una manera de unificarlo, mejor.*/
 		
 		if($categoria=="IS NOT NULL" && $red!='SI' && $proyector!='SI'){

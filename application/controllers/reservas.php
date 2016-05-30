@@ -7,9 +7,15 @@ class reservas extends CI_Controller
 	}
 
 	public function create(){
-		$datos['idUsuario']= isset($_SESSION['idUsuario']) ? $_SESSION['idUsuario']:null;
+		//Esto es la parte del filtrado (recuperar categorias)
+		$this->load->model('Model_ObjetoReservable', 'mo');
+		$categorias= $this->mo->getCategoria();
+		$datos['categorias']= $categorias;
+		
+		
+		//$datos['idUsuario']= isset($_SESSION['idUsuario']) ? $_SESSION['idUsuario']:null;
 		$this->load->view('templates/header3');
-		$this->load->view('reservas/indexAlumno',$datos);
+		$this->load->view('reservas/indexProfesor',$datos);
 		$this->load->view('templates/footer3');
 	}
 
@@ -70,6 +76,9 @@ class reservas extends CI_Controller
 		echo $numAula;
 	}
 
+	/**
+	 * Para listar las reservas en el calendario
+	 */
 	public function listarReservaPost(){
 
 		$aulaElegida=isset($_SESSION['num']) ? $_SESSION['num']:null;
@@ -80,6 +89,9 @@ class reservas extends CI_Controller
 		$this->load->view('reservas/listarReservaPost', $datos);
 	}
 
+/*
+ * Si nadie utiliza estos borrados se pueden eliminar
+ */
 	public function borrar(){
 		$this->load->view('reservas/borrar');
 	}
@@ -91,6 +103,7 @@ class reservas extends CI_Controller
 		$this->load->view('reservas/borrarPost');
 	}
 	
+
 /**
  * Los alumnos y profesores borran una reserva
  * @author
@@ -104,12 +117,9 @@ class reservas extends CI_Controller
 		
 	}
 
-	public function filtrar(){
-		$this->load->model('Model_ObjetoReservable', 'mo');
-		$categorias= $this->mo->getCategoria();
-		$datos['categorias']= $categorias;
-		$this->load->view('reservas/indexProfesor', $datos);
-	}
+	
+
+
 
 	public function filtrarPost(){
 		$categoria= "";

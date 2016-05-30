@@ -3,10 +3,7 @@ session_start();
 class ObjetoReservable extends CI_Controller{
 	
 	public function index(){
-		/*
-		$this -> load -> view ('templates / header');
-		$this -> load -> view ('objetoReservable / crear');
-		$this -> load -> view ('templates / footer');*/
+		
 		$id=isset ($_SESSION ['idUsuario']) ? $_SESSION ['idUsuario'] : null;
 		$datos ['idUsuario']=$id;
 		
@@ -23,9 +20,7 @@ class ObjetoReservable extends CI_Controller{
 		
 		if ($id!=null){
 			if ($id == 1){
-				//$this -> load -> view ('templates / header');
-				//$this->load->view ('objetoReservable/modificar', $datos);
-				//$this -> load -> view ('templates / footer');
+				
 				$numAulaOriginal= $_REQUEST['numAulaOriginal'];
 				
 				$numAula= $_REQUEST['numAula'];
@@ -64,26 +59,76 @@ class ObjetoReservable extends CI_Controller{
 				
 			}
 			else{
-				//$this -> load -> view ('templates/header3');
+				
 				$this->load->view('errors/accesoProhibido', $datos);
-				//$this -> load -> view ('templates/footer3');
+				
 			}
 		}
 		else{
-			//$this -> load -> view ('templates/header3');
+			
 			$this->load->view('errors/accesoProhibido', $datos);
-			//$this -> load -> view ('templates/footer3');
+			
 		}
 	}
 	public function crear(){
-		//$this -> load -> view ('templates / header');
-		$this ->load-> view('objetoReservable/crear');
-		//$this -> load -> view ('templates / footer');
+		
+		$nombre=$_REQUEST ['nombreAulaNueva'];
+		$tipo="aula";
+		$categoria=$_REQUEST ['categoriaAulaNueva'];
+		$capacidad=$_REQUEST ['capacidadAulaNueva'];
+		$num_equipos=$_REQUEST ['equiposAulaNueva'];
+		$red= "";
+		$proyector= "";
+				
+		if(isset($_REQUEST['redAulaNueva'])){
+			$red= "SI";
+		}
+		else{
+			$red="NO";
+		}
+				
+		if(isset($_REQUEST['proyectorAulaNueva'])){
+			$proyector= "SI";
+		}
+		else{
+			$proyector="NO";
+		}
+		
+		$num_aula="";
+		
+		$this->load->model('Model_ObjetoReservable','mo');
+		$datosAula= $this->mo->getDatosAula($_REQUEST['numeroAulaNueva']);
+		$existeAula= false;
+		
+		foreach($datosAula as $aula){
+			foreach($aula as $clave=>$valor){
+				if($clave!="" || $clave!=null){
+					$existeAula= true;
+				}
+			}
+		}
+		
+		if($existeAula==false){
+			$num_aula= $_REQUEST ['numeroAulaNueva'];
+			$objetoReservable= $this->mo->crear($nombre, $tipo, $num_aula, $capacidad, $categoria, $num_equipos, $red, $proyector);
+	
+			$datos['crearCorrecto']= $objetoReservable;
+			
+			$this->load->view('templates/header3');
+			//$this -> load -> view ('objetoReservable/crearPost');
+			$this->load->view('objetoReservable/editarAulas', $datos);
+			$this->load->view('templates/footer3');
+		}
+		else{
+			$datos['numeroExistente']= true;
+			$this->load->view('templates/header3');
+			$this->load->view('objetoReservable/editarAulas', $datos);
+			$this->load->view('templates/footer3');
+		}
+	
 	}
 	public function borrar(){
-		//$this -> load -> view ('templates / header');
-		//$this ->load->view('objetoReservable/borrar');
-		//$this -> load -> view ('templates / footer');
+	
 		$numAula= $_REQUEST['numeroAula'];
 		
 		$this->load->model('Model_ObjetoReservable', 'mo');
@@ -102,45 +147,6 @@ class ObjetoReservable extends CI_Controller{
 		
 	}
 	
-	//Lo comento porque ya no se utiliza
-	/*public function modificarPost(){
-		$nombre=$_REQUEST ['nombre'];
-		$tipo=$_REQUEST ['tipo'];
-		$num_aula=$_REQUEST ['num_aula'];
-		$categoria=$_REQUEST ['categoria'];
-		$capacidad=$_REQUEST ['capacidad'];
-		$num_equipos=$_REQUEST ['num_equipos'];
-		$red=$_REQUEST ['red'];
-		$proyector=$_REQUEST ['proyector'];
-		
-		//De alguna manera debo recoger el usuario que quiere hacer la modificacion
-		$id=$_REQUEST['id'];
-
-		$this -> load -> model ('Model_ObjetoReservable', 'mo');
-		$objetoReservable=$this -> mo -> modify($id, $nombre, $tipo, $num_aula, $capacidad, $categoria, $num_equipos, $red, $proyector);
-
-		$this -> load -> view ('templates / header');
-		$this -> load -> view ('objetoReservable / modificarPost');
-		$this -> load -> view ('templates / footer');
-	}*/
-	
-	public function crearPost(){
-		$nombre=$_REQUEST ['nombre'];
-		$tipo=$_REQUEST ['tipo'];
-		$num_aula=$_REQUEST ['num_aula'];
-		$categoria=$_REQUEST ['categoria'];
-		$capacidad=$_REQUEST ['capacidad'];
-		$num_equipos=$_REQUEST ['num_equipos'];
-		$red=$_REQUEST ['red'];
-		$proyector=$_REQUEST ['proyector'];
-		
-		$this -> load -> model ('Model_ObjetoReservable','mo');
-		$objetoReservable=$this -> mo -> crear ($nombre, $tipo, $num_aula, $capacidad, $categoria, $num_equipos, $red, $proyector);
-
-		$this -> load -> view ('templates / header');
-		$this -> load -> view ('objetoReservable / crearPost');
-		$this -> load -> view ('templates / footer');
-	}
 	public function borrarPost(){
 		$id=$_REQUEST['id'];
 		$this -> load -> model ('Model_ObjetoReservable', 'mo');
@@ -166,8 +172,21 @@ class ObjetoReservable extends CI_Controller{
 		
 		$this->load->model('Model_ObjetoReservable', 'mo');
 		$datosAula= $this->mo->getDatosAula($num);
-		
-		$datos['datosAula']= $datosAula;
+		$existeAula= true;
+		foreach($datosAula as $aula){
+			foreach($aula as $clave=>$valor){
+				if($clave=="" || $clave==null){
+					$existeAula= false;
+				}
+			}
+		}
+		$datos['datosAula']= "";
+		if($existeAula==false){
+			$datos['datosAula']= $existeAula;
+		}
+		else{
+			$datos['datosAula']= $datosAula;
+		}
 		
 		$this->load->view('templates/header3');
 		$this->load->view('objetoReservable/editarAulas', $datos);
