@@ -9,7 +9,7 @@ class reservas extends CI_Controller
 	public function create(){
 		$datos['idUsuario']= isset($_SESSION['idUsuario']) ? $_SESSION['idUsuario']:null;
 		$this->load->view('templates/header3');
-		$this->load->view('reservas/indexProfesor',$datos);
+		$this->load->view('reservas/indexAlumno',$datos);
 		$this->load->view('templates/footer3');
 	}
 
@@ -36,17 +36,31 @@ class reservas extends CI_Controller
 		}
 	}
 
+	/**
+	 * 
+	 */
 	public function listar(){
-		$this->load->view('reservas/listar');
+		$this->load->view('templates/header3');
+		$idUsuario=1;
+		$this->load->model('Model_Reserva', 'mr');
+		$reservas= $this->mr->getTodos($idUsuario);
+		$datos['reservas']= $reservas;
+		$this->load->view('reservas/listar', $datos);
+		$this->load->view('templates/footer3');
+		
 	}
 
 	public function listarPost(){
+		//$idUsuario=isset ($_SESSION['idUsuario']) ? $_SESSION ['idUsuario'] : null;
 		$idUsuario=$_REQUEST ['idUsuario'];
 		$this->load->model('Model_Reserva', 'mr');
 		$reservas= $this->mr->getTodos($idUsuario);
 		$datos['reservas']= $reservas;
 		$this->load->view('reservas/listarPost', $datos);
 	}
+	
+	
+	
 	//Vamos a hacer una lista de reserva por aula para luego recogerlo en el horario.
 	public function listarReserva(){
 
@@ -77,6 +91,19 @@ class reservas extends CI_Controller
 		$this->load->view('reservas/borrarPost');
 	}
 	
+/**
+ * Los alumnos y profesores borran una reserva
+ * @author
+ * @return
+ */
+	public function borrarUnaReserva(){
+		$id=$_REQUEST['id'];
+		$this->load->model('Model_Reserva', 'mr');
+		$this->mr->borrar($id);
+		
+		
+	}
+
 	public function filtrar(){
 		$this->load->model('Model_ObjetoReservable', 'mo');
 		$categorias= $this->mo->getCategoria();

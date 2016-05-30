@@ -156,9 +156,9 @@ class ObjetoReservable extends CI_Controller{
 		$objetos=$this -> mo -> getTodos();
 		$datos['objetos']=$objetos;
 
-		$this -> load -> view ('templates / header');
+		$this -> load -> view ('templates/header');
 		$this -> load -> view ('objetoReservable/listar', $datos);
-		$this -> load -> view ('templates / footer');
+		$this -> load -> view ('templates/footer');
 	}
 	
 	public function buscarAula(){

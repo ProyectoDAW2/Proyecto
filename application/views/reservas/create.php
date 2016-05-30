@@ -292,12 +292,12 @@
                                     <select name="categoria" id="categoria">
                                         <option value="todas" selected>Todas</option>
                                         <?php foreach ($categorias as $categoria):?>
-                                            <?php foreach($categoria as $categ=>$nombre): ?>
-                                                <option value="<?= $nombre ?>">
-                                                    <?= $nombre ?>
-                                                </option>
-                                                <?php endforeach; ?>
-                                                    <?php endforeach;?>
+                                         <?php foreach($categoria as $categ=>$nombre): ?>
+                                         <option value="<?= $nombre ?>">
+                                         <?= $nombre?>
+                                         </option>
+                                         <?php endforeach; ?>
+                                          <?php endforeach;?>
                                     </select>
                                 </p>
                               

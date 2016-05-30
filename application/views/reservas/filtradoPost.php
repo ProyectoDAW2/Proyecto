@@ -4,5 +4,5 @@
 					<option class="result" value="<?= $num ?>"><?= $num ?></option>
 			<?php endforeach; ?>
 <?php endforeach;?>
-
+<br>
 <a href="http://reservasfernandovi.esy.es/reserva/filtrar">Buscar m&aacute;s aulas</a>
