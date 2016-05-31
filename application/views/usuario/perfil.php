@@ -1,7 +1,6 @@
 <html>
 <head>
     <meta charset="utf-8">
-
     <!-- A�adimos el c�digo javascript de perfil -->
  	<script src="http://reservasfernandovi.esy.es/assets/js/usuario/perfil.js" type="text/javascript"></script>
  	<script src="http://reservasfernandovi.esy.es/assets/js/usuario/imagenPerfil.js" type="text/javascript"></script>
@@ -20,7 +19,7 @@
     <script type='text/javascript' src='http://reservasfernandovi.esy.es/assets/jquery/jquery-ui.min.js'></script>
     <script type='text/javascript' src='http://reservasfernandovi.esy.es/assets/jquery/jquery.min.js'></script>
     <script type='text/javascript' src='http://reservasfernandovi.esy.es/assets/jquery/jquery.js'></script>
-   
+    
     <script type="text/javascript">
     $(document).on('change', '.btn-file :file', function() {
   	  var input = $(this),
@@ -61,9 +60,7 @@
 
 </head>
 <body>
-
     <form  action="http://reservasfernandovi.esy.es/usuario/perfilPost" method="post" class="form-horizontal" enctype="multipart/form-data">
-
 		<fieldset>
 		
 		<div id="contentImagenPerfil"></div>

@@ -1,10 +1,11 @@
 function registrar()
         {
+			
             var nickname= document.getElementById("nick").value;
             var pass= document.getElementById("password").value;
             var pass2= document.getElementById("password2").value;
             var email= document.getElementById("correo").value;
-            
+            console.log(nickname);
             var nickCorrecto=false;
             var passCorrecta= false;
             var pass2Correcta= false;

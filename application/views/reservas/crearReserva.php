@@ -185,7 +185,7 @@ $(function(){
 					$(".fc-other-month").addClass("disabled");
 					$(".spheres").addClass("disabled");
 
-					//Buscaremos las reservas de ese aula al renderizar los dias
+					//Buscaremos las reservas de ese aula al renderizar los dï¿½as
 					$.ajax("http://reservasfernandovi.esy.es/reservas/listarReservaPost", {
 						type: "POST",
 						success: function(data){
@@ -210,8 +210,7 @@ $(function(){
  //<------$(this).click(function(){
 
 $(".submit").click(function(){
-	
-	//TODO: comprobación de los datos
+	//TODO: comprobaciï¿½n de los datos
 	var hours=$("#bookingModal .hours:checked");
 	var hoursParsed=[];
 	var idAula=id;
@@ -227,7 +226,6 @@ $(".submit").click(function(){
 	}
 	console.log("las hours son"+dates);
 	for(var i=0; i<dateArray.length; i++) {
-
 		$.ajax("http://reservasfernandovi.esy.es/reservas/createPost", {
 			type: "POST",
 			data: {
@@ -278,7 +276,6 @@ $(document).on('click', '.fc-day-header', function(){
 			hoursParsed.push($(hours[i]).val());
 		}
 		console.log(hoursParsed);
-		
 		$.ajax("http://reservasfernandovi.esy.es/reservas/createPost", {
 			type: "POST",
 			data: {

@@ -12,7 +12,6 @@
     <title>Freelancer - Start Bootstrap Theme</title>
 
     <!-- Bootstrap Core CSS - Uses Bootswatch Flatly Theme: http://bootswatch.com/flatly/ -->
-
     <link href="http://reservasfernandovi.esy.es/assets/templateBootstrap/css/bootstrap2.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
@@ -20,7 +19,6 @@
     
     <!-- Filtrado y Calendario -->
 	<link href='http://reservasfernandovi.esy.es/assets/css/main.css' rel='stylesheet' />
-
  	<link href='//arshaw.com/js/fullcalendar-1.5.3/fullcalendar/fullcalendar.css' rel='stylesheet' />
     <link href='//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.7.1/fullcalendar.min.css' type='text/css' rel='stylesheet' />
     <link href='//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.7.1/fullcalendar.print.css' media='print' type='text/css' rel='stylesheet' />
@@ -30,7 +28,6 @@
     
     <!-- Custom Fonts -->
     <link href="http://reservasfernandovi.esy.es/assets/templateBootstrap/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-
     <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
 
@@ -414,7 +411,6 @@
 
 
     <!-- jQuery -->
-
     <script src="http://reservasfernandovi.esy.es/assets/templateBootstrap/js/jquery.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
@@ -440,8 +436,18 @@
   
   <!-- Slider -->
   <script src="http://reservasfernandovi.esy.es/assets/sliderNoUi/nouislider.min.js"></script>
+	 
+    
+    
+    
 
 </body>
+
+
+
+
+
+
 
 
 <script type="text/javascript">
@@ -487,8 +493,7 @@ $(function(){
 					$(".fc-other-month").addClass("disabled");
 					$(".spheres").addClass("disabled");
 
-
-					//Buscaremos las reservas de ese aula al renderizar los dias
+					//Buscaremos las reservas de ese aula al renderizar los dï¿½as
 					$.ajax("http://reservasfernandovi.esy.es/reservas/listarReservaPost", {
 						type: "POST",
 						success: function(data){
@@ -513,8 +518,7 @@ $(function(){
  //<------$(this).click(function(){
 
 $(".submit").click(function(){
-
-	//TODO: comprobación de los datos
+	//TODO: comprobaciï¿½n de los datos
 	var hours=$("#bookingModal .hours:checked");
 	var hoursParsed=[];
 	var idAula=id;
@@ -530,7 +534,6 @@ $(".submit").click(function(){
 	}
 	console.log("las hours son"+dates);
 	for(var i=0; i<dateArray.length; i++) {
-
 		$.ajax("http://reservasfernandovi.esy.es/reservas/createPost", {
 			type: "POST",
 			data: {
@@ -581,7 +584,6 @@ $(document).on('click', '.fc-day-header', function(){
 			hoursParsed.push($(hours[i]).val());
 		}
 		console.log(hoursParsed);
-		
 		$.ajax("http://reservasfernandovi.esy.es/reservas/createPost", {
 			type: "POST",
 			data: {

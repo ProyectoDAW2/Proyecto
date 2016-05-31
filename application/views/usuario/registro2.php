@@ -9,7 +9,7 @@
             </div>
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2">
-					<form class="form-horizontal" method="post" action="<?=base_url('usuario/registrarPost')?>">
+					<form class="form-horizontal" method="post" action="http://reservasfernandovi.esy.es/usuario/registrarPost">
                         <div class="row control-group">
                             <div class="form-group col-xs-12 floating-label-form-group controls">
                                 <label>Nick</label>
@@ -20,7 +20,7 @@
                         <div class="row control-group">
                             <div class="form-group col-xs-12 floating-label-form-group controls">
 
-                                <label>Contraseña</label>
+                                <label>Contraseï¿½a</label>
 
                                 <input type="password" class="form-control" name="password" id="password"  placeholder="Contrase&ntilde;a"/>
                                 <p class="help-block text-danger"></p>
@@ -29,7 +29,7 @@
                          <div class="row control-group">
                             <div class="form-group col-xs-12 floating-label-form-group controls">
 
-                                <label>Repite Contraseña</label>
+                                <label>Repite Contraseï¿½a</label>
 
                       			<input type="password" class="form-control" name="password2" id="password2"  placeholder="Repite contrase&ntilde;a"/>
                                 <p class="help-block text-danger"></p>

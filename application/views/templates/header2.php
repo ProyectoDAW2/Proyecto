@@ -3,7 +3,6 @@
 <head>
 	<?php if($pantalla=="login"){?>
     <!-- CSS -->
-
     <link href='http://reservasfernandovi.esy.es/assets/css/main.css' rel='stylesheet' />
     <link href='http://reservasfernandovi.esy.es/assets/css/bootstrap/business-casual.css' rel='stylesheet' />
     <?php }else{?>
@@ -18,6 +17,5 @@
     <script type='text/javascript' src='http://reservasfernandovi.esy.es/assets/js/bootstrap/bootstrap.js'></script>
     <script type='text/javascript' src='http://reservasfernandovi.esy.es/assets/js/fullcalendar/moment.js'></script>
     <script type='text/javascript' src='http://reservasfernandovi.esy.es/assets/js/fullcalendar/fullcalendar.min.js'></script>
-
 </head>
 <body>

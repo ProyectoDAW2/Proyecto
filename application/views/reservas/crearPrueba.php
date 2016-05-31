@@ -16,7 +16,7 @@
 	<label>Fecha</label> <input type="date" name="fecha"><br>
 <label>Hora</label> <input type="text" name="hora" id="horaCogida" onchange="function reservandoHoras()"><br>
 <table id="tablaHoraria" border="1">
-		<tr><td>Horas</td><td>Lunes</td><td>Martes</td><td>Miércoles</td><td>Jueves</td><td>Viernes</td></tr>
+		<tr><td>Horas</td><td>Lunes</td><td>Martes</td><td>Miï¿½rcoles</td><td>Jueves</td><td>Viernes</td></tr>
 		<tr><td id="0.0">8:20-9:15</td><td name="hora" id="8:20"></td><td name="hora" id="8:20"></td><td name="hora" id="8:20"></td><td name="hora" id="8:20" value="miau"></td><td name="hora" id="8:20"></td></tr>
 		<tr><td id="0.1">9:15-10:10</td><td name="hora" id="9:15"></td><td name="hora" id="9:15"></td><td name="hora" id="9:15"></td><td name="hora" id="9:15"></td><td name="hora" id="9:15"></td></tr>
 		<tr><td id="0.2">10:10-11:05</td><td name="hora" id="10:10"></td><td name="hora" id="10:10"></td><td name="hora" id="10:10"></td><td name="hora" id="10:10"></td><td name="hora" id="10:10"></td></tr>

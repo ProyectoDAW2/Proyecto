@@ -5,38 +5,6 @@ class Usuario extends CI_Controller
 	public function index(){
 		$this->login();
 	}
-
-	public function foto(){
-		$this->load->view('usuario/pruebaFoto');
-	}
-	
-	public function fotoPost(){
-		$nombre = $_FILES ['imagenPerfil']['name'];
-		//console.log($nombre);
-		$carpeta = "C://xampp/htdocs/ProyectoCalendario/assets/imagenes/perfil/";
-		//copy ( $_FILES['imagenUsuario']['tmp_name'], $carpeta . $nombre );
-		
-		//echo "El fichero $nombre se almacen&oacute; en $carpeta";
-		//return "<img src=".base_url()."assets/imagenes/perfil/".$nombre.">";
-		mkdir(base_url()."assets/imagenes/perfil", 0777, true);
-		move_uploaded_file($_FILES['imagenPerfil']['tmp_name'], $carpeta.$nombre);
-		$imagen= "<img src=".base_url().'assets/imagenes/perfil/'.$nombre.">";
-		echo $imagen;
-		
-	}
-	
-	public function fotoPerfil(){
-		$nombre= $_REQUEST['nombreFoto'];
-		$imagenEnviada= $_REQUEST['imagenUsuario'];
-		$carpeta= base_url()."assets/imagenes/perfil/";
-		
-		//Damos permisos a la carpeta para que se pueda guardar la foto (si no da error)
-		mkdir(base_url()."assets/imagenes/perfil", 0777, true);
-		move_uploaded_file($_FILES[$imagenEnviada]['tmp_name'], $carpeta.$nombre);
-		
-		$imagen= "<img src=".base_url().'assets/imagenes/perfil/'.$nombre.">";
-		echo $imagen;
-	}
 	
     /*----- Registrar usuarios -----*/
     public function registrar() {
@@ -100,7 +68,7 @@ class Usuario extends CI_Controller
     	$datos['pantalla']= "login";
         //$this->load->helper ('form');
         //$this->load->view ('templates/header');
-        $this->load->view ('templates/header2', $datos);
+        $this->load->view ('templates/headerLogin', $datos);
         $this->load->view ('usuario/login');
         $this->load->view ('templates/footer2');
         //$this->load->view ('templates/footer');

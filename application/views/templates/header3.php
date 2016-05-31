@@ -11,10 +11,6 @@
 
     <title>Gestor de Espacios</title>
      <!-- A�adimos archivos de jquery -->
-    <script type='text/javascript' src='http://reservasfernandovi.esy.es/assets/jquery/jquery-1.12.3.min.js'></script>
-    <script type='text/javascript' src='http://reservasfernandovi.esy.es/assets/jquery/jquery-ui.min.js'></script>
-    <script type='text/javascript' src='http://reservasfernandovi.esy.es/assets/jquery/jquery.min.js'></script>
-    <script type='text/javascript' src='http://reservasfernandovi.esy.es/assets/jquery/jquery.js'></script>
 
     <!-- Bootstrap Core CSS - Uses Bootswatch Flatly Theme: http://bootswatch.com/flatly/ -->
     <link href="http://reservasfernandovi.esy.es/assets/templateBootstrap/css/bootstrap2.min.css" rel="stylesheet">
@@ -24,11 +20,10 @@
     
     <!-- Filtrado y Calendario -->
 	<link href='http://reservasfernandovi.esy.es/assets/css/main.css' rel='stylesheet' />
-	    <link href='http://reservasfernandovi.esy.es/assets/css/fullcalendar/fullcalendar.css' rel='stylesheet'/>
-	
-    <link href='//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.7.1/fullcalendar.min.css' type='text/css' rel='stylesheet' />
-    <link href='//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.7.1/fullcalendar.print.css' media='print' type='text/css' rel='stylesheet' />
-    
+    <link href='http://reservasfernandovi.esy.es/assets/css/fullcalendar/fullcalendar.css' rel='stylesheet'/>
+
+    <link href='http://reservasfernandovi.esy.es/assets/css/fullcalendar/fullcalendar.min.css' rel='stylesheet'/>
+
     <!-- Slider -->
 
     <link href="http://reservasfernandovi.esy.es/assets/sliderNoUi/nouislider.min.css" rel="stylesheet">
@@ -42,8 +37,8 @@
     <link rel="stylesheet" href="http://reservasfernandovi.esy.es/assets/css/usuario/perfil.css">
 
 	<!-- SweetAlert -->
-	<script src="http://reservasfernandovi.esy.es/assets/sweetalert-master/dist/sweetalert.min.js"></script> 
-    <link rel="stylesheet" type="text/css" href="http://reservasfernandovi.esy.es/assets/sweetalert-master/dist/sweetalert.css">	
+	    <script src="http://reservasfernandovi.esy.es/assets/sweetalert-master/dist/sweetalert.min.js"></script> 
+    <link rel="stylesheet" type="text/css" href="http://reservasfernandovi.esy.es/assets/sweetalert-master/dist/sweetalert.css">
     
     <!-- Select Buttons -->
     <link rel="stylesheet" href="http://reservasfernandovi.esy.es/assets/Select-Bootstrap/dist/css/bootstrap-select.css">

@@ -16,7 +16,6 @@
     </head>
     <body>
 <div class="container-content">
-
       <form action="http://reservasfernandovi.esy.es/usuario/registrarPost" method="post">
       
         <div class="title"><h1>Registro</h1></div>

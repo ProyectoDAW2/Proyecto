@@ -2,7 +2,6 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-
 <link rel="stylesheet" href="http://reservasfernandovi.esy.es/assets/css/reserva/crear.css">
 <link rel="stylesheet" href="http://reservasfernandovi.esy.es/assets/css/main.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
@@ -12,6 +11,7 @@
 <script src="http://reservasfernandovi.esy.es/assets/jquery/jquery-ui-1.11.4.custom/jquery-ui.js"></script>
 <script src="http://reservasfernandovi.esy.es/assets/js/reserva/traduccionEspanyol.js"></script>
 <script src="http://reservasfernandovi.esy.es/assets/js/reserva/diasFestivos.js"></script>
+
 
 <script>
 $(function reservandoHoras() {
@@ -43,9 +43,7 @@ $(function () {
         $("#fecha2").datepicker( "destroy" );
         $("#fecha2").css("visibility", "hidden");
     })
-
-    $.datepicker.setDefaults($.datepicker.regional['es']); //Traduccion Español
-
+    $.datepicker.setDefaults($.datepicker.regional['es']); //Traduccion Espaï¿½ol
 
 //FUNCION PARA EL COMPORTAMIENTO DE LOS DATEPICKER
     function datepickerModelado(elDatepicker) {
@@ -68,7 +66,6 @@ $(function () {
 </head>
 <body>
 <h1>Crear Reserva</h1>
-
 <form action="http://reservasfernandovi.esy.es/reserva/crearPost" method="post">
 	<input type="text" name="idUsuario" value="<?= $idUsuario ?>" hidden><br>
 	<label>idObjeto Reservable</label> <input type="text" name="idOR"><br>
@@ -87,7 +84,7 @@ $(function () {
 
 <label>Hora</label> <input type="text" name="horaCogidas" id="horaCogida" onchange="function reservandoHoras()"><br>
 <table id="tablaHoraria" border="1">
-		<tr><td>Horas</td><td>Lunes</td><td>Martes</td><td>Miércoles</td><td>Jueves</td><td>Viernes</td></tr>
+		<tr><td>Horas</td><td>Lunes</td><td>Martes</td><td>Miï¿½rcoles</td><td>Jueves</td><td>Viernes</td></tr>
 		<tr><td id="0.0">8:20-9:15</td><td name="hora" id="8:20"></td><td name="hora" id="8:20"></td><td name="hora" id="8:20"></td><td name="hora" id="8:20" value="miau"></td><td name="hora" id="8:20"></td></tr>
 		<tr><td id="0.1">9:15-10:10</td><td name="hora" id="9:15"></td><td name="hora" id="9:15"></td><td name="hora" id="9:15"></td><td name="hora" id="9:15"></td><td name="hora" id="9:15"></td></tr>
 		<tr><td id="0.2">10:10-11:05</td><td name="hora" id="10:10"></td><td name="hora" id="10:10"></td><td name="hora" id="10:10"></td><td name="hora" id="10:10"></td><td name="hora" id="10:10"></td></tr>

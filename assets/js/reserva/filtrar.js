@@ -55,7 +55,7 @@ $(function() {
 		equipos = document.getElementById('sliderEquipos').noUiSlider.get();
 		capacidad = document.getElementById('sliderCapacidad').noUiSlider.get();
 		console.log(capacidad);
-		$.ajax("reservas/filtrarPost", {
+		$.ajax("http://reservasfernandovi.esy.es/reservas/filtrarPost", {
 			type: "POST",
 			data: {
 				"categoria": categoria,

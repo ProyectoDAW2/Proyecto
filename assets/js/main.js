@@ -1,4 +1,4 @@
-
+/*
 $(document).ready(function(){
     $(".modalContainer .backdrop").click(function () {
         $(this).parent().addClass("hidden");
@@ -142,4 +142,4 @@ $(document).on('click', '.fc-day-header', function(){
     modal.find(".date").text(arrayDayWeek);
     modal.removeClass("hidden");
 });
-
+*/

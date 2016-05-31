@@ -9,21 +9,37 @@
             <div class="row">
 		<form action="http://reservasfernandovi.esy.es/objetoreservable/buscarAula" method="post">
 			<div class="col-sm-12 col-md-12 text-center portfolio-item">
-				<input type="text" id="numaula" name="numaula" onchange="numAulaNumerico(this.value)"/>
-				<input type="submit" id="buscar" name="buscar" value="Buscar"/>
+			<div class="row control-group">
+                            <div class="form-group col-xs-8 col-xs-offset-2 floating-label-form-group controls">
+                                <label>Introduce el nombre o n&uacute;mero de Aula</label>
+                                <input type="text" id="numaula" name="numaula" onchange="numAulaNumerico(this.value)"/>
+                                <p class="help-block text-danger"></p>
+                            </div>
+                        </div>
+                        
+				 <div class="form-group col-md-12">
+				 <div class="form-group col-md-4 col-md-offset-2">
+				<input type="submit" id="buscar" name="buscar" value="Buscar" class="botonPerfil btn btn-warning btn-md btn-block login-button"/>
+				</div>
 			
 			<!-- <input type="submit" id="crearAula" name="crearAula" value="Crear un aula nueva"/> -->
 			<!-- <div class="col-sm-6 portfolio-item"> -->
-				<td><a href="#crearAula" class="portfolio-link" data-toggle="modal">Crear un aula nueva</a></td>
+			<div class="form-group col-md-4 ">
+				<td><a href="#crearAula" class="botonPerfil btn btn-primary btn-md btn-block login-button" data-toggle="modal" >Crear un aula nueva</a></td>
+			</div>
+			</div>
+			
 			</div>
 			<!-- <a href="http://reservasfernandovi.esy.es/objetoreservable/crear">Crear un aula nueva</a> -->
 			
 		</form>
 				<?php if(isset($datosAula)):?>
 					<?php if($datosAula!=false):?>
-					<div class="col-sm-12 col-md-12 text-center">
-						<table id="listaAulas" name="listaAulas">
-							<tr><td>N&uacute;m. Aula</td><td>Nombre</td><td>Capacidad</td><td>Categor&iacute;a</td><td>N&uacute;m. Equipos</td><td>Red</td><td>Proyector</td></tr>
+					<div class="col-sm-10 col-md-10 col-md-offset-1">
+					<div class="table-responsive">
+						<table id="listaAulas" name="listaAulas" class="table table-bordered table-striped bs-events-table">
+							<thead><tr><th>N&uacute;m. Aula</th><th>Nombre</th><th>Capacidad</th><th>Categor&iacute;a</th><th>N&uacute;m. Equipos</th><th>Red</th><th>Proyector</th></tr></thead>
+								<tbody>
 								<?php foreach($datosAula as $aula):?>
 									<tr>
 									<?php foreach($aula as $clave=>$valor):?>
@@ -53,11 +69,12 @@
 									<?php endforeach;?>
 										<!-- <td><a href="http://reservasfernandovi.esy.es/objetoreservable/modificar?numeroAula=<?= $numeroAula ?>">modificar</a></td> -->
 										<div class="col-sm-6 portfolio-item">
-											<td><a href="#modAula" class="portfolio-link" data-toggle="modal">modificar</a></td>
+											<td><a href="#modAula" class="botonPerfil btn btn-success btn-md" data-toggle="modal" >Modificar</a></td>
 										</div>
-										<td><a href="http://reservasfernandovi.esy.es/objetoreservable/borrar?numeroAula=<?= $numeroAula ?>">borrar</a></td>
+										<td><a href="http://reservasfernandovi.esy.es/objetoreservable/borrar?numeroAula=<?= $numeroAula ?>" class="botonPerfil btn btn-danger btn-md">Borrar</a></td>
 									</tr>
 								<?php endforeach;?>
+								<tbody>
 						</table>
 					</div>
 					<?php endif; ?>

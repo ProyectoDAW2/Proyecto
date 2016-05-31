@@ -19,7 +19,7 @@
 				</a>
 			</div>
 			<div class="col-sm-6 portfolio-item">
-				<a href="#portfolioModal2" class="portfolio-link"
+				<a href="#listarReservas" class="portfolio-link"
 					data-toggle="modal">
 					<div class="caption">
 						<div class="caption-content">
@@ -103,14 +103,13 @@
 							<h4>Filtrado</h4>
 							<hr class="star-primary">
 							<p>
-							
-								Categor&iacute;a 
-								<select class="selectpicker" name="categoria" id="categoria" data-style="btn-primary" >
+
+								Categor&iacute;a
+								<select class="selectpicker" name="categoria" id="categoria" data-style="btn-info" >
 									<option value="todas" selected>Todas</option>
                                         <?php foreach ($categorias as $categoria):?>
                                          <?php foreach($categoria as $categ=>$nombre): ?>
-                                         <option value="<?= $nombre ?>">
-                                         <?= $nombre?>
+                                         <option value="<?= $nombre ?>"><?= $nombre?>
                                          </option>
                                          <?php endforeach; ?>
                                           <?php endforeach;?>
@@ -121,10 +120,7 @@
     						</label>
     						<label class="btn btn-primary active">
     						<input type="checkbox" name="proyector" id="proyector"/> Proyector
-    						</label>							
-							
-							
-							
+    						</label>
 							<p><label for="equipos">N&uacute;mero de equipos:</label></p>
 							<p><div id="sliderEquipos"></div></p>
 							<p><br> <label for="capacidad">Capacidad del aula:</label></p>
@@ -134,7 +130,6 @@
 						</div>
 					</div>
 					<div class="col-md-3">
-					
 						<div class="modal-body">
 							<h4>Aulas Disponibles</h4>
 							<hr class="star-primary">
@@ -142,10 +137,14 @@
 						</div>
 					</div>
 				</div>
-				<div class="col-md-12">
+                <div class="col-md-2">
+                </div>
+                <div class="col-md-8">
 					<h4>Calendario</h4>
 					<div id='calendar'></div>
 				</div>
+                <div class="col-md-2">
+                </div>
 				<div class="modalContainer hidden" id="bookingModal">
 					<div class="backdrop"></div>
 					<div class="customModal">
@@ -203,6 +202,77 @@
 		</div>
 	</div>
 </div>
+
+
+    <div class="portfolio-modal modal fade" id="listarReservas" tabindex="-1" role="dialog" aria-hidden="true">
+<div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl">
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2>Sus Aposentos</h2>
+                    <hr class="star-primary">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-8 col-lg-offset-2">
+<div class="col-sm-8 col-sm-offset-2">
+<div class="table-responsive">
+<table class="table table-bordered table-striped bs-events-table">
+  <thead>
+  <tr>
+   
+   
+    <th>Fecha</th>
+    <th>Hora</th>
+    <th>Objeto Reservado</th>
+    <th>Eliminar</th>
+  </tr>
+  </thead>
+  <tbody>
+  <?php foreach($reservas as $reserva):?>
+<tr>
+<!--Campo oculto para despues borrar a través del id-->
+
+<td><?= $reserva->fecha?></td>
+<td><?= $reserva->hora?></td>
+<td><?= $reserva->ornombre?></td>
+<th>
+<a href="http://reservasfernandovi.esy.es/reservas/borrarUnaReserva?id=<?= $reserva->id?>" class="botonPerfil btn btn-danger btn-sm">Borrar</a></th>
+
+
+</tr>
+<?php endforeach;?>
+  </tbody>
+</table>
 </div>
 </div>
+</div>
+</div>
+            </div>
+        </div>
+	<script type="text/javascript">
+		<?php if(isset($borradoIncorrecto)):?>
+			swal({
+	  	     	title: "",
+	  		 	text: "No se ha podido borrar la reserva. Por favor, inténtelo más tarde",
+	  		 	type: "error",
+	  		 	confirmButtonText: "Aceptar"
+	  		});
+		<?php endif;?>
+		<?php if($borradoCorrecto):?>
+			swal({
+ 	  	     	title: "",
+ 	  		 	text: "Reserva borrada correctamente",
+ 	  		 	type: "success",
+ 	  		 	confirmButtonText: "Continuar"
+ 	  		});
+		<?php endif; ?>
+
+		</script>
 
