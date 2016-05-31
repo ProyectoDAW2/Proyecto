@@ -10,10 +10,10 @@ class Usuario extends CI_Controller
     public function registrar() {
         //$this->load->view ('templates/header');
         $datos['pantalla']= "registro";
-        $this->load->view ('templates/headerSinCabecera', $datos);
+        $this->load->view('templates/headerSinCabecera', $datos);
         //$this->load->view ('usuario/formuRegistro');
-        $this->load->view ('usuario/registro2');
-        $this->load->view ('templates/footer3');
+        $this->load->view('usuario/registro2');
+        $this->load->view('templates/footer3');
     }
 
     public function registrarPost() {
@@ -267,6 +267,11 @@ class Usuario extends CI_Controller
 		$this->load->view ('templates/header3');
 		$this->load->view ('usuario/contacto', $datos);
 		$this->load->view ('templates/footer3');
+	}
+	
+	public function cerrarSesion(){
+		session_destroy();
+		$this->login();
 	}
 }
 ?>

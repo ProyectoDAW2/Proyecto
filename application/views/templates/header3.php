@@ -10,7 +10,13 @@
     <meta name="author" content="">
 
     <title>Gestor de Espacios</title>
-     <!-- Aï¿½adimos archivos de jquery -->
+
+     <!-- Añadimos archivos de jquery -->
+    <script type='text/javascript' src='http://reservasfernandovi.esy.es/assets/jquery/jquery-1.12.3.min.js'></script>
+    <script type='text/javascript' src='http://reservasfernandovi.esy.es/assets/jquery/jquery-ui.min.js'></script>
+    <script type='text/javascript' src='http://reservasfernandovi.esy.es/assets/jquery/jquery.min.js'></script>
+    <script type='text/javascript' src='http://reservasfernandovi.esy.es/assets/jquery/jquery.js'></script>
+
 
     <!-- Bootstrap Core CSS - Uses Bootswatch Flatly Theme: http://bootswatch.com/flatly/ -->
     <link href="http://reservasfernandovi.esy.es/assets/templateBootstrap/css/bootstrap2.min.css" rel="stylesheet">
@@ -42,6 +48,9 @@
     
     <!-- Select Buttons -->
     <link rel="stylesheet" href="http://reservasfernandovi.esy.es/assets/Select-Bootstrap/dist/css/bootstrap-select.css">
+
+	<!-- Estilos añadidos a elementos de esta cabecera -->
+	<link rel="stylesheet" href="http://reservasfernandovi.esy.es/assets/templateBootstrap/css/cabecera.css">
 </head>
 
 <body id="page-top" class="index">
@@ -58,7 +67,7 @@
                     <span class="icon-bar"></span>
                 </button>
 
-                <a class="navbar-brand" href="http://reservasfernandovi.esy.es/reservas">Gestor Espacios</a>
+                <a class="navbar-brand" href="http://reservasfernandovi.esy.es/reservas"><div class="containerLogo"><img id="logoApp" src="http://reservasfernandovi.esy.es/assets/img/logo.png"></div></a>
 
             </div>
 
@@ -77,7 +86,9 @@
                     </li>
                     <li class="page-scroll">
                         <a href="http://reservasfernandovi.esy.es/usuario/contacto">Contacto</a>
-
+                    </li>
+                    <li class="page-scroll">
+                        <a href="http://reservasfernandovi.esy.es/usuario/cerrarSesion">Cerrar Sesi&oacute;n</a>
                     </li>
                 </ul>
             </div>

@@ -98,7 +98,9 @@
                     </li>
                     <li class="page-scroll">
                         <a href="http://reservasfernandovi.esy.es/usuario/contacto">Contacto</a>
-
+                    </li>
+                    <li class="page-scroll">
+                        <a href="http://reservasfernandovi.esy.es/usuario/cerrarSesion">Cerrar Sesi&oacute;n</a>
                     </li>
                 </ul>
             </div>
