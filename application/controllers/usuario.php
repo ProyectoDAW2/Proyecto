@@ -268,5 +268,10 @@ class Usuario extends CI_Controller
 		$this->load->view ('usuario/contacto', $datos);
 		$this->load->view ('templates/footer3');
 	}
+	
+	public function cerrarSesion(){
+		session_destroy();
+		$this->login();
+	}
 }
 ?>
