@@ -85,27 +85,22 @@ function validarDatosModificar(){
 	
 	if(/^[0-9]{3}$/.test(numeroMod)){
 		numeroCorrectoMod= true;
-		alert("numeroSI");
 	}
 	
 	if(/^([a-zA-Z ]|\d){3,30}$/.test(nombreMod)){
 		nombreCorrectoMod= true;
-		alert("nombreSI");
 	}
 	
 	if(/^[a-zA-Z ]{3,30}$/.test(categoriaMod)){
 		categoriaCorrectaMod= true;
-		alert("categoriaSI");
 	}
 	
 	if(/^[0-9]{1,3}$/.test(equiposMod)){
 		equiposCorrectoMod= true;
-		alert("equiposSI");
 	}
 	
 	if(/^[0-9]{1,3}$/.test(capacidadMod)){
 		capacidadCorrectaMod= true;
-		alert("capacidadSI");
 	}
 	
 	if(numeroCorrectoMod && nombreCorrectoMod && categoriaCorrectaMod && equiposCorrectoMod && capacidadCorrectaMod){

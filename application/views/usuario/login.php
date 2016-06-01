@@ -36,7 +36,7 @@
             <div class="element-input">
                 <label class="title"></label>
                 <div class="item-cont">
-                    <span><a href="recuperar">&iquest;Has olvidado tus datos?</a></span>
+                    <span><a href="http://reservasfernandovi.esy.es/usuario/recuperar">&iquest;Has olvidado tus datos?</a></span>
                 </div>
             </div>
             <span class="clearfix"></span>

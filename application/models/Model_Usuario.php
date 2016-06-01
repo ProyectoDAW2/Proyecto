@@ -110,5 +110,10 @@ class Model_Usuario extends RedBean_SimpleModel{
 		$usuario->password=$cadena;
 		R::store($usuario);
 	}
+	
+	public function buscarPorRol($id){
+		$usuario= R::load('usuario', $id);
+		return $usuario->rol;
+	}
 }
 ?>

@@ -4,6 +4,7 @@ class Usuario extends CI_Controller
 {
 	public function index(){
 		$this->login();
+		//$this->load->view('usuario/pruebaEmail');
 	}
 	
     /*----- Registrar usuarios -----*/
@@ -65,13 +66,9 @@ class Usuario extends CI_Controller
     /*----- Login usuarios -----*/
 
     public function login() {
-    	$datos['pantalla']= "login";
-        //$this->load->helper ('form');
-        //$this->load->view ('templates/header');
-        $this->load->view ('templates/headerLogin', $datos);
+        $this->load->view ('templates/headerLogin');
         $this->load->view ('usuario/login');
         $this->load->view ('templates/footer2');
-        //$this->load->view ('templates/footer');
     }
 
     public function loginPost() {
@@ -92,9 +89,20 @@ class Usuario extends CI_Controller
             		$this->load->view('templates/footer3');
             	}
                 else{
-                	$this->load->view ('templates/headerPerfil');
+                	/*$this->load->view ('templates/headerPerfil');
                 	$this->load->view ('usuario/perfil2');
-                	$this->load->view ('templates/footerPerfil');
+                	$this->load->view ('templates/footerPerfil');*/
+                	$rol= $this->mu->buscarPorRol($id);
+                	if($rol=="profesor"){
+                		$this->load->view ('templates/header3');
+                		$this->load->view ('reservas/indexProfesor');
+                		$this->load->view ('templates/footer3');
+                	}
+                	if($rol=="alumno"){
+                		$this->load->view ('templates/header3');
+                		$this->load->view ('reservas/indexAlumno');
+                		$this->load->view ('templates/footer3');
+                	}
                 }
                 $anyo= time()+31536000;
                 if($remember==TRUE) {
@@ -224,9 +232,9 @@ class Usuario extends CI_Controller
     /*----- Recuperar contraseña de la cuenta -----*/
 
 	public function recuperar() {
-		$this->load->view ('templates/headerSinCabecera');
+		$this->load->view('templates/headerSinCabecera');
 		$this->load->view('usuario/recuperar');
-		$this->load->view ('templates/footer3');
+		$this->load->view('templates/footer3');
 	}
 	
 	public function recuperarPost() {
@@ -241,7 +249,8 @@ class Usuario extends CI_Controller
 			
 			//Vamos a crear la cadena aleatoria que ser� la nueva contrase�a					
 			$length= 5;
-			$cadena= (str_shuffle("0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ", 0, $length));
+			//$cadena= (str_shuffle("0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ", 0, $length));
+			$cadena= (str_shuffle("estoesunacadenadesordenada"));
 			
 			$this->mu->cambiarPass($correo,$cadena);
 			
