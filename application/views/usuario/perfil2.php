@@ -1,7 +1,7 @@
 <section id="perfil">
   <div class="container">
   <div class="row">
-                <div class="col-lg-12 text-center">
+                <div class="margenTitulo col-lg-12 text-center">
                     <h2>PERFIL</h2>
                     <hr class="star-primary">
                 </div>
@@ -12,7 +12,6 @@
 
 		<fieldset>
 			<div id="contentImagenPerfil"></div>
-		
 		<!-- Imagen perfil --> 
 		<div class="form-group">
 			
@@ -31,7 +30,7 @@
 		<div class="form-group">
 		  <label class="col-md-4 control-label" for="nickCambio">Nick</label>  
 		  <div class="col-md-4">
-		  <input id="nick" name="nick" type="text" placeholder="" class="form-control input-md" value="">
+		  <input id="nick" name="nick" type="text" placeholder="" class="form-control input-md" value="<?= $nickUsuario ?>">
 		    
 		  </div>
 		</div>
@@ -40,7 +39,7 @@
 		<div class="form-group">
 		  <label class="col-md-4 control-label" for="passwordActual">Contrase&ntilde;a actual</label>
 		  <div class="col-md-4">
-		    <input id="passwordActual" name="passwordActual" type="password" class="form-control input-md">
+		    <input id="passwordActual" name="passwordActual" type="password" class="form-control input-md" require data-validation-required-message="Campo obligatorio para cualquier cambio">
 		    
 		  </div>
 		</div>
@@ -67,7 +66,7 @@
 		<div class="form-group">
 		  <label class="col-md-4 control-label" for="correoCambio">Email</label>  
 		  <div class="col-md-4">
-		  <input id="correo" name="correo" type="text" class="form-control input-md">
+		  <input id="correo" name="correo" type="text" class="form-control input-md" value="<?= $correoUsuario ?>">
 		    
 		  </div>
 		</div>

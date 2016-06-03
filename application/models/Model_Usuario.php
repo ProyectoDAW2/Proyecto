@@ -115,5 +115,18 @@ class Model_Usuario extends RedBean_SimpleModel{
 		$usuario= R::load('usuario', $id);
 		return $usuario->rol;
 	}
+	
+	public function obtenerNombreYCorreo($id, $pantalla){
+		$usuario= R::load('usuario', $id);
+		if($pantalla=="contacto"){
+			//devolvemos el nombre completo del usuario y su correo
+			return $usuario->nombre." ".$usuario->apellidos."/".$usuario->correo;
+		}
+		if($pantalla=="perfil"){
+			//devolvemos el nick del usuario y su correo
+			return $usuario->nick." ".$usuario->correo;
+		}
+	}
+
 }
 ?>
