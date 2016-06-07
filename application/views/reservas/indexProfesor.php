@@ -104,8 +104,8 @@
 							<hr class="star-primary">
 							<p>
 
-								Categor&iacute;a
-								<select class="selectpicker" name="categoria" id="categoria" data-style="btn-info" >
+								<label>Categor&iacute;a</label>
+								<select class="selectpicker" name="categoria" id="categoria" data-style="btn btn-primary active" >
 									<option value="todas" selected>Todas</option>
                                         <?php foreach ($categorias as $categoria):?>
                                          <?php foreach($categoria as $categ=>$nombre): ?>
@@ -196,7 +196,7 @@
 
 			</div>
 			<button type="button" class="btn btn-default" data-dismiss="modal">
-				<i class="fa fa-times"></i> Close
+				<i class="fa fa-times"></i> Cerrar
 			</button>
 
 		</div>
@@ -204,7 +204,7 @@
 </div>
 
 
-    <div class="portfolio-modal modal fade" id="listarReservas" tabindex="-1" role="dialog" aria-hidden="true">
+ <div class="portfolio-modal modal fade" id="listarReservas" tabindex="-1" role="dialog" aria-hidden="true">
 <div class="modal-content">
             <div class="close-modal" data-dismiss="modal">
                 <div class="lr">
@@ -223,6 +223,7 @@
                 <div class="col-md-8 col-lg-offset-2">
 <div class="col-sm-8 col-sm-offset-2">
 <div class="table-responsive">
+ <?php if($reservas!=null):?>
 <table class="table table-bordered table-striped bs-events-table">
   <thead>
   <tr>
@@ -250,29 +251,44 @@
 <?php endforeach;?>
   </tbody>
 </table>
+<?php endif; ?>
+<?php if($reservas==null):?>
+<p>De momento no tiene ning&uacute;n aposento reservado</p>
+<?php endif; ?>
+</div>
+</div>
+
+	</div>
+</div>
+	<button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Cerrar</button>
+
 </div>
 </div>
 </div>
-</div>
-            </div>
-        </div>
-	<script type="text/javascript">
-		<?php if(isset($borradoIncorrecto)):?>
+
+<script type="text/javascript">
+		<?php if(isset($borrado)):?>
+			<?php if($borrado==false):?>
 			swal({
 	  	     	title: "",
 	  		 	text: "No se ha podido borrar la reserva. Por favor, inténtelo más tarde",
 	  		 	type: "error",
 	  		 	confirmButtonText: "Aceptar"
 	  		});
-		<?php endif;?>
-		<?php if($borradoCorrecto):?>
+			<?php endif; ?>
+			<?php if($borrado==true):?>
 			swal({
  	  	     	title: "",
  	  		 	text: "Reserva borrada correctamente",
  	  		 	type: "success",
  	  		 	confirmButtonText: "Continuar"
  	  		});
-		<?php endif; ?>
+			<?php endif; ?>
+		<?php endif;?>
+		
+		
 
 		</script>
+       
+	
 
