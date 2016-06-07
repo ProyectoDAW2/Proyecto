@@ -38,7 +38,7 @@
   	<?php if(isset($passIncorrecta)):?>
 		swal({
   	     title: "Revisa los datos",
-  		 text: "",
+  		 text: "Recuerda que la contrase\u00f1a actual es obligatoria",
   		 type: "error",
   		 confirmButtonText: "Aceptar"
   		});

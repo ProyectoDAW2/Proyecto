@@ -77,7 +77,7 @@ class Usuario extends CI_Controller
         $remember= isset ($_POST['remember']) ? TRUE : FALSE;
 
         $this->load->model('Model_Usuario', 'mu');
-        $existeUsuario= $this->mu->login ($nick,$password);
+        $existeUsuario= $this->mu->login($nick,$password);
 
         if($existeUsuario!=""){
             $id=$existeUsuario;
@@ -93,6 +93,7 @@ class Usuario extends CI_Controller
                 	$this->load->view ('usuario/perfil2');
                 	$this->load->view ('templates/footerPerfil');*/
                 	$rol= $this->mu->buscarPorRol($id);
+                	
                 	if($rol=="profesor"){
                 		$this->load->view ('templates/header3');
                 		$this->load->view ('reservas/indexProfesor');
@@ -116,6 +117,7 @@ class Usuario extends CI_Controller
             $this->load->view ('templates/footer3');
         }
     }
+
 
     /*----- Listar usuarios -----*/
 
@@ -157,10 +159,24 @@ class Usuario extends CI_Controller
 
     public function perfil() {
         $id= isset ($_SESSION['idUsuario']) ? $_SESSION ['idUsuario'] : null;
-        $datos ['idUsuario']=$id;
-        $this->load->view ('templates/headerPerfil');
-        $this->load->view ('usuario/perfil2', $datos);
-        $this->load->view ('templates/footerPerfil');
+
+        if($id!=null){
+        	$pantalla= "perfil";
+	        $this->load->model('Model_Usuario', 'mu');
+	        $resultado= $this->mu->obtenerNombreYCorreo($id, $pantalla);
+	        
+	        $separacion= explode(" ", $resultado);
+	       	$nick= $separacion[0];
+			$correo= $separacion[1];
+			
+			$datos['nickUsuario']= $nick;
+			$datos['correoUsuario']= $correo;
+	        
+	        $this->load->view ('templates/headerPerfil');
+	        $this->load->view ('usuario/perfil2', $datos);
+	        $this->load->view ('templates/footerPerfil');
+        }
+
     }
 
 	public function perfilPost() {
@@ -192,28 +208,46 @@ class Usuario extends CI_Controller
 				//$datos['imagen']= "<img style='width: 60px;height: 60px;border-radius:50%;' src=".base_url().'assets/imagenes/perfil/'.$nombre.">";
 				$datos['imagen']= $nombre;
 				
-				if($idUsuario!=0) {
-					$this->mu->cambiarPerfil ($idUsuario, $nick, $password, $correo);
-	
-	                $this->load->view ('templates/headerPerfil');
-	                //$this->load->view ('usuario/perfilPost', $datos);
+				if($idUsuario!=0 || $idUsuario!=null) {
+					$this->mu->cambiarPerfil($idUsuario, $nick, $password, $correo);
+					$resultado= $this->mu->obtenerNombreYCorreo($_SESSION['idUsuario'], "perfil");
+	        
+			        $separacion= explode(" ", $resultado);
+			       	$nick= $separacion[0];
+					$correo= $separacion[1];
 					
+					$datos['nickUsuario']= $nick;
+					$datos['correoUsuario']= $correo;
+					
+	                $this->load->view ('templates/headerPerfil');
 					$this->load->view('usuario/perfil2', $datos);
 	                $this->load->view('templates/footerPerfil');
 	            }
 				else{
-	                /*$this->load->view('templates/header3');
-	                $this->load->view('errors/noPassword');
-	                $this->load->view('templates/footer3');*/
+	                $resultado= $this->mu->obtenerNombreYCorreo($_SESSION['idUsuario'], "perfil");
+	        
+			        $separacion= explode(" ", $resultado);
+			       	$nick= $separacion[0];
+					$correo= $separacion[1];
+					
+					$datos['nickUsuario']= $nick;
+					$datos['correoUsuario']= $correo;
+					
 					$this->load->view('templates/headerPerfil');
 	                $this->load->view('usuario/perfil2', $datos);
 	                $this->load->view('templates/footerPerfil');
 	            }
 			}
 			else{
-	            /*$this->load->view('templates/header3');
-	            $this->load->view('errors/noPassword');
-	            $this->load->view('templates/footer3');*/
+	            $resultado= $this->mu->obtenerNombreYCorreo($_SESSION['idUsuario'], "perfil");
+	        
+			    $separacion= explode(" ", $resultado);
+			    $nick= $separacion[0];
+				$correo= $separacion[1];
+					
+				$datos['nickUsuario']= $nick;
+				$datos['correoUsuario']= $correo;  
+					
 	            $this->load->view('templates/headerPerfil');
 	            $this->load->view('usuario/perfil2', $datos);
 	            $this->load->view('templates/footerPerfil');
@@ -272,13 +306,100 @@ class Usuario extends CI_Controller
 	public function contacto()
 	{
 		$id= isset ($_SESSION['idUsuario']) ? $_SESSION ['idUsuario'] : null;
-		$datos ['idUsuario']=$id;
-		$this->load->view ('templates/header3');
-		$this->load->view ('usuario/contacto', $datos);
-		$this->load->view ('templates/footer3');
+		
+		if($id!=null){
+			$this->load->model('Model_Usuario', 'mu');
+			$pantalla= "contacto";
+			$resultado= $this->mu->obtenerNombreYCorreo($id, $pantalla);
+			$separacion= explode("/", $resultado);
+			$nombreCompleto= $separacion[0];
+			$correo= $separacion[1];
+			
+			$datos['nombreUsuario']= $nombreCompleto;
+			$datos['correoUsuario']= $correo;
+			
+			$this->load->view ('templates/header3');
+			$this->load->view ('usuario/contacto', $datos);
+			$this->load->view ('templates/footer3');
+		}
+		
+		
 	}
 	
-	public function cerrarSesion(){
+	public function contacto2(){
+			
+		$name = $_REQUEST['name'];
+		$email_receiver = $_REQUEST['email'];
+		$messageInicial = $_REQUEST['message'];
+		$messageInicialRetocado = "Mensaje: ".$messageInicial;
+		//$messageInicial = nl2br($_REQUEST['mensaje']);
+		$subject= $name." tiene una consulta";
+		$message= $messageInicialRetocado."<br><br>Para poder contactar con este usuario y solucionar su consulta, le facilitamos su correo electrónico: ".$email_receiver;
+		$email= $this->sendMail($email_receiver, $message, $subject);
+
+		if($email){
+			//$datos['contactoAdministrador']= "si";
+			$this->load->view('templates/header3');
+			$this->load->view('usuario/contacto');
+			$this->load->view('templates/footer3');
+		}
+		
+	}
+	
+	public function sendMail($emailReceiver, $message, $subject) {
+        $adminEmail = 'proyectodaw02@gmail.com';
+        $adminPass = 'proyecto2016';
+        
+        $this->load->library('email');
+        
+        $configGmail = null;
+        
+        if ($_SERVER ['SERVER_NAME'] == 'reservasfernandovi.esy.es') {
+            $configGmail = array (
+                    'protocol' => 'smtp',
+                    'smtp_host' => 'ssl://smtp.gmail.com',
+                    'smtp_port' => 465,
+                    'smtp_user' => $adminEmail, // correo desde el cual se envia
+                    'smtp_pass' => $adminPass, // contraseña del correo
+                    'mailtype' => 'html',
+                    'charset' => 'utf-8',
+                    'newline' => "\r\n" 
+            );
+        } else {
+            
+            $configGmail = array (
+                    // 'protocol' => 'smtp',
+                    'smtp_host' => 'ssl://smtp.gmail.com', // 'ssl://smtp.googlemail.com'//ssl://smtp.gmail.com
+                    'smtp_port' => 587, // 465//25
+                    'smtp_user' => $adminEmail, // change it to yours
+                    'smtp_pass' => $adminPass, // change it to yours
+                    'mailtype' => 'html',
+                    'charset' => 'utf-8',
+                    'newline' => "\r\n",
+                    'validation' => TRUE,
+                    'smtp_crypto' => 'tls', // tls or ssl
+                    'wordwrap' => TRUE 
+            );
+        }
+        
+        $this->email->initialize ( $configGmail );
+        
+        $this->email->from('contacto@reservasfernandovi.esy.es', 'Contacto Administrador');
+
+        $this->email->to($adminEmail);
+        
+        $this->email->subject ($subject);
+        
+        $this->email->message ($message);
+        
+        if ($this->email->send()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+	
+	 public function cerrarSesion(){
 		session_destroy();
 		$this->login();
 	}

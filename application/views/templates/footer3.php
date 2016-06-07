@@ -43,6 +43,8 @@
 
 <!-- Select Buttons -->
 <script src="http://reservasfernandovi.esy.es/assets/Select-Bootstrap/dist/js/bootstrap-select.js"></script>
+
+<!-- Sweet Alert -->
 <script src="http://reservasfernandovi.esy.es/assets/sweetalert-master/dist/sweetalert.min.js"></script>
 
 <!-- Contacto -->

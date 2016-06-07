@@ -35,34 +35,32 @@
     <link rel="stylesheet" href="http://reservasfernandovi.esy.es/assets/css/usuario/perfil.css">
     
    
-  <!-- Perfil -->
+    <!-- Perfil -->
  	<script src="http://reservasfernandovi.esy.es/assets/js/usuario/perfil.js" type="text/javascript"></script>
  	<script src="<?=base_url() ?>assets/js/usuario/imagenPerfil.js" type="text/javascript"></script>
-    
-	
+ 
     <!-- Bootstrap -->
     <script type='text/javascript' src='http://reservasfernandovi.esy.es/assets/js/bootstrap/bootstrap.min.js'></script>
     <script type='text/javascript' src='http://reservasfernandovi.esy.es/assets/js/bootstrap/bootstrap.js'></script>
     
-    <!-- Plugin JavaScript -->
-    
+    <!-- Plugin JavaScript --> 
     <script src="http://reservasfernandovi.esy.es/assets/templateBootstrap/js/classie.js"></script>
     <script src="http://reservasfernandovi.esy.es/assets/templateBootstrap/js/cbpAnimatedHeader.js"></script>
 
     <!-- Contact Form JavaScript -->
-
     <script src="http://reservasfernandovi.esy.es/assets/templateBootstrap/js/jqBootstrapValidation.js"></script>
     <script src="http://reservasfernandovi.esy.es/assets/templateBootstrap/js/contact_me.js"></script>
-    
 
     <!-- Custom Theme JavaScript -->
     <script src="http://reservasfernandovi.esy.es/assets/templateBootstrap/js/freelancer.js"></script>
-    
     
     <!-- SweetAlert -->
     <script src="http://reservasfernandovi.esy.es/assets/sweetalert-master/dist/sweetalert.min.js"></script> 
     <link rel="stylesheet" type="text/css" href="http://reservasfernandovi.esy.es/assets/sweetalert-master/dist/sweetalert.css">
 
+	<!-- Cabecera (titulo) -->
+	<link rel="stylesheet" type="text/css" href="http://reservasfernandovi.esy.es/assets/templateBootstrap/css/cabecera.css">
+	
 </head>
 
 <body id="page-top" class="index">

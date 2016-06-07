@@ -21,9 +21,20 @@ class reservas extends CI_Controller
 		$datos['reservas']= $reservas;
 		
 		//$datos['idUsuario']= isset($_SESSION['idUsuario']) ? $_SESSION['idUsuario']:null;
-		$this->load->view('templates/header3');
-		$this->load->view('reservas/indexProfesor',$datos);
-		$this->load->view('templates/footer3');
+		$this->load->model('Model_Usuario', 'mu');
+		$id=$_SESSION['idUsuario'];
+		$rol= $this->mu->buscarPorRol($id);
+		
+		if($rol=="profesor"){
+        	$this->load->view ('templates/header3');
+            $this->load->view ('reservas/indexProfesor', $datos);
+            $this->load->view ('templates/footer3');
+        }
+        if($rol=="alumno"){
+            $this->load->view ('templates/header3');
+            $this->load->view ('reservas/indexAlumno', $datos);
+            $this->load->view ('templates/footer3');
+        }
 	}
 
 	public function createPost(){

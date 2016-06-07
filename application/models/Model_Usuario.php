@@ -115,10 +115,26 @@ class Model_Usuario extends RedBean_SimpleModel{
 		$usuario= R::load('usuario', $id);
 		return $usuario->rol;
 	}
+
 	//Nos permite otener datos del usuario para devolverselos al administrador
 	public function getDatosUsuario($datoUsuario){
 		return R::getAll( 'select id, apellidos, rol, correo, nick from usuario where nombre = :datos or nick=:datos or correo=:datos',
 		array(':datos' => $datoUsuario));
 	}
+
+	
+	public function obtenerNombreYCorreo($id, $pantalla){
+		$usuario= R::load('usuario', $id);
+		if($pantalla=="contacto"){
+			//devolvemos el nombre completo del usuario y su correo
+			return $usuario->nombre." ".$usuario->apellidos."/".$usuario->correo;
+		}
+		if($pantalla=="perfil"){
+			//devolvemos el nick del usuario y su correo
+			return $usuario->nick." ".$usuario->correo;
+		}
+	}
+
+
 }
 ?>

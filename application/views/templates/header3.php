@@ -42,8 +42,7 @@
 	<!-- Perfil -->
     <link rel="stylesheet" href="http://reservasfernandovi.esy.es/assets/css/usuario/perfil.css">
 
-	<!-- SweetAlert -->
-	    <script src="http://reservasfernandovi.esy.es/assets/sweetalert-master/dist/sweetalert.min.js"></script> 
+	<!-- SweetAlert --> 
     <link rel="stylesheet" type="text/css" href="http://reservasfernandovi.esy.es/assets/sweetalert-master/dist/sweetalert.css">
     
     <!-- Select Buttons -->
