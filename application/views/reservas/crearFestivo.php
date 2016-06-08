@@ -11,7 +11,7 @@
                 <span class="icon-bar"></span>
             </button>
 
-            <a class="navbar-brand" href="http://reservasfernandovi.esy.es/reservas">Gestor Espacios</a>
+            <a class="navbar-brand" href="<?= base_url()?>reservas">Gestor Espacios</a>
 
         </div>
 
@@ -23,13 +23,13 @@
                 </li>
                 <li class="page-scroll">
 
-                    <a href="http://reservasfernandovi.esy.es/reservas">Reservas</a>
+                    <a href="<?= base_url()?>reservas">Reservas</a>
                 </li>
                 <li class="page-scroll">
-                    <a href="http://reservasfernandovi.esy.es/usuario/perfil">Perfil</a>
+                    <a href="<?= base_url()?>usuario/perfil">Perfil</a>
                 </li>
                 <li class="page-scroll">
-                    <a href="http://reservasfernandovi.esy.es/usuario/contacto">Contacto</a>
+                    <a href="<?= base_url()?>usuario/contacto">Contacto</a>
                 </li>
             </ul>
         </div>
@@ -47,7 +47,7 @@
             </div>
         </div>
         <div class="row">
-            <form  action="http://reservasfernandovi.esy.es/usuario/perfilPost" method="post" class="form-horizontal" enctype="multipart/form-data">
+            <form  action="<?= base_url()?>usuario/perfilPost" method="post" class="form-horizontal" enctype="multipart/form-data">
                 <fieldset>
                     <!-- Nombre -->
                     <div class="form-group">

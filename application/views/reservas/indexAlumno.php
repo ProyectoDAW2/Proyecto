@@ -15,7 +15,7 @@
 						<div class="caption-content">
 							<i class="fa fa-search-plus fa-3x"></i>
 						</div>
-					</div> <img src="http://reservasfernandovi.esy.es/assets/templateBootstrap/img/portfolio/cabin.png" class="img-responsive" alt="">
+					</div> <img src="<?= base_url()?>assets/templateBootstrap/img/portfolio/cabin.png" class="img-responsive" alt="">
 				</a>
 			</div>
 			<div class="col-sm-4 portfolio-item">
@@ -25,7 +25,7 @@
 						<div class="caption-content">
 							<i class="fa fa-search-plus fa-3x"></i>
 						</div>
-					</div> <img src="http://reservasfernandovi.esy.es/assets/templateBootstrap/img/portfolio/cake.png" class="img-responsive" alt="">
+					</div> <img src="<?= base_url()?>assets/templateBootstrap/img/portfolio/cake.png" class="img-responsive" alt="">
 				</a>
 			</div>
                <div class="col-sm-4 portfolio-item">
@@ -35,7 +35,7 @@
                                 <i class="fa fa-search-plus fa-3x"></i>
                             </div>
                         </div>
-                        <img src="http://reservasfernandovi.esy.es/assets/templateBootstrap/img/portfolio/circus.png" class="img-responsive" alt="">
+                        <img src="<?= base_url()?>assets/templateBootstrap/img/portfolio/circus.png" class="img-responsive" alt="">
                     </a>
                 </div>
 
@@ -229,7 +229,7 @@
                         <div class="modal-body">
                             <h2>Project Title</h2>
                             <hr class="star-primary">
-                            <img src="http://reservasfernandovi.esy.es/assets/templateBootstrap/img/portfolio/cake.png" class="img-responsive img-centered" alt="">
+                            <img src="<?= base_url()?>assets/templateBootstrap/img/portfolio/cake.png" class="img-responsive img-centered" alt="">
                             <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i>Cerrar</button>
                         </div>
                     </div>
@@ -252,7 +252,7 @@
                         <div class="modal-body">
                             <h2>Project Title</h2>
                             <hr class="star-primary">
-                            <img src="http://reservasfernandovi.esy.es/assets/templateBootstrap/img/portfolio/circus.png" class="img-responsive img-centered" alt="">
+                            <img src="<?= base_url()?>assets/templateBootstrap/img/portfolio/circus.png" class="img-responsive img-centered" alt="">
                             <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i>Cerrar</button>
                         </div>
                     </div>

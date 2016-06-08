@@ -7,7 +7,7 @@
                 </div>
             </div>
             <div class="row">
-		<form action="http://reservasfernandovi.esy.es/objetoreservable/buscarAula" method="post">
+		<form action="<?= base_url()?>objetoreservable/buscarAula" method="post">
 			<div class="col-sm-12 col-md-12 text-center portfolio-item">
 			<div class="row control-group">
                             <div class="form-group col-xs-8 col-xs-offset-2 floating-label-form-group controls">
@@ -71,7 +71,7 @@
 										<div class="col-sm-6 portfolio-item">
 											<td><a href="#modAula" class="botonPerfil btn btn-success btn-md" data-toggle="modal" >Modificar</a></td>
 										</div>
-										<td><a href="http://reservasfernandovi.esy.es/objetoreservable/borrar?numeroAula=<?= $numeroAula ?>" class="botonPerfil btn btn-danger btn-md">Borrar</a></td>
+										<td><a href="<?= base_url()?>objetoreservable/borrar?numeroAula=<?= $numeroAula ?>" class="botonPerfil btn btn-danger btn-md">Borrar</a></td>
 									</tr>
 								<?php endforeach;?>
 								<tbody>
@@ -128,7 +128,7 @@
 					<hr class="star-primary">
 					<div class="col-md-8 col-xd-12 col-md-offset-2">
 						<div class="modal-body">
-							<form action="http://reservasfernandovi.esy.es/objetoreservable/modificar" method="post">
+							<form action="<?= base_url()?>objetoreservable/modificar" method="post">
 							<!--<h4>Datos del aula</h4>-->
 								<!-- Es útil por si cambian el numero de aula, porque asi sabes cual era el numero original -->
 								<input type="text" id="numAulaOriginal" name="numAulaOriginal" value="<?= $numeroAula ?>" hidden>
@@ -195,7 +195,7 @@
 					<hr class="star-primary">
 					<div class="col-md-8 col-xd-12 col-md-offset-2">
 						<div class="modal-body">
-							<form action="http://reservasfernandovi.esy.es/objetoreservable/crear" method="post">
+							<form action="<?= base_url()?>objetoreservable/crear" method="post">
 		
 								<p><label for="numeroAulaNueva">N&uacute;mero de aula</label></p>
 								<p><input type="text" id="numeroAulaNueva" name="numeroAulaNueva"></p>

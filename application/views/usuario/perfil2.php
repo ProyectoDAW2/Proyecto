@@ -9,7 +9,7 @@
             <div class="row">
   
   	<div id="contentImagenPerfil"></div>
-    <form action="http://reservasfernandovi.esy.es/usuario/perfilPost" method="post" class="form-horizontal" enctype="multipart/form-data">
+    <form action="<?= base_url()?>usuario/perfilPost" method="post" class="form-horizontal" enctype="multipart/form-data">
 
 		<fieldset>
 			

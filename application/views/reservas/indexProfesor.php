@@ -15,7 +15,7 @@
 						<div class="caption-content">
 							<i class="fa fa-search-plus fa-3x"></i>
 						</div>
-					</div> <img src="http://reservasfernandovi.esy.es/assets/templateBootstrap/img/portfolio/cabin.png" class="img-responsive" alt="">
+					</div> <img src="<?= base_url()?>assets/templateBootstrap/img/portfolio/cabin.png" class="img-responsive" alt="">
 				</a>
 			</div>
 			<div class="col-sm-6 portfolio-item">
@@ -25,7 +25,7 @@
 						<div class="caption-content">
 							<i class="fa fa-search-plus fa-3x"></i>
 						</div>
-					</div> <img src="http://reservasfernandovi.esy.es/assets/templateBootstrap/img/portfolio/cake.png" class="img-responsive" alt="">
+					</div> <img src="<?= base_url()?>assets/templateBootstrap/img/portfolio/cake.png" class="img-responsive" alt="">
 				</a>
 			</div>
 
@@ -244,7 +244,7 @@
 <td><?= $reserva->hora?></td>
 <td><?= $reserva->ornombre?></td>
 <th>
-<a href="http://reservasfernandovi.esy.es/reservas/borrarUnaReserva?id=<?= $reserva->id?>" class="botonPerfil btn btn-danger btn-sm">Borrar</a></th>
+<a href="<?= base_url()?>reservas/borrarUnaReserva?id=<?= $reserva->id?>" class="botonPerfil btn btn-danger btn-sm">Borrar</a></th>
 
 
 </tr>

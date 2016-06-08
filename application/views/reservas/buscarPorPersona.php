@@ -7,7 +7,7 @@
                 </div>
             </div>
             <div class="row">
-		<form action="http://reservasfernandovi.esy.es/reservas/buscarReservasPorPersonasPost" method="post">
+		<form action="<?= base_url()?>reservas/buscarReservasPorPersonasPost" method="post">
 			<div class="col-sm-12 col-md-12 text-center portfolio-item">
 			<div class="row control-group">
                             <div class="form-group col-xs-8 col-xs-offset-2 floating-label-form-group controls">
@@ -55,7 +55,7 @@
 								<td><?= $rU["fecha"]?></td>
 								<td><?= $rU["hora"]?></td>
 							
-								<td><a href="http://reservasfernandovi.esy.es/reservas/borrarUnaReserva?id=<?= $rU["id"] ?>&informacionDeLaBusqueda=<?= $informacionDeLaBusqueda ?>" class="botonPerfil btn btn-danger btn-md botonBorrar" id="<?= $rU["id"] ?>">Borrar</a></td>
+								<td><a href="<?= base_url()?>reservas/borrarUnaReserva?id=<?= $rU["id"] ?>&informacionDeLaBusqueda=<?= $informacionDeLaBusqueda ?>" class="botonPerfil btn btn-danger btn-md botonBorrar" id="<?= $rU["id"] ?>">Borrar</a></td>
 								
 								<!--  <td><button type="button" id="borrar" name="<?= $rU["id"] ?>" data=<?= $informacionDeLaBusqueda ?> class="botonPerfil btn btn-danger btn-md">Borrar</button></td>-->
 								</tr>
@@ -112,14 +112,14 @@
 				
 			    $.ajax( {
 			        type: "POST",
-			        url:"http://reservasfernandovi.esy.es/reservas/borrarTodas",
+			        url:"<?php base_url()?>reservas/borrarTodas",
 			        dataType:"json",
 			        data: {
 			        "idReservas":reservas,
 		  			
 		            },
 		            success:function(response){
-		            	window.location="http://reservasfernandovi.esy.es/reservas/buscarPorPersonaPost";
+		            	window.location="<?= base_url()?>reservas/buscarPorPersonaPost";
 		            }
 
 		            });

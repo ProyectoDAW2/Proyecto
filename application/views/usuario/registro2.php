@@ -9,7 +9,7 @@
             </div>
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2">
-					<form class="form-horizontal" method="post" action="http://reservasfernandovi.esy.es/usuario/registrarPost">
+					<form class="form-horizontal" method="post" action="<?= base_url()?>usuario/registrarPost">
                         <div class="row control-group">
                             <div class="form-group col-xs-12 floating-label-form-group controls">
                                 <label>Nick</label>
@@ -56,7 +56,7 @@
 						</div>
 						<div class="login-register">
 
-				            <a href="http://reservasfernandovi.esy.es/usuario/login">Login</a>
+				            <a href="<?= base_url()?>usuario/login">Login</a>
 
 				         </div>
 					</form>
