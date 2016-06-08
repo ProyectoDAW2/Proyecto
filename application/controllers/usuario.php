@@ -342,9 +342,10 @@ class Usuario extends CI_Controller
 
 		if($email){
 			//$datos['contactoAdministrador']= "si";
-			$this->load->view('templates/header3');
+			/*$this->load->view('templates/header3');
 			$this->load->view('usuario/contacto');
-			$this->load->view('templates/footer3');
+			$this->load->view('templates/footer3');*/
+			$this->contacto();
 		}
 		
 	}
