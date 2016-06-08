@@ -3,7 +3,7 @@
 
 	<img class="image" src="http://reservasfernandovi.esy.es/assets/img/logo.png"/>
 	<h3 class="titleApp">Reserva de aulas IES REY FERNANDO VI</h3>
-    <form action="http://reservasfernandovi.esy.es/usuario/loginPost" method="post" class="form">
+    <form action="http://reservasfernandovi.esy.es/usuario/home" method="post" class="form">
 
         <div class="title"><h2>Login</h2></div>
         <div class="element-input">

@@ -48,5 +48,8 @@
 <!-- Contacto -->
 <script src="http://reservasfernandovi.esy.es/assets/templateBootstrap/js/contact_me.js"></script>
 
+<!-- Deshabilitar retroceder navegador -->
+<script src="http://reservasfernandovi.esy.es/assets/js/custom.js"></script>
+
 </body>
 </html>

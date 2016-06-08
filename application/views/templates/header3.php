@@ -52,7 +52,7 @@
 	<link rel="stylesheet" href="http://reservasfernandovi.esy.es/assets/templateBootstrap/css/cabecera.css">
 </head>
 
-<body id="page-top" class="index">
+<body id="page-top" class="index" >
 
     <!-- Navigation -->
     <nav class="navbar navbar-default navbar-fixed-top">
