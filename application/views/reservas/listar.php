@@ -30,7 +30,7 @@
 <td><?= $reserva->hora?></td>
 <td><?= $reserva->ornombre?></td>
 <th>
-<a href="http://reservasfernandovi.esy.es/reservas/borrarUnaReserva?id=<?= $reserva->id?>" class="botonPerfil btn btn-danger btn-sm">Borrar</a></th>
+<button type="button" class="botonPerfil btn btn-danger btn-sm" id="borrar" >Borrar</button></th>
 
 
 </tr>
@@ -60,7 +60,18 @@
  	  		 	confirmButtonText: "Continuar"
  	  		});
 		<?php endif; ?>
-
+		
+		$(document).ready(function(){
+			$('#borrar').on('click',function() {
+			    $.ajax("http://reservasfernandovi.esy.es/reservas/listarReservaPost", {
+			        type: "POST",
+			        success: function(data){
+			           id:<?= $reserva->id?>,
+			                }
+			            }
+		});
+		});
+	
 		</script>
 
 

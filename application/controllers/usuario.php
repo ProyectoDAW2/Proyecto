@@ -456,5 +456,8 @@ class Usuario extends CI_Controller
 		session_destroy();
 		$this->login();
 	}
+	
+	
+
 }
 ?>

@@ -34,6 +34,7 @@ class Model_Reserva extends RedBean_SimpleModel{
 		//Borramos por ID (al menos por ahora)
 		$reserva=R::load('reserva',$id);
 		R::trash($reserva);
+		return true;
 	}
 	
 	public function getTodos($idUsuario){
@@ -52,6 +53,33 @@ class Model_Reserva extends RedBean_SimpleModel{
 		//return R::findAll('reserva');
 		$reservasOR=R::find( 'reserva', ' or_id LIKE ? ',[$oR]);
 		return $reservasOR;
+	}
+	
+	
+	public function getReservasPorPersonas($datoUsuario){
+		$informacionUsuarios= R::getAll( 'select id from usuario where nombre=:datos or correo=:datos or nick=:datos', 
+		array(':datos' => $datoUsuario));
+		
+		$reservas;
+		
+		$x=0;
+
+		
+			foreach ($informacionUsuarios as $informacionUsuario){
+			
+			
+				$reservas[$x]=$this->getTodos($informacionUsuario["id"]);
+		
+				$x++;
+			
+			
+			}
+	
+	
+
+		
+		
+		return $reservas;
 	}
 }
 ?>

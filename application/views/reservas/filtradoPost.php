@@ -4,5 +4,4 @@
 	<?php $id= $aula['id']?>
 	<option class="result" value="<?= $id ?>"><?= $num ?></option>
 <?php endforeach;?>
-<br>
-<a href="http://reservasfernandovi.esy.es/reserva/filtrar">Buscar m&aacute;s aulas</a>
+
