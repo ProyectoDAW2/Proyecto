@@ -71,7 +71,7 @@ class Usuario extends CI_Controller
         $this->load->view ('templates/footer2');
     }
 
-    public function home() {
+    public function loginPost() {
         $nick= $_REQUEST ['user'];
         $password=$_REQUEST ['password'];
         $remember= isset ($_POST['remember']) ? TRUE : FALSE;
@@ -112,7 +112,10 @@ class Usuario extends CI_Controller
             }
         }
         else{
-            $this->login();
+        	$datos['loginIncorrecto']= "si";
+        	$this->load->view('templates/headerLogin');
+            $this->load->view('usuario/login', $datos);
+            $this->load->view('templates/footer');
         }
     }
 
