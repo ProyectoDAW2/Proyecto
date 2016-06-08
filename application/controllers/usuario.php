@@ -85,7 +85,7 @@ class Usuario extends CI_Controller
             if($id==true){
             	if($id == 1){
             		$this->load->view('templates/header3');
-            		$this->load->view('objetoreservable/editarAulas');
+            		$this->load->view('objetoReservable/editarAulas');
             		$this->load->view('templates/footer3');
             	}
                 else{
@@ -94,14 +94,16 @@ class Usuario extends CI_Controller
                 	$this->load->view ('templates/footerPerfil');*/
                 	$rol= $this->mu->buscarPorRol($id);
                 	
+                	$datos['cookies']="si";
+                	
                 	if($rol=="profesor"){
                 		$this->load->view ('templates/header3');
-                		$this->load->view ('reservas/indexProfesor');
+                		$this->load->view ('reservas/indexProfesor', $datos);
                 		$this->load->view ('templates/footer3');
                 	}
                 	if($rol=="alumno"){
                 		$this->load->view ('templates/header3');
-                		$this->load->view ('reservas/indexAlumno');
+                		$this->load->view ('reservas/indexAlumno', $datos);
                 		$this->load->view ('templates/footer3');
                 	}
                 }

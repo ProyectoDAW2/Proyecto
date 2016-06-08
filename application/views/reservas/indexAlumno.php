@@ -260,6 +260,15 @@
             </div>
         </div>
     </div>  
+	<?php if(isset($cookies)):?>
+		<div class="container-cookie" id="containerCookie">
+            <h4 id="cookiescript_header">Esta p&aacute;gina usa cookies</h4>Si contin&uacute;a navegando por esta p&aacute;gina, asumimos que acepta la <a href="http://www.politicadecookies.com">pol&iacute;tica de cookies</a><br>
+            
+            <button class="aceptarCookies" id="cookiescript_accept" onclick="controlcookies()">Cerrar</button>
+            
+            <button class="leerMas" id="cookiescript_readmore">Leer m&aacute;s</button>
 
+        </div>
+	<?php endif; ?>
 </div>
 </div>

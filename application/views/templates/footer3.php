@@ -39,8 +39,6 @@
 <!-- Editar Aulas -->
 <script type="text/javascript" src="<?= base_url()?>assets/js/objetoreservable/editarAulas.js"></script>
 
-
-
 <!-- Select Buttons -->
 <script src="<?= base_url()?>assets/Select-Bootstrap/dist/js/bootstrap-select.js"></script>
 
@@ -50,6 +48,8 @@
 <!-- Contacto -->
 <script src="<?= base_url()?>assets/templateBootstrap/js/contact_me.js"></script>
 
+<!-- Cookies -->
+<script src="<?= base_url()?>assets/js/cookies.js"></script>
 
 </body>
 </html>

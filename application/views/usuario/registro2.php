@@ -20,7 +20,7 @@
                         <div class="row control-group">
                             <div class="form-group col-xs-12 floating-label-form-group controls">
 
-                                <label>Contrase�a</label>
+                                <label>Contrase&ntilde;a</label>
 
                                 <input type="password" class="form-control" name="password" id="password"  placeholder="Contrase&ntilde;a"/>
                                 <p class="help-block text-danger"></p>
@@ -29,7 +29,7 @@
                          <div class="row control-group">
                             <div class="form-group col-xs-12 floating-label-form-group controls">
 
-                                <label>Repite Contrase�a</label>
+                                <label>Repite Contrase&ntilde;a</label>
 
                       			<input type="password" class="form-control" name="password2" id="password2"  placeholder="Repite contrase&ntilde;a"/>
                                 <p class="help-block text-danger"></p>

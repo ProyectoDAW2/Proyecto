@@ -5,7 +5,7 @@ function registrar()
             var pass= document.getElementById("password").value;
             var pass2= document.getElementById("password2").value;
             var email= document.getElementById("correo").value;
-            console.log(nickname);
+            
             var nickCorrecto=false;
             var passCorrecta= false;
             var pass2Correcta= false;
@@ -14,6 +14,10 @@ function registrar()
             if(/^\w{3,30}$/.test(nickname))
             {
                 nickCorrecto=true;
+            }
+            else{
+            	event.prevenDefault();
+            	document.getElementById("nick").focus();
             }
             
             if(/^(?=.*\d)(?=.*[a-zA-Z])(\W*).{6,10}$/.test(pass))
