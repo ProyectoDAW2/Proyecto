@@ -66,7 +66,7 @@
                     <span class="icon-bar"></span>
                 </button>
 
-                <a class="navbar-brand" href="<?= base_url()?>reservas"><div class="containerLogo"><img id="logoApp" src="http://reservasfernandovi.esy.es/assets/img/logo.png"></div></a>
+                <a class="navbar-brand" href="<?= base_url()?>reservas"><div class="containerLogo"><img id="logoApp" src="<?= base_url()?>assets/img/logo.png"></div></a>
 
             </div>
 

@@ -5,7 +5,7 @@
 <!-- Plugin JavaScript -->
 
 <script src="<?= base_url()?>assets/templateBootstrap/js/classie.js"></script>
-<script src="http://reservasfernandovi.esy.es/assets/templateBootstrap/js/cbpAnimatedHeader.js"></script>
+<script src="<?= base_url() ?>assets/templateBootstrap/js/cbpAnimatedHeader.js"></script>
 
 <!-- Contact Form JavaScript -->
 
@@ -50,8 +50,6 @@
 <!-- Contacto -->
 <script src="<?= base_url()?>assets/templateBootstrap/js/contact_me.js"></script>
 
-<!-- Deshabilitar retroceder navegador -->
-<script src="<?= base_url()?>assets/js/custom.js"></script>
 
 </body>
 </html>
