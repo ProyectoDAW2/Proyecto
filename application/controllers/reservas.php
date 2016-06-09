@@ -26,6 +26,11 @@ class reservas extends CI_Controller
 		$rol= $this->mu->buscarPorRol($id);
 		
 		if($rol=="profesor"){
+			$this->load->model('Model_ObjetoReservable', 'mo');
+			$categorias= $this->mo->getCategoria();
+			$datos['categorias']= $categorias;
+			
+			
         	$this->load->view ('templates/header3');
             $this->load->view ('reservas/indexProfesor', $datos);
             $this->load->view ('templates/footer3');
@@ -39,7 +44,7 @@ class reservas extends CI_Controller
 
 	public function createPost(){
 		//TODO: Coger desde la sesion
-		$userId=1;
+		$userId=$_SESSION['idUsuario'];
 		$date=$_POST['date'];
 		$hours=$_POST['hours'];
 		$idAula=$_POST['idAula'];
@@ -49,31 +54,11 @@ class reservas extends CI_Controller
 			$this->mr->create($userId, $idAula, $date, $hours[$i]);
 		}
 	}
-/*
-	public function crearFestivo(){
-		$this->load->view('templates/headerfooter');
-		$this->load->view('reservas/crearFestivo');
-	}
 
-	public function crearFestivoPost(){
-		$nombre=$_POST['nombre'];
-		$inicio=$_POST['inicio'];
-		$fin=$_POST['fin'];
-		$tipo=$_POST['tipo'];
-		$archivo = fopen('../../assets/js/reserva/vacaciones.json','w+');
-		//$json = json_decode(file_get_contents($archivo), true);
-		$json[] = array('nombre'=> $nombre, 'inicio'=> $inicio, 'fin'=> $fin, 'tipo'=> $tipo);
-		fwrite($archivo, $json);
-		fclose($archivo);
-		//file_put_contents($archivo, json_encode($json), true);
-		var_dump($json);
-	}
-*/
-	//NO ES NECESARIO LLAMAR A LISTAR, SE LE LLAMA DESDE EL CREATE PARA QUE SE CARGUEN LOS DATOS AL CREAR LA PÁGINA
 	public function listar(){
 		
 		//$idUsuario=isset ($_SESSION ['idUsuario']) ? $_SESSION ['idUsuario'] : null;
-		$idUsuario=1;
+		$idUsuario=($_SESSION ['idUsuario']);
 		$this->load->model('Model_Reserva', 'mr');
 		$reservas= $this->mr->getTodos($idUsuario);
 		$datos['reservas']= $reservas;
@@ -84,7 +69,7 @@ class reservas extends CI_Controller
 
 	public function listarPost(){
 		//$idUsuario=isset ($_SESSION['idUsuario']) ? $_SESSION ['idUsuario'] : null;
-		$idUsuario=$_REQUEST ['idUsuario'];
+		$idUsuario=$_SESSION ['idUsuario'];
 		$this->load->model('Model_Reserva', 'mr');
 		$reservas= $this->mr->getTodos($idUsuario);
 		$datos['reservas']= $reservas;
@@ -117,74 +102,48 @@ class reservas extends CI_Controller
  */
 	public function borrarTodas(){
 		$idReservas=$_REQUEST["idReservas"];
-		
 		$this->load->model('Model_Reserva', 'mr');
-			foreach ($idReservas as $idReserva){
-				
-			$respuesta=$this->mr->borrar($idReserva);
-			}
 			
-									
+			$datos["borrado"]=$this->mr->borrar($idReservas);
+			
+	$this->load->view('reservas/borrarPost',$datos);
 	}
 
-	
-	
-
-/**
- * Los alumnos y profesores borran una reserva
- * @author
- * @return
- */
+//Borrado para alumnos, profes y admin
 	public function borrarUnaReserva(){
-		$idReserva=$_REQUEST['id'];
+		if (isset ($_REQUEST['idListarPost'])){
+		$idReserva=$_REQUEST['idListarPost'];
 		$this->load->model('Model_Reserva', 'mr');
 		$respuesta=$this->mr->borrar($idReserva);
-		$this->load->view('templates/header3');
-	
+		$this->listarPost();
+		//$this->load->view('templates/header3');
+		}
 		
-			
-			//PARA BUSCARPORPERSONA
-			if (isset($_REQUEST['informacionDeLaBusqueda'])){
-				$this->load->model('Model_Reserva', 'mr');
-				$datoUsuario=$_REQUEST['informacionDeLaBusqueda'];
-				$this->load->model('Model_Reserva', 'mr');
-				$reservas= $this->mr->getReservasPorPersonas($datoUsuario);
+			//PARA el borrar de BUSCARPORPERSONA
+		if (isset($_REQUEST["idBuscarAdmin"])){
+			$idReserva=$_REQUEST["idBuscarAdmin"];
+			$this->load->model('Model_Reserva', 'mr');
+			$respuesta=$this->mr->borrar($idReserva);
+			$datoUsuario=$_REQUEST['datoInicial'];
+			$datosUsuario=explode(" ",$datoUsuario,2);
+			$this->load->model('Model_Reserva', 'mr');
+			$reservas= $this->mr->getReservasPorPersonas($datoUsuario);	
+				if ($reservas==false||$reservas==null){
+					$datos['borrado']=true;
+					$this->load->view('reservas/borrarPost', $datos);
+				}
+				else{
 				$datos['reservasUsuarios']= $reservas;
 				$this->load->model('Model_Usuario', 'mu');
-				$datosUsuarios= $this->mu-> getDatosUsuario($datoUsuario);
+				$datosUsuarios= $this->mu-> getDatosUsuario($datosUsuario[0]);
 				$datos['datosUsuarios']=$datosUsuarios;
-				$datos['informacionDeLaBusqueda']=$datoUsuario;
-				$datos['borrado']= $respuesta;
-				$this->load->view('reservas/buscarPorPersona', $datos);
-			}
+				$datos['datoInput']=$_REQUEST['datoInicial'];
+				$this->load->view('reservas/buscarPorPersonaPost', $datos);
+				}
 			
-			else{
-				$idUsuario=1;
-				$reservas= $this->mr->getTodos($idUsuario);
-				$datos['reservas']= $reservas;
-				$datos['borrado']= $respuesta;
-				$this->load->view('reservas/indexProfesor', $datos);
 			}
-		
-		
-		$this->load->view('templates/footer3');
-		
-		
-		
-		
-		
-		
-		
-		/*VERSION CON JSON VIA POST
-		$this->mr->borrar($id);
-		$json=array($_REQUEST['informacionDeLaBusqueda']);
-	echo json_encode($json);
-		*/
-		
-		
-/*
-		
-		*/
+	
+
 	}
 	public function filtrarPost(){
 		$categoria= "";
@@ -222,38 +181,45 @@ class reservas extends CI_Controller
 		$this->load->view('templates/footer3');
 	
 	}
-	/**
-	 * 
-	 * @param unknown $infoUsuario información acerca del usuario desde BorrarUnaReserva
-	 * @param unknown $respuesta informacion desde Borrar una reserva necesario para mostrar el sweetalert
-	 */
+
 	public function buscarReservasPorPersonasPost(){
+			$datoUsuario=$_REQUEST['datoUsuario'];
+			$datosUsuario=explode(" ",$datoUsuario,2);
+			$this->load->model('Model_Reserva', 'mr');
+			$reservas= $this->mr->getReservasPorPersonas($datoUsuario);
+
+			//CONTROLAMOS SI NO EXISTE O SI EXISTO Y NO TIENE RESERVAS
+			if ($reservas==false||$reservas==null){
+				$datos['estadoDeLaConsulta']=$reservas;
+				$this->load->view('reservas/buscarPorPersonaError', $datos);
+			}
+			else{
+			$datos['reservasUsuarios']= $reservas;
+			$this->load->model('Model_Usuario', 'mu');
+			$datosUsuarios= $this->mu-> getDatosUsuario($datosUsuario[0]);
+			$datos['datosUsuarios']=$datosUsuarios;
+			//DATO QUE DEBEMOS MANTENER PARA SABER CUAL FUE LA BÚSQUEDA REALIZADA
+			$datos['datoInput']=$_REQUEST['datoUsuario'];
+			$this->load->view('reservas/buscarPorPersonaPost', $datos);
+			}
+		
+			
+			
+			
+			
+			
+		
+		
+		
+		
 	
-		//Aqui hay que controlar si eres Admin
-		$this->load->view('templates/header3');
 		
-		//Controlo si me llega desde la página o desde borrar una reserva
-		if($_REQUEST['nombre']!=null){
-		$datoUsuario=$_REQUEST['nombre'];
-		$this->load->model('Model_Reserva', 'mr');
-		
-		$this->load->model('Model_Reserva', 'mr');
-		$reservas= $this->mr->getReservasPorPersonas($datoUsuario);
-		$datos['reservasUsuarios']= $reservas;
-		$this->load->model('Model_Usuario', 'mu');
-		$datosUsuarios= $this->mu-> getDatosUsuario($datoUsuario);
-		$datos['datosUsuarios']=$datosUsuarios;
-		//Cuando se borra necesita este dato para volver a llamar a la información en BorrarUnaReserva
-		$datos['informacionDeLaBusqueda']=$_REQUEST['nombre'];
-		$this->load->view('reservas/buscarPorPersona', $datos);
-		$this->load->view('templates/footer3');
-		}
-		else{
-			$this->buscarReservasPorPersonas();
-		}
+	
 
 		
 	
 	}
+	
+	
 }
 	
