@@ -12,22 +12,22 @@
     <title>Freelancer - Start Bootstrap Theme</title>
 
     <!-- Bootstrap Core CSS - Uses Bootswatch Flatly Theme: http://bootswatch.com/flatly/ -->
-    <link href="http://reservasfernandovi.esy.es/assets/templateBootstrap/css/bootstrap2.min.css" rel="stylesheet">
+    <link href="<?= base_url()?>assets/templateBootstrap/css/bootstrap2.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link href="http://reservasfernandovi.esy.es/assets/templateBootstrap/css/freelancer.css" rel="stylesheet">
+    <link href="<?= base_url()?>assets/templateBootstrap/css/freelancer.css" rel="stylesheet">
     
     <!-- Filtrado y Calendario -->
-	<link href='http://reservasfernandovi.esy.es/assets/css/main.css' rel='stylesheet' />
+	<link href="<?= base_url()?>assets/css/main.css" rel='stylesheet' />
  	<link href='//arshaw.com/js/fullcalendar-1.5.3/fullcalendar/fullcalendar.css' rel='stylesheet' />
     <link href='//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.7.1/fullcalendar.min.css' type='text/css' rel='stylesheet' />
     <link href='//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.7.1/fullcalendar.print.css' media='print' type='text/css' rel='stylesheet' />
     
     <!-- Slider -->
-    <link href="http://reservasfernandovi.esy.es/assets/sliderNoUi/nouislider.min.css" rel="stylesheet">
+    <link href="<?= base_url()?>assets/sliderNoUi/nouislider.min.css" rel="stylesheet">
     
     <!-- Custom Fonts -->
-    <link href="http://reservasfernandovi.esy.es/assets/templateBootstrap/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="<?= base_url()?>assets/templateBootstrap/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
 
@@ -411,31 +411,31 @@
 
 
     <!-- jQuery -->
-    <script src="http://reservasfernandovi.esy.es/assets/templateBootstrap/js/jquery.js"></script>
+    <script src="<?= base_url()?>assets/templateBootstrap/js/jquery.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="http://reservasfernandovi.esy.es/assets/templateBootstrap/js/bootstrap.min.js"></script>
+    <script src="<?= base_url()?>assets/templateBootstrap/js/bootstrap.min.js"></script>
 
     <!-- Plugin JavaScript -->
     <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
-    <script src="http://reservasfernandovi.esy.es/assets/templateBootstrap/js/classie.js"></script>
-    <script src="http://reservasfernandovi.esy.es/assets/templateBootstrap/js/cbpAnimatedHeader.js"></script>
+    <script src="<?= base_url()?>assets/templateBootstrap/js/classie.js"></script>
+    <script src="<?= base_url()?>assets/templateBootstrap/js/cbpAnimatedHeader.js"></script>
 
     <!-- Contact Form JavaScript -->
-    <script src="http://reservasfernandovi.esy.es/assets/templateBootstrap/js/jqBootstrapValidation.js"></script>
-    <script src="http://reservasfernandovi.esy.es/assets/templateBootstrap/js/contact_me.js"></script>
+    <script src="<?= base_url()?>assets/templateBootstrap/js/jqBootstrapValidation.js"></script>
+    <script src="<?= base_url()?>assets/templateBootstrap/js/contact_me.js"></script>
 
     <!-- Custom Theme JavaScript -->
-    <script src="http://reservasfernandovi.esy.es/assets/templateBootstrap/js/freelancer.js"></script>
+    <script src="<?= base_url()?>assets/templateBootstrap/js/freelancer.js"></script>
     
     <!-- Particulares  -->
-    <script src='http://reservasfernandovi.esy.es/assets/js/main.js'></script>
-    <script src="http://reservasfernandovi.esy.es/assets/js/reserva/filtrar.js" ></script>
-    <script  src='http://reservasfernandovi.esy.es/assets/js/fullcalendar/moment.js'></script>
-    <script  src='http://reservasfernandovi.esy.es/assets/js/fullcalendar/fullcalendar.min.js'></script>
+    <script src="<?= base_url()?>assets/js/main.js"></script>
+    <script src="<?= base_url()?>assets/js/reserva/filtrar.js" ></script>
+    <script src="<?= base_url()?>assets/js/fullcalendar/moment.js"></script>
+    <script src="<?= base_url()?>assets/js/fullcalendar/fullcalendar.min.js"></script>
   
   <!-- Slider -->
-  <script src="http://reservasfernandovi.esy.es/assets/sliderNoUi/nouislider.min.js"></script>
+  <script src="<?= base_url()?>assets/sliderNoUi/nouislider.min.js"></script>
 	 
     
     

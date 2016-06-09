@@ -12,54 +12,54 @@
     <title>Gestor de Espacios</title>
 
 	 <!-- A�adimos archivos de jquery -->
-    <script type='text/javascript' src='http://reservasfernandovi.esy.es/assets/jquery/jquery-1.12.3.min.js'></script>
-    <script type='text/javascript' src='http://reservasfernandovi.esy.es/assets/jquery/jquery-ui.min.js'></script>
-    <script type='text/javascript' src='http://reservasfernandovi.esy.es/assets/jquery/jquery.min.js'></script>
-    <script type='text/javascript' src='http://reservasfernandovi.esy.es/assets/jquery/jquery.js'></script>
+    <script type='text/javascript' src="<?= base_url()?>assets/jquery/jquery-1.12.3.min.js"></script>
+    <script type='text/javascript' src="<?= base_url()?>assets/jquery/jquery-ui.min.js"></script>
+    <script type='text/javascript' src="<?= base_url()?>assets/jquery/jquery.min.js"></script>
+    <script type='text/javascript' src="<?= base_url()?>assets/jquery/jquery.js"></script>
 
     <!-- Bootstrap Core CSS - Uses Bootswatch Flatly Theme: http://bootswatch.com/flatly/ -->
-    <link href="http://reservasfernandovi.esy.es/assets/templateBootstrap/css/bootstrap2.min.css" rel="stylesheet">
+    <link href="<?= base_url()?>assets/templateBootstrap/css/bootstrap2.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link href="http://reservasfernandovi.esy.es/assets/templateBootstrap/css/freelancer.css" rel="stylesheet">
+    <link href="<?= base_url()?>assets/templateBootstrap/css/freelancer.css" rel="stylesheet">
     
     <!-- Slider -->
-    <link href="http://reservasfernandovi.esy.es/assets/sliderNoUi/nouislider.min.css" rel="stylesheet">
+    <link href="<?= base_url()?>assets/sliderNoUi/nouislider.min.css" rel="stylesheet">
     
     <!-- Custom Fonts -->
-    <link href="http://reservasfernandovi.esy.es/assets/templateBootstrap/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="<?= base_url()?>assets/templateBootstrap/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
 	
 	<!-- Perfil -->
-    <link rel="stylesheet" href="http://reservasfernandovi.esy.es/assets/css/usuario/perfil.css">
+    <link rel="stylesheet" href="<?= base_url()?>assets/css/usuario/perfil.css">
     
    
     <!-- Perfil -->
- 	<script src="http://reservasfernandovi.esy.es/assets/js/usuario/perfil.js" type="text/javascript"></script>
- 	<script src="<?=base_url() ?>assets/js/usuario/imagenPerfil.js" type="text/javascript"></script>
+ 	<script src="<?= base_url()?>assets/js/usuario/perfil.js" type="text/javascript"></script>
+ 	<script src="<?= base_url() ?>assets/js/usuario/imagenPerfil.js" type="text/javascript"></script>
  
     <!-- Bootstrap -->
-    <script type='text/javascript' src='http://reservasfernandovi.esy.es/assets/js/bootstrap/bootstrap.min.js'></script>
-    <script type='text/javascript' src='http://reservasfernandovi.esy.es/assets/js/bootstrap/bootstrap.js'></script>
+    <script type='text/javascript' src="<?= base_url()?>assets/js/bootstrap/bootstrap.min.js"></script>
+    <script type='text/javascript' src="<?= base_url()?>assets/js/bootstrap/bootstrap.js"></script>
     
     <!-- Plugin JavaScript --> 
-    <script src="http://reservasfernandovi.esy.es/assets/templateBootstrap/js/classie.js"></script>
-    <script src="http://reservasfernandovi.esy.es/assets/templateBootstrap/js/cbpAnimatedHeader.js"></script>
+    <script src="<?= base_url()?>assets/templateBootstrap/js/classie.js"></script>
+    <script src="<?= base_url()?>assets/templateBootstrap/js/cbpAnimatedHeader.js"></script>
 
     <!-- Contact Form JavaScript -->
-    <script src="http://reservasfernandovi.esy.es/assets/templateBootstrap/js/jqBootstrapValidation.js"></script>
-    <script src="http://reservasfernandovi.esy.es/assets/templateBootstrap/js/contact_me.js"></script>
+    <script src="<?= base_url()?>assets/templateBootstrap/js/jqBootstrapValidation.js"></script>
+    <script src="<?= base_url()?>assets/templateBootstrap/js/contact_me.js"></script>
 
     <!-- Custom Theme JavaScript -->
-    <script src="http://reservasfernandovi.esy.es/assets/templateBootstrap/js/freelancer.js"></script>
+    <script src="<?= base_url()?>assets/templateBootstrap/js/freelancer.js"></script>
     
     <!-- SweetAlert -->
-    <script src="http://reservasfernandovi.esy.es/assets/sweetalert-master/dist/sweetalert.min.js"></script> 
-    <link rel="stylesheet" type="text/css" href="http://reservasfernandovi.esy.es/assets/sweetalert-master/dist/sweetalert.css">
+    <script src="<?= base_url()?>assets/sweetalert-master/dist/sweetalert.min.js"></script> 
+    <link rel="stylesheet" type="text/css" href="<?= base_url()?>assets/sweetalert-master/dist/sweetalert.css">
 
 	<!-- Cabecera (titulo) -->
-	<link rel="stylesheet" type="text/css" href="http://reservasfernandovi.esy.es/assets/templateBootstrap/css/cabecera.css">
+	<link rel="stylesheet" type="text/css" href="<?= base_url()?>assets/templateBootstrap/css/cabecera.css">
 	
 </head>
 
@@ -77,7 +77,7 @@
                     <span class="icon-bar"></span>
                 </button>
 
-                <a class="navbar-brand" href="http://reservasfernandovi.esy.es/reservas">Gestor Espacios</a>
+                <a class="navbar-brand" href="<?= base_url()?>reservas">Gestor Espacios</a>
 
             </div>
 
@@ -89,16 +89,16 @@
                     </li>
                     <li class="page-scroll">
 
-                        <a href="http://reservasfernandovi.esy.es/reservas">Reservas</a>
+                        <a href="<?= base_url()?>reservas">Reservas</a>
                     </li>
                     <li class="page-scroll">
-                        <a href="http://reservasfernandovi.esy.es/usuario/perfil">Perfil</a>
+                        <a href="<?= base_url()?>usuario/perfil">Perfil</a>
                     </li>
                     <li class="page-scroll">
-                        <a href="http://reservasfernandovi.esy.es/usuario/contacto">Contacto</a>
+                        <a href="<?= base_url()?>usuario/contacto">Contacto</a>
                     </li>
                     <li class="page-scroll">
-                        <a href="http://reservasfernandovi.esy.es/usuario/cerrarSesion">Cerrar Sesi&oacute;n</a>
+                        <a href="<?= base_url()?>usuario/cerrarSesion">Cerrar Sesi&oacute;n</a>
                     </li>
                 </ul>
             </div>

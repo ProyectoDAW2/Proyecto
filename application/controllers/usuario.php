@@ -79,7 +79,7 @@ class Usuario extends CI_Controller
         $this->load->model('Model_Usuario', 'mu');
         $existeUsuario= $this->mu->login($nick,$password);
 
-        if($existeUsuario!=""){
+        if($existeUsuario!="" || $existeUsuario!=null){
             $id=$existeUsuario;
             $_SESSION['idUsuario']= $id;
             $this->load->model('Model_Reserva', 'mr');
@@ -89,7 +89,7 @@ class Usuario extends CI_Controller
             if($id==true){
             	if($id == 1){
             		$this->load->view('templates/header3');
-            		$this->load->view('objetoreservable/editarAulas');
+            		$this->load->view('objetoReservable/editarAulas');
             		$this->load->view('templates/footer3');
             	}
                 else{
@@ -98,17 +98,20 @@ class Usuario extends CI_Controller
                 	$this->load->view ('templates/footerPerfil');*/
                 	$rol= $this->mu->buscarPorRol($id);
                 	
+                	$datos['cookies']="si";
+                	
                 	if($rol=="profesor"){
                 		$this->load->model('Model_ObjetoReservable', 'mo');
                 		$categorias= $this->mo->getCategoria();
                 		$datos['categorias']= $categorias;
                 		$this->load->view ('templates/header3');
                 		$this->load->view ('reservas/indexProfesor',$datos);
+
                 		$this->load->view ('templates/footer3');
                 	}
                 	if($rol=="alumno"){
                 		$this->load->view ('templates/header3');
-                		$this->load->view ('reservas/indexAlumno');
+                		$this->load->view ('reservas/indexAlumno', $datos);
                 		$this->load->view ('templates/footer3');
                 	}
                 }
@@ -119,9 +122,10 @@ class Usuario extends CI_Controller
             }
         }
         else{
-            $this->load->view ('templates/header3');
-            $this->load->view ('errors/noUsuario');
-            $this->load->view ('templates/footer3');
+        	$datos['loginIncorrecto']= "si";
+        	$this->load->view('templates/headerLogin');
+            $this->load->view('usuario/login', $datos);
+            $this->load->view('templates/footer');
         }
     }
 
@@ -200,17 +204,15 @@ class Usuario extends CI_Controller
 			
 			$passwordCorrecta= $this->mu->encontrarUsuarioPorPassword($passActual);
 			
-			$datos['passIncorrecta']= "password";
-			
 			if($passwordCorrecta){
 				$nombre = $_SESSION['idUsuario'].".jpg";
 				//echo $nombre;
-				$carpeta = "C://xampp/htdocs/ProyectoCalendario/assets/imagenes/perfil/";
+				$carpeta = "assets/imagenes/perfil/";
 				//copy ( $_FILES['imagenUsuario']['tmp_name'], $carpeta . $nombre );
 				
 				//echo "El fichero $nombre se almacen&oacute; en $carpeta";
 				//return "<img src=".base_url()."assets/imagenes/perfil/".$nombre.">";
-				mkdir(base_url()."assets/imagenes/perfil", 0777, true);
+				//mkdir(base_url()."assets/imagenes/perfil", 0777, true);
 				move_uploaded_file($_FILES['imagenPerfil']['tmp_name'], $carpeta.$nombre);
 				//$datos['imagen']= "<img style='width: 60px;height: 60px;border-radius:50%;' src=".base_url().'assets/imagenes/perfil/'.$nombre.">";
 				$datos['imagen']= $nombre;
@@ -231,6 +233,7 @@ class Usuario extends CI_Controller
 	                $this->load->view('templates/footerPerfil');
 	            }
 				else{
+					$datos['passIncorrecta']= "password";
 	                $resultado= $this->mu->obtenerNombreYCorreo($_SESSION['idUsuario'], "perfil");
 	        
 			        $separacion= explode(" ", $resultado);
@@ -279,7 +282,7 @@ class Usuario extends CI_Controller
 	}
 	
 	public function recuperarPost() {
-		$correo= $_REQUEST ['correo'];
+		$correo= $_REQUEST['correo'];
 		
 		$this->load->model ('Model_Usuario','mu');
 		$existeCorreo= $this->mu->comprobarCorreo ($correo);
@@ -291,20 +294,23 @@ class Usuario extends CI_Controller
 			//Vamos a crear la cadena aleatoria que serï¿½ la nueva contraseï¿½a					
 			$length= 5;
 			//$cadena= (str_shuffle("0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ", 0, $length));
-			$cadena= (str_shuffle("estoesunacadenadesordenada"));
+			$cadena= (str_shuffle("egsgf15735"));
 			
 			$this->mu->cambiarPass($correo,$cadena);
 			
-			//El mensaje va junto. En el se adjuntarï¿½n la cadena aleatoria y el nick.
-			$mensaje="Restablece tus datos.
-			Hemos recibido una petici&oacute;n para restablecer los datos de tu cuenta.
-			Nueva contrase&ntilde;a ".$cadena."
-			Nombre de usuario";
-			$cabeceras='MIME-Version: 1.0' . "\r\n";
-			$cabeceras .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
-			$cabeceras .= 'From: Servidor <recuperacion.reyfernando@gmail.com>' . "\r\n";
-			// Se envia el correo al usuario
-			mail($correo, "Recuperar contrase&ntilde;a", $mensaje, $cabeceras);
+			$message="Hemos recibido una petici&oacute;n para restablecer los datos de tu cuenta.<br><br>
+			Tu nueva contrase&ntilde;a es: ".$cadena."<br><br>
+			Te recomendamos entrar en <a href=\"http://reservasfernandovi.esy.es/usuario/login\"> reservasfernandovi</a>
+			y cambiar tu contrase&ntilde;a lo antes posible.";
+			
+			$emailRes= $this->sendNewPass($correo, $message, "Recuperar Contraseña");
+			if($emailRes){
+				//$datos['contactoAdministrador']= "si";
+				$this->load->view('templates/headerLogin');
+				$this->load->view('usuario/login');
+				$this->load->view('templates/footer');
+			}
+
 		}
 		else {
 			$this->load->view('errors/noCorreo');
@@ -346,9 +352,10 @@ class Usuario extends CI_Controller
 
 		if($email){
 			//$datos['contactoAdministrador']= "si";
-			$this->load->view('templates/header3');
+			/*$this->load->view('templates/header3');
 			$this->load->view('usuario/contacto');
-			$this->load->view('templates/footer3');
+			$this->load->view('templates/footer3');*/
+			$this->contacto();
 		}
 		
 	}
@@ -398,6 +405,59 @@ class Usuario extends CI_Controller
         $this->email->subject ($subject);
         
         $this->email->message ($message);
+        
+        if ($this->email->send()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    
+	public function sendNewPass($correo, $message, $subject) {
+        $adminEmail = 'proyectodaw02@gmail.com';
+        $adminPass = 'proyecto2016';
+        
+        $this->load->library('email');
+        
+        $configGmail = null;
+        
+        if ($_SERVER ['SERVER_NAME'] == 'reservasfernandovi.esy.es') {
+            $configGmail = array (
+                    'protocol' => 'smtp',
+                    'smtp_host' => 'ssl://smtp.gmail.com',
+                    'smtp_port' => 465,
+                    'smtp_user' => $adminEmail, // correo desde el cual se envia
+                    'smtp_pass' => $adminPass, // contraseña del correo
+                    'mailtype' => 'html',
+                    'charset' => 'utf-8',
+                    'newline' => "\r\n" 
+            );
+        } else {
+            
+            $configGmail = array (
+                    // 'protocol' => 'smtp',
+                    'smtp_host' => 'ssl://smtp.gmail.com', // 'ssl://smtp.googlemail.com'//ssl://smtp.gmail.com
+                    'smtp_port' => 587, // 465//25
+                    'smtp_user' => $adminEmail, // change it to yours
+                    'smtp_pass' => $adminPass, // change it to yours
+                    'mailtype' => 'html',
+                    'charset' => 'utf-8',
+                    'newline' => "\r\n",
+                    'validation' => TRUE,
+                    'smtp_crypto' => 'tls', // tls or ssl
+                    'wordwrap' => TRUE 
+            );
+        }
+        
+        $this->email->initialize ( $configGmail );
+        
+        $this->email->from('administrator@reservasfernandovi.esy.es', 'Administrador');
+
+        $this->email->to($correo);
+        
+        $this->email->subject($subject);
+        
+        $this->email->message($message);
         
         if ($this->email->send()) {
             return true;

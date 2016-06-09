@@ -15,7 +15,7 @@
 						<div class="caption-content">
 							<i class="fa fa-search-plus fa-3x"></i>
 						</div>
-					</div> <img src="http://reservasfernandovi.esy.es/assets/templateBootstrap/img/portfolio/cabin.png" class="img-responsive" alt="">
+					</div> <img src="<?= base_url()?>assets/templateBootstrap/img/portfolio/cabin.png" class="img-responsive" alt="">
 				</a>
 			</div>
 			<div class="col-sm-6 portfolio-item">
@@ -25,10 +25,19 @@
 						<div class="caption-content">
 							<i class="fa fa-search-plus fa-3x"></i>
 						</div>
-					</div> <img src="http://reservasfernandovi.esy.es/assets/templateBootstrap/img/portfolio/cake.png" class="img-responsive" alt="">
+					</div> <img src="<?= base_url()?>assets/templateBootstrap/img/portfolio/cake.png" class="img-responsive" alt="">
 				</a>
 			</div>
+		<?php if(isset($cookies)):?>
+		<div class="container-cookie" id="containerCookie">
+            <h4 id="cookiescript_header">Esta p&aacute;gina usa cookies</h4>Si contin&uacute;a navegando por esta p&aacute;gina, asumimos que acepta la <a href="http://www.politicadecookies.com">pol&iacute;tica de cookies</a><br>
+            
+            <button class="aceptarCookies" id="cookiescript_accept" onclick="controlcookies()">Cerrar</button>
+            
+            <button class="leerMas" id="cookiescript_readmore">Leer m&aacute;s</button>
 
+        </div>
+	<?php endif; ?>
 		</div>
 	</div>
 		 
@@ -224,8 +233,8 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-8 col-lg-offset-2">
-<div class="col-sm-8 col-sm-offset-2 col-md-8 col-sm-offset-4 listarReservas">
+                <div class="col-md-8 col-lg-offset-2 listarReservas">
+
 
 </div>
 

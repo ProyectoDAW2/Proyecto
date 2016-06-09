@@ -1,6 +1,6 @@
 
 <h1>MODIFICAR DATOS</h1>
-<form action="http://reservasfernandovi.esy.es/usuario/modificarPost" method="post">
+<form action="<?= base_url()?>usuario/modificarPost" method="post">
 
 <label>Id</label> <input type="text" name="id">
 <label>Correo</label> <input type="text" name="correo">

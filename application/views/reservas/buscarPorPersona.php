@@ -7,7 +7,7 @@
                 </div>
             </div>
             <div class="row">
-		
+
 			<div class="col-sm-12 col-md-12 text-center portfolio-item">
 			<div class="row control-group">
                             <div class="form-group col-xs-8 col-xs-offset-2 floating-label-form-group controls">
@@ -24,7 +24,7 @@
 			</div>
 			
 		
-			
+
 		
 					<div class="col-sm-12 col-md-12 resultado">
 	</div>	
@@ -44,16 +44,20 @@
 				
 			    $.ajax( {
 			        type: "POST",
+
 			        url:"http://reservasfernandovi.esy.es/reservas/borrarTodas",
+
 			        data: {
 			        "idReservas":reservas,
 		  			
 		            },
 		            
 		            success:function(response){
+
 		            	console.log(response);
 		            	$(".resultado").html(response);
 			            }
+
 
 		            });
 		});

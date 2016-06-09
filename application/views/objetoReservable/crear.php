@@ -1,6 +1,6 @@
 
 <h1>Crear Objeto</h1>
-<form action="http://reservasfernandovi.esy.es/objetoReservable/crearPost" method="post">
+<form action="<?= base_url()?>objetoReservable/crearPost" method="post">
 	<label>Nombre</label> <input type="text" name="nombre"><br>
 	<label>Tipo</label> <input type="text" name="tipo"><br>
 	<label>N�mero de Aula</label> <input type="text" name="num_aula"><br>

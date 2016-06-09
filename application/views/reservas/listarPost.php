@@ -1,4 +1,4 @@
-<div class="table-responsive">
+
  <?php if(isset ($reservas)):?>
  <?php if($reservas!=null):?>
  <div  class="col-md-6 col-md-offset-3">

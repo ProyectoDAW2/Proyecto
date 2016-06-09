@@ -8,7 +8,7 @@
             </div>
             <div class="row">
 
-            <form id="restablecerDatos" action="http://reservasfernandovi.esy.es/usuario/recuperarPost" method="post">
+            <form id="restablecerDatos" action="<?= base_url()?>usuario/recuperarPost" method="post">
 
                 <div class="col-lg- col-lg-offset-3">
                     <p>Escribe el email asociado a tu cuenta para recuperar tus datos necesarios</p>

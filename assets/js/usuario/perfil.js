@@ -45,4 +45,5 @@ function modify(){
             else{
 				document.getElementById("res").value= false;
             }
-        }
+
+}
