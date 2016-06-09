@@ -82,6 +82,10 @@ class Usuario extends CI_Controller
         if($existeUsuario!="" || $existeUsuario!=null){
             $id=$existeUsuario;
             $_SESSION['idUsuario']= $id;
+            $this->load->model('Model_Reserva', 'mr');
+            //En la vista index se comprueba son !null
+            $reservas= $this->mr->getTodos($id);
+            $datos['reservas']= $reservas;
             if($id==true){
             	if($id == 1){
             		$this->load->view('templates/header3');
@@ -97,8 +101,12 @@ class Usuario extends CI_Controller
                 	$datos['cookies']="si";
                 	
                 	if($rol=="profesor"){
+                		$this->load->model('Model_ObjetoReservable', 'mo');
+                		$categorias= $this->mo->getCategoria();
+                		$datos['categorias']= $categorias;
                 		$this->load->view ('templates/header3');
-                		$this->load->view ('reservas/indexProfesor', $datos);
+                		$this->load->view ('reservas/indexProfesor',$datos);
+
                 		$this->load->view ('templates/footer3');
                 	}
                 	if($rol=="alumno"){

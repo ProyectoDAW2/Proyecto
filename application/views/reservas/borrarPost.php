@@ -1,3 +1,12 @@
+<script type="text/javascript">
 
-<h3>Reserva borrada correctamente</h3>
+<?php if($borrado==true):?>
+			swal({
+	  	     	title: "",
+	  		 	text: "Reservas Borradas Correctamente",
+	  		 	type: "success",
+ 	  		 	confirmButtonText: "Continuar"
+	  		});
+			<?php endif; ?>
 
+</script>

@@ -477,5 +477,9 @@ footer .footer-below {
     display: none;
     opacity: 0;
 }
+#borrarBuscarPorPersona{
+	margin-bottom:0;
+	paddin-bottom:0;
+}
 
 

@@ -30,16 +30,32 @@ class Model_Reserva extends RedBean_SimpleModel{
 		}
 	}
 
-	public function borrar($id){
-		//Borramos por ID (al menos por ahora)
-		$reserva=R::load('reserva',$id);
+	public function borrar($idReservas){
+		//Controlo si viene para borrarTodas las reservas o solo una
+		if(is_array ($idReservas)){
+		foreach ($idReservas as $idReserva){
+		$reserva=R::load('reserva',$idReserva);
 		R::trash($reserva);
+		}
+		}
+		else{
+			$reserva=R::load('reserva',$idReservas);
+			R::trash($reserva);
+		}
+		
 		return true;
 	}
 	
 	public function getTodos($idUsuario){
 		//return R::findAll('reserva');
 		$reserva=R::find('reserva','usuario_id LIKE ? ',[$idUsuario]);
+		return $reserva;
+	}
+	
+	public function getDatosReservaUsuario($idUsuario){
+		//return R::findAll('reserva');
+		$reserva= R::getAll( 'select fecha, hora, ornombre from reserva where usuario_id=:id',
+					array(':id' => $idUsuario));;
 		return $reserva;
 	}
 	
@@ -57,29 +73,40 @@ class Model_Reserva extends RedBean_SimpleModel{
 	
 	
 	public function getReservasPorPersonas($datoUsuario){
-		$informacionUsuarios= R::getAll( 'select id from usuario where nombre=:datos or correo=:datos or nick=:datos', 
-		array(':datos' => $datoUsuario));
+	
+		$datosUsuario=explode(" ",$datoUsuario,2);
+		$idUsuarios;
+		if (isset ($datosUsuario[1])){
+		$idUsuarios= R::getAll( 'select id from usuario where nombre=:nombre and apellidos=:ap',
+					array(':nombre' => $datosUsuario[0],':ap' => $datosUsuario[1]));
+		}
+		else{
+		$idUsuarios= R::getAll( 'select id from usuario where nombre=:datos or nick=:datos or correo=:datos',
+					array(':datos' => $datosUsuario[0]));
+		}
 		
-		$reservas;
+		if($idUsuarios==[]){
+			return false;
+		}
 		
-		$x=0;
-
-		
-			foreach ($informacionUsuarios as $informacionUsuario){
-			
-			
-				$reservas[$x]=$this->getTodos($informacionUsuario["id"]);
-		
+		else{
+			$todasLasReservas;
+			$reservas=null;
+			$x=0;
+			foreach ($idUsuarios as $idUsuario){
+				$todasLasReservas[$x]=$this->getTodos($idUsuario["id"]);
+				if (!(empty($todasLasReservas[$x]))){
+					$reservas[$x]=$todasLasReservas[$x];
+				}
 				$x++;
-			
-			
 			}
-	
-	
 
+			return $reservas;
+		}
 		
 		
-		return $reservas;
+		
 	}
+	
 }
 ?>
