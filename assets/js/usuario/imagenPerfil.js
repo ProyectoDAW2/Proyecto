@@ -1,6 +1,7 @@
 
 
 	$(document).ready( function() {
+		("#contentImagenPerfil").css("background-image", "url(assets/imagenes/perfil/"+<?= $_SESSION['idUsuario'] ?>+".jpg)");
 	    $('.btn-file :file').on('fileselect', function(event, numFiles, label) {
 	        
 	        var input = $(this).parents('.input-group').find(':text'),

@@ -10,7 +10,7 @@
    	});
 
   	$(document).ready( function() {
-  	  	$("#contentImagenPerfil").css("background-image", "url(<?=base_url()?>assets/imagenes/perfil/<?= $_SESSION['idUsuario'] ?>.jpg)");
+  	  	$("#contentImagenPerfil").css("background-image", "url(http://reservasfernandovi.esy.es/assets/imagenes/perfil/<?= $_SESSION['idUsuario'] ?>.jpg)");
   	    $('.btn-file :file').on('fileselect', function(event, numFiles, label) {
   	        
   	        var input = $(this).parents('.input-group').find(':text'),

@@ -334,13 +334,13 @@ class Usuario extends CI_Controller
 	public function contacto2(){
 			
 		$name = $_REQUEST['name'];
-		$email_receiver = $_REQUEST['email'];
+		$emailReceiver = $_REQUEST['email'];
 		$messageInicial = $_REQUEST['message'];
 		$messageInicialRetocado = "Mensaje: ".$messageInicial;
 		//$messageInicial = nl2br($_REQUEST['mensaje']);
 		$subject= $name." tiene una consulta";
-		$message= $messageInicialRetocado."<br><br>Para poder contactar con este usuario y solucionar su consulta, le facilitamos su correo electrónico: ".$email_receiver;
-		$email= $this->sendMail($email_receiver, $message, $subject);
+		$message= $messageInicialRetocado."<br><br>Para poder contactar con este usuario y solucionar su consulta, le facilitamos su correo electrónico: ".$emailReceiver;
+		$email= $this->sendMail($emailReceiver, $message, $subject);
 
 		if($email){
 			//$datos['contactoAdministrador']= "si";

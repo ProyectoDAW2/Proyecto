@@ -15,14 +15,14 @@
                         <div class="row control-group">
                             <div class="form-group col-xs-12 floating-label-form-group controls">
                                 <label>Nombre</label>
-                                <input type="text" class="form-control" placeholder="Nombre" id="name" required value="<?= $nombreUsuario?>" data-validation-required-message="Escribe tu nombre">
+                                <input type="text" class="form-control" placeholder="Nombre" id="name" name="name" required value="<?= $nombreUsuario?>" data-validation-required-message="Escribe tu nombre">
                                 <p class="help-block text-danger"></p>
                             </div>
                         </div>
                         <div class="row control-group">
                             <div class="form-group col-xs-12 floating-label-form-group controls">
                                 <label>Email Address</label>
-                                <input type="email" class="form-control" placeholder="Email Address" id="email" required value="<?= $correoUsuario?>" data-validation-required-message="Escribe tu email">
+                                <input type="email" class="form-control" placeholder="Email Address" id="email" name="email" required value="<?= $correoUsuario?>" data-validation-required-message="Escribe tu email">
                                 <p class="help-block text-danger"></p>
                             </div>
                         </div>
@@ -30,7 +30,7 @@
                         <div class="row control-group">
                             <div class="form-group col-xs-12 floating-label-form-group controls">
                                 <label>Mensaje</label>
-                                <textarea rows="5" class="form-control" placeholder="Mensaje" id="message" required data-validation-required-message="Escribe un mensaje"></textarea>
+                                <textarea rows="5" class="form-control" placeholder="Mensaje" id="message" name="message" required data-validation-required-message="Escribe un mensaje"></textarea>
                                 <p class="help-block text-danger"></p>
                             </div>
                         </div> 
