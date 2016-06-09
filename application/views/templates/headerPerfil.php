@@ -37,7 +37,7 @@
    
     <!-- Perfil -->
  	<script src="<?= base_url()?>assets/js/usuario/perfil.js" type="text/javascript"></script>
- 	<script src="<?= base_url() ?>assets/js/usuario/imagenPerfil.js" type="text/javascript"></script>
+ 	
  
     <!-- Bootstrap -->
     <script type='text/javascript' src="<?= base_url()?>assets/js/bootstrap/bootstrap.min.js"></script>
