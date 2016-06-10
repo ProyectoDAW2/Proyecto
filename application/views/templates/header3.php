@@ -50,9 +50,7 @@
 
 	<!-- Estilos añadidos a elementos de esta cabecera -->
 	<link rel="stylesheet" href="<?= base_url()?>assets/templateBootstrap/css/cabecera.css">
-	
-	<!-- Cookies -->
-	<link rel="stylesheet" href="<?= base_url()?>assets/css/cookies.css">
+
 	
 </head>
 

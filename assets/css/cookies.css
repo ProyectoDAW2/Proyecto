@@ -17,6 +17,7 @@
                 border-radius: 5px; 
                 bottom: 20px; 
                 right: 20px;
+                display:block;
             }
             .tituloCookie{
                 background-color: rgb(17, 17, 17); 

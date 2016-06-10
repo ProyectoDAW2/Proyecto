@@ -48,8 +48,5 @@
 <!-- Contacto -->
 <script src="<?= base_url()?>assets/templateBootstrap/js/contact_me.js"></script>
 
-<!-- Cookies -->
-<script src="<?= base_url()?>assets/js/cookies.js"></script>
-
 </body>
 </html>

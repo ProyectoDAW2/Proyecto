@@ -26,9 +26,10 @@
     <link href="http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
 	
 	<!-- Registro -->
-
 	<link href="<?= base_url()?>assets/css/usuario/registro2.css" rel="stylesheet">
- 
-
+	
+	<!-- Errores -->
+	<link href="<?= base_url() ?>assets/css/errores/errores.css" rel="stylesheet">
+	
 </head>
 <body id="page-top" class="index">

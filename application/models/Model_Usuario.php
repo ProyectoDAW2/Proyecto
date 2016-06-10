@@ -135,6 +135,31 @@ class Model_Usuario extends RedBean_SimpleModel{
 		}
 	}
 
+	public function borrarAvatar($idUsuario){
+		$usuario= R::load('usuario', $idUsuario);
+		
+        $avatar = $usuario->avatar;
+        if ($avatar != 'default.jpg') {
+            $file = 'assets/imagenes/perfil/'.$avatar;
+            $do = unlink ($file);
+            if ($do) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+	}
+	
+	public function actualizarNombreAvatar($idUsuario, $nombreFoto){
+		$usuario= R::load('usuario', $idUsuario);
+        $usuario->avatar = $nombreFoto;
+        R::store($usuario);
+	}
+	
+	public function obtenerAvatar($id){
+		$usuario= R::load('usuario', $id);
+		return $usuario->avatar;
+	}
 
 }
 ?>

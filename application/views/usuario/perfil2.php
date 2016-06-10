@@ -8,7 +8,9 @@
             </div>
             <div class="row">
   
-  	<div id="contentImagenPerfil"></div>
+  	<div id="contentImagenPerfil">
+  		<img id="avatarUsuario" src="<?= base_url() ?>assets/imagenes/perfil/<?= $imagenUsuario ?>">
+  	</div>
     <form action="<?= base_url()?>usuario/perfilPost" method="post" class="form-horizontal" enctype="multipart/form-data">
 
 		<fieldset>

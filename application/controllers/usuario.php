@@ -98,20 +98,18 @@ class Usuario extends CI_Controller
                 	$this->load->view ('templates/footerPerfil');*/
                 	$rol= $this->mu->buscarPorRol($id);
                 	
-                	$datos['cookies']="si";
-                	
                 	if($rol=="profesor"){
                 		$this->load->model('Model_ObjetoReservable', 'mo');
                 		$categorias= $this->mo->getCategoria();
                 		$datos['categorias']= $categorias;
                 		$this->load->view ('templates/header3');
-                		$this->load->view ('reservas/indexProfesor',$datos);
+                		$this->load->view ('reservas/indexProfesor');
 
                 		$this->load->view ('templates/footer3');
                 	}
                 	if($rol=="alumno"){
                 		$this->load->view ('templates/header3');
-                		$this->load->view ('reservas/indexAlumno', $datos);
+                		$this->load->view ('reservas/indexAlumno');
                 		$this->load->view ('templates/footer3');
                 	}
                 }
@@ -170,11 +168,12 @@ class Usuario extends CI_Controller
 
     public function perfil() {
         $id= isset ($_SESSION['idUsuario']) ? $_SESSION ['idUsuario'] : null;
-
+        
         if($id!=null){
         	$pantalla= "perfil";
 	        $this->load->model('Model_Usuario', 'mu');
 	        $resultado= $this->mu->obtenerNombreYCorreo($id, $pantalla);
+	        $avatar= $this->mu->obtenerAvatar($id);
 	        
 	        $separacion= explode(" ", $resultado);
 	       	$nick= $separacion[0];
@@ -182,6 +181,10 @@ class Usuario extends CI_Controller
 			
 			$datos['nickUsuario']= $nick;
 			$datos['correoUsuario']= $correo;
+			$datos['imagenUsuario']= $avatar;
+			/*if($avatar!=null){
+				$datos['imagen']= "si";
+			}*/
 	        
 	        $this->load->view ('templates/headerPerfil');
 	        $this->load->view ('usuario/perfil2', $datos);
@@ -205,29 +208,52 @@ class Usuario extends CI_Controller
 			$passwordCorrecta= $this->mu->encontrarUsuarioPorPassword($passActual);
 			
 			if($passwordCorrecta){
-				$nombre = $_SESSION['idUsuario'].".jpg";
-				//echo $nombre;
-				$carpeta = "assets/imagenes/perfil/";
-				//copy ( $_FILES['imagenUsuario']['tmp_name'], $carpeta . $nombre );
-				
-				//echo "El fichero $nombre se almacen&oacute; en $carpeta";
-				//return "<img src=".base_url()."assets/imagenes/perfil/".$nombre.">";
-				//mkdir(base_url()."assets/imagenes/perfil", 0777, true);
-				move_uploaded_file($_FILES['imagenPerfil']['tmp_name'], $carpeta.$nombre);
-				//$datos['imagen']= "<img style='width: 60px;height: 60px;border-radius:50%;' src=".base_url().'assets/imagenes/perfil/'.$nombre.">";
-				$datos['imagen']= $nombre;
 				
 				if($idUsuario!=0 || $idUsuario!=null) {
-					$this->mu->cambiarPerfil($idUsuario, $nick, $password, $correo);
-					$resultado= $this->mu->obtenerNombreYCorreo($_SESSION['idUsuario'], "perfil");
+					if (isset ( $_FILES ['imagenPerfil'] ) && $_FILES ['imagenPerfil'] ['error'] == 0) {
+						
+		                $foto = $_FILES ['imagenPerfil'];
+		                $nombreFoto = $_REQUEST['nombreImagen'];
+		                $nombreFoto = strtolower($nombreFoto);
+		                /*$nombreArray = explode ( '.', $nombreFoto );
+		                $extension = end ( $nombreArray );
+		                $nuevoNombre = $nombreArray[0];
+		                $nuevoNombre .= '.' . $extension;*/
+		                
+		                $borrarAvatar = $this->mu->borrarAvatar($idUsuario);
+		                move_uploaded_file ( $_FILES ['imagenPerfil'] ['tmp_name'], 'assets/imagenes/perfil/' . $nombreFoto );
+		                $this->mu->actualizarNombreAvatar($idUsuario, $nombreFoto );
+		                
+					}
+					//$nombre = $_SESSION['idUsuario'].".jpg";
+					//echo $nombre;
+					//$carpeta = "assets/imagenes/perfil/";
+					//copy ( $_FILES['imagenUsuario']['tmp_name'], $carpeta . $nombre );
+					
+					//echo "El fichero $nombre se almacen&oacute; en $carpeta";
+					//return "<img src=".base_url()."assets/imagenes/perfil/".$nombre.">";
+					
+					//mkdir(base_url()."assets/imagenes/perfil", 0777, true);
+					//move_uploaded_file($_FILES['imagenPerfil']['tmp_name'], $carpeta.$nombre);
+					//$datos['imagen']= "<img style='width: 60px;height: 60px;border-radius:50%;' src=".base_url().'assets/imagenes/perfil/'.$nombre.">";
+					
+						$this->mu->cambiarPerfil($idUsuario, $nick, $password, $correo);
+						$resultado= $this->mu->obtenerNombreYCorreo($_SESSION['idUsuario'], "perfil");
 	        
-			        $separacion= explode(" ", $resultado);
-			       	$nick= $separacion[0];
-					$correo= $separacion[1];
+			        	$separacion= explode(" ", $resultado);
+			       		$nick= $separacion[0];
+						$correo= $separacion[1];
 					
-					$datos['nickUsuario']= $nick;
-					$datos['correoUsuario']= $correo;
-					
+						$id= $idUsuario;
+						
+						$nombreAvatar= $this->mu->obtenerAvatar($id);
+						$datos['imagenUsuario']= $nombreAvatar;
+						$datos['nickUsuario']= $nick;
+						$datos['correoUsuario']= $correo;
+						//$_SESSION['avatar']= "si";
+		                //$this->session->set_flashdata('updateAvatarOk', getAvatarChangeOkMsg () );
+		                //redirect ( base_url ( 'usuario/perfil' ), 'refresh' );
+					//resize_img ( ('assets/images/users/' . $nombreFoto), 150, 150 );
 	                $this->load->view ('templates/headerPerfil');
 					$this->load->view('usuario/perfil2', $datos);
 	                $this->load->view('templates/footerPerfil');
@@ -313,7 +339,9 @@ class Usuario extends CI_Controller
 
 		}
 		else {
+			$this->load->view('templates/headerSinCabecera');
 			$this->load->view('errors/noCorreo');
+			$this->load->view('templates/footer3');
 		}
 	}
 	public function contacto()
