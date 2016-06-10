@@ -248,6 +248,7 @@ class Usuario extends CI_Controller
 						
 						$nombreAvatar= $this->mu->obtenerAvatar($id);
 						$datos['imagenUsuario']= $nombreAvatar;
+						$datos['imagen']= "si";
 						$datos['nickUsuario']= $nick;
 						$datos['correoUsuario']= $correo;
 						//$_SESSION['avatar']= "si";
