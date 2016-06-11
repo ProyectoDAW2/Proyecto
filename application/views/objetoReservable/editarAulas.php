@@ -1,7 +1,7 @@
 <section id="editarAulas">
   <div class="container">
   <div class="row">
-                <div class="col-lg-12 text-center">
+                <div class="titulo col-lg-12 text-center">
                     <h2>AULAS</h2>
                     <hr class="star-primary">
                 </div>

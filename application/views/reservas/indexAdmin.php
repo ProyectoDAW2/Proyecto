@@ -6,7 +6,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Freelancer - Start Bootstrap Theme</title>
+    <title>Gestor de Espacios</title>
 
     <!-- Bootstrap Core CSS - Uses Bootswatch Flatly Theme: http://bootswatch.com/flatly/ -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -41,7 +41,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#page-top">Reservas Rey Fernando VI</a>
+                <a class="navbar-brand" href="#page-top">ADMINISTRADOR</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -51,13 +51,16 @@
                         <a href="#page-top"></a>
                     </li>
                     <li class="page-scroll">
-                        <a href="<?= base_url()?>objetoreservable/buscarAula">Editar Aulas</a>
+                        <a href="<?= base_url()?>objetoreservable/editarAulas">Editar Aulas</a>
                     </li>
                     <li class="page-scroll">
                         <a href="<?= base_url()?>reservas/buscarReservasPorPersonas">Buscar Reservas</a>
                     </li>
                     <li class="page-scroll">
-                        <a href="#contact">Contact</a>
+                        <a href="<?= base_url() ?>">Contacto</a>
+                    </li>
+                    <li class="page-scroll">
+                        <a href="<?= base_url() ?>usuario/cerrarSesion">Cerrar Sesi&oacute;n</a>
                     </li>
                 </ul>
             </div>
@@ -90,11 +93,11 @@
             <div class="container">
                 <div class="row">
                     <div class="footer-col col-md-4">
-                        <h3>Location</h3>
-                        <p>3481 Melrose Place<br>Beverly Hills, CA 90210</p>
+                        <h3>Rey Fernando VI</h3>
+                        <p>Av. de Ir&uacute;n, s/n, 28830 <br>San Fernando de Henares, Madrid</p>
                     </div>
                     <div class="footer-col col-md-4">
-                        <h3>Around the Web</h3>
+                        <h3>Acerca de nosotros</h3>
                         <ul class="list-inline">
                             <li>
                                 <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-facebook"></i></a>
@@ -114,8 +117,8 @@
                         </ul>
                     </div>
                     <div class="footer-col col-md-4">
-                        <h3>About Freelancer</h3>
-                        <p>Freelance is a free to use, open source Bootstrap theme created by <a href="http://startbootstrap.com">Start Bootstrap</a>.</p>
+                        <h3>Acerca de los centros de la comunidad de Madrid</h3>
+                        <p>M&aacute;s informaci&oacute;n en <a href="http://madrid.org">Madrid.org</a>.</p>
                     </div>
                 </div>
             </div>

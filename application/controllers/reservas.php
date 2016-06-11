@@ -175,10 +175,9 @@ class reservas extends CI_Controller
 	public function buscarReservasPorPersonas(){
 	
 		//Aquí hay que controlar si eres Admin
-		$this->load->view('templates/header3');
-	
+		$this->load->view('templates/headerAdmin');
 		$this->load->view('reservas/buscarPorPersona');
-		$this->load->view('templates/footer3');
+		$this->load->view('templates/footerAdmin');
 	
 	}
 

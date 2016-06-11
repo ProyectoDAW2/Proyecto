@@ -1,18 +1,6 @@
 <?php
 session_start();
 class ObjetoReservable extends CI_Controller{
-	
-	public function index(){
-		
-		$id=isset ($_SESSION ['idUsuario']) ? $_SESSION ['idUsuario'] : null;
-		$datos ['idUsuario']=$id;
-		
-		if($id!=null){
-			if($id == 1){
-				$this->load->view('objetoReservable/editarAulas');
-			}
-		}
-	}
 
 	public function modificar(){
 		$id=isset ($_SESSION ['idUsuario']) ? $_SESSION ['idUsuario'] : null;
@@ -167,6 +155,12 @@ class ObjetoReservable extends CI_Controller{
 		$this -> load -> view ('templates/footer');
 	}
 	
+	public function editarAulas(){
+		$this->load->view('templates/headerAdmin');
+		$this->load->view('objetoReservable/editarAulas');
+		$this->load->view('templates/footerAdmin');
+	}
+	
 	public function buscarAula(){
 		$num= $_REQUEST['numaula'];
 		
@@ -188,9 +182,9 @@ class ObjetoReservable extends CI_Controller{
 			$datos['datosAula']= $datosAula;
 		}
 		
-		$this->load->view('templates/header3');
+		$this->load->view('templates/headerAdmin');
 		$this->load->view('objetoReservable/editarAulas', $datos);
-		$this->load->view('templates/footer3');
+		$this->load->view('templates/footerAdmin');
 	}
 	
 }
