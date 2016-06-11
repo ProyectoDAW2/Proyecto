@@ -13,13 +13,20 @@
 	width: 150px;
 	height: 150px;
 	border-radius: 50%;
-	/*background-image: url(http://reservasfernandovi.esy.es/assets/imagenes/perfil/default.jpg);*/
-	background-repeat: no-repeat;
-	background-position: center;
-	background-size: contain;
+	/*background-image: url("http://reservasfernandovi.esy.es/assets/imagenes/perfil/default.jpg");*/
+	
 	box-shadow: 8px 5px 8px 3px #888888;
 	margin-left: 120px;	
 	margin-top: -35px;
+}
+
+#avatarUsuario{
+	width: 150px;
+	height: 150px;
+	border-radius: 50%;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: contain;	
 }
 
 .img-circle{

@@ -1,0 +1,24 @@
+.enlace{
+	color: aquamarine !important;
+	font-size: 1em;
+	text-decoration: none !important;	
+}
+
+.enlace:hover{
+	color: aquamarine !important;
+	text-decoration: none !important;	
+}
+
+a:hover{
+	text-decoration: none !important;	
+}
+
+.colorBotonRecuperar{
+	background: burlywood;	
+}
+
+.volverLoginRecuperar{
+	color: white !important;
+	text-decoration: none !important;
+	margin-left: 40% !important;	
+}

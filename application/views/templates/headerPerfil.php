@@ -37,7 +37,6 @@
    
     <!-- Perfil -->
  	<script src="<?= base_url()?>assets/js/usuario/perfil.js" type="text/javascript"></script>
- 	
  
     <!-- Bootstrap -->
     <script type='text/javascript' src="<?= base_url()?>assets/js/bootstrap/bootstrap.min.js"></script>
@@ -60,7 +59,11 @@
 
 	<!-- Cabecera (titulo) -->
 	<link rel="stylesheet" type="text/css" href="<?= base_url()?>assets/templateBootstrap/css/cabecera.css">
-	
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$("#contentImagenPerfil").css("background-image", "url(http://reservasfernandovi.esy.es/assets/imagenes/perfil/"+<?= $imagenUsuario ?>+")");
+		});
+	</script>
 </head>
 
 <body id="page-top" class="index">

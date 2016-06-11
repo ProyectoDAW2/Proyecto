@@ -11,17 +11,20 @@
             <form id="restablecerDatos" action="<?= base_url()?>usuario/recuperarPost" method="post">
 
                 <div class="col-lg- col-lg-offset-3">
-                    <p>Escribe el email asociado a tu cuenta para recuperar tus datos necesarios</p>
+                    <p>Escribe el email asociado a tu cuenta para recuperar tu contrase&ntilde;a</p>
                 </div>
                    <div class="row control-group">
                             <div class="form-group col-xs-12 floating-label-form-group controls">
                                 <label>Email </label>
-                                <input type="email" class="form-control" placeholder="Email" id="correo" name="correo" required data-validation-required-message="Please enter your email address.">
+                                <input type="email" class="form-control" placeholder="Email" id="correo" name="correo" required data-validation-required-message="Completa este campo">
                                 <p class="help-block text-danger"></p>
                             </div>
                         </div>
-                        <div class="form-group col-xs-12  col-md-4 col-lg-offset-4">
-							<button type="submit"  class="btn btn-danger btn-lg btn-block login-button">Recuperar Datos</button>
+                        <div class="form-group col-xs-12 col-md-4 col-lg-offset-4">
+							<button type="submit"  class="colorBotonRecuperar btn btn-lg btn-block login-button">Recuperar Datos</button>
+						</div>
+						<div class="form-group col-xs-12 col-md-4 col-lg-offset-4">
+							<a class="volverLoginRecuperar" href="<?= base_url() ?>">Volver</a>
 						</div>
                </form> 
             </div>

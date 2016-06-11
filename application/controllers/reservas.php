@@ -202,21 +202,7 @@ class reservas extends CI_Controller
 			$datos['datoInput']=$_REQUEST['datoUsuario'];
 			$this->load->view('reservas/buscarPorPersonaPost', $datos);
 			}
-		
-			
-			
-			
-			
-			
-		
-		
-		
-		
-	
-		
-	
 
-		
 	
 	}
 	
