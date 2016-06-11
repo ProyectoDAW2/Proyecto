@@ -31,8 +31,8 @@
 	</div>
 </section>
 
-<script type="text/javascript">
-		
+
+<script type="text/javascript">			
 		$(document).ready(function(){
 			$(".resultado").on('click', "#borrarTodas",  function() {
 				var x=0;
@@ -64,9 +64,7 @@
 				});
 
 
-		</script>
-
-<script type="text/javascript">	
+	
 		$(document).ready(function(){
 			$('#buscar').on('click',function() {
 				console.log($("#nombre").val());
@@ -111,6 +109,4 @@
 			
 		});
 			
-		
-	
-		</script>
+</script>

@@ -89,7 +89,7 @@ class Usuario extends CI_Controller
             if($id==true){
             	if($id == 1){
             		$this->load->view('templates/header3');
-            		$this->load->view('objetoReservable/editarAulas');
+            		$this->load->view('reservas/indexAdmin');
             		$this->load->view('templates/footer3');
             	}
                 else{

@@ -72,35 +72,5 @@
 		});
 		});
 	
-		</script>
 
-
-
-
-
-<!--
-$(function(){
-
-$("button").click(function(){
-	//TODO: comprobacion de los datos
-	var id=$(this).attr('name');
-	console.log(id);
-	$.ajax("http://reservasfernandovi.esy.es/reservas/borrarUnaReserva", {
-		type: "POST",
-		data: {
-			id: id,
-		},
-		complete: function(response){
-			var result=(response.responseText);
-			console.log(result);
-			console.log("borrado");
-			if(result.isValid){
-				console.log("borrado");
-			}
-		}
-	});
-});
-});
-
--->
 
