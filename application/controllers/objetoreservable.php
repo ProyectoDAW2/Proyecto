@@ -158,7 +158,7 @@ class ObjetoReservable extends CI_Controller{
 	public function editarAulas(){
 		$this->load->view('templates/headerAdmin');
 		$this->load->view('objetoReservable/editarAulas');
-		$this->load->view('templates/footerAdmin');
+		$this->load->view('templates/footer2');
 	}
 	
 	public function buscarAula(){
@@ -184,7 +184,7 @@ class ObjetoReservable extends CI_Controller{
 		
 		$this->load->view('templates/headerAdmin');
 		$this->load->view('objetoReservable/editarAulas', $datos);
-		$this->load->view('templates/footerAdmin');
+		$this->load->view('templates/footer2');
 	}
 	
 }

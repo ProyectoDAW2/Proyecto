@@ -75,7 +75,7 @@
                         <a href="<?= base_url()?>reservas/buscarReservasPorPersonas">Buscar Reservas</a>
                     </li>
                     <li class="page-scroll">
-                        <a href="#contact">Contacto</a>
+                        <a href="<?= base_url() ?>usuario/cerrarSesion">Contacto</a>
                     </li>
                     <li class="page-scroll">
                         <a href="<?= base_url() ?>usuario/cerrarSesion">Cerrar Sesi&oacute;n</a>

@@ -48,7 +48,7 @@ class Usuario extends CI_Controller
             if($password == $password2){
             	if($res==true && $longitudCorreo<46) {
                 	$this->mu->completarRegistro ($nick, $password, $correo, $rol, $clave, $id);
-                	$this->login();
+                	redirect ( base_url (), 'refresh' );
             	}
             }
             else{
@@ -370,7 +370,7 @@ class Usuario extends CI_Controller
 			/*$this->load->view('templates/header3');
 			$this->load->view('usuario/contacto');
 			$this->load->view('templates/footer3');*/
-			$this->contacto();
+			redirect ( base_url ( 'usuario/contacto' ), 'refresh' );
 		}
 		
 	}
