@@ -225,17 +225,6 @@ class Usuario extends CI_Controller
 		                $this->mu->actualizarNombreAvatar($idUsuario, $nombreFoto );
 		                
 					}
-					//$nombre = $_SESSION['idUsuario'].".jpg";
-					//echo $nombre;
-					//$carpeta = "assets/imagenes/perfil/";
-					//copy ( $_FILES['imagenUsuario']['tmp_name'], $carpeta . $nombre );
-					
-					//echo "El fichero $nombre se almacen&oacute; en $carpeta";
-					//return "<img src=".base_url()."assets/imagenes/perfil/".$nombre.">";
-					
-					//mkdir(base_url()."assets/imagenes/perfil", 0777, true);
-					//move_uploaded_file($_FILES['imagenPerfil']['tmp_name'], $carpeta.$nombre);
-					//$datos['imagen']= "<img style='width: 60px;height: 60px;border-radius:50%;' src=".base_url().'assets/imagenes/perfil/'.$nombre.">";
 					
 						$this->mu->cambiarPerfil($idUsuario, $nick, $password, $correo);
 						$resultado= $this->mu->obtenerNombreYCorreo($_SESSION['idUsuario'], "perfil");
@@ -251,13 +240,10 @@ class Usuario extends CI_Controller
 						$datos['imagen']= "si";
 						$datos['nickUsuario']= $nick;
 						$datos['correoUsuario']= $correo;
-						//$_SESSION['avatar']= "si";
-		                //$this->session->set_flashdata('updateAvatarOk', getAvatarChangeOkMsg () );
-		                //redirect ( base_url ( 'usuario/perfil' ), 'refresh' );
-					//resize_img ( ('assets/images/users/' . $nombreFoto), 150, 150 );
-	                $this->load->view ('templates/headerPerfil');
-					$this->load->view('usuario/perfil2', $datos);
-	                $this->load->view('templates/footerPerfil');
+						
+		                $this->load->view ('templates/headerPerfil');
+						$this->load->view('usuario/perfil2', $datos);
+		                $this->load->view('templates/footerPerfil');
 	            }
 				else{
 					$datos['passIncorrecta']= "password";
@@ -497,10 +483,8 @@ class Usuario extends CI_Controller
 	
 	 public function cerrarSesion(){
 		session_destroy();
-		$this->login();
+		redirect ( base_url ( ), 'refresh' );
 	}
-	
-	
 
 }
 ?>
