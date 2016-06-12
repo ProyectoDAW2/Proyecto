@@ -39,15 +39,14 @@
                     </div>
                     <input type="text" id="res" name="res" hidden/>
                     <div class="form-group ">
-                        <input type="submit" class="btn  btn-lg btn-block btn-success boton" value="Entrar"/>
+                        <input type="submit" class="btn boton letraBoton btn-lg btn-block login-button" value="Entrar"/>
+                        <div class="submit"><a class="enlaceRegistro btn btn-lg btn-block btn-success " href="<?= base_url()?>usuario/registrar">Reg&iacute;strate aqu&iacute;</a></div>
                     </div>
                     <div class="element-input">
-                        <div class="item-cont">
-                            <span><a href="<?= base_url()?>usuario/recuperar">&iquest;Has olvidado tus datos?</a></span>
-                        </div>
                     </div>
-                    <div class="submit"><a class="enlaceRegistro" href="<?= base_url()?>usuario/registrar">Reg&iacute;strate aqu&iacute;</a></div>
-
+                    <div class="item-cont">
+                        <span><a href="<?= base_url()?>usuario/recuperar">&iquest;Has olvidado tus datos?</a></span>
+                    </div>
                 </form>
             </div>
         </div>
