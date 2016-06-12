@@ -5,7 +5,6 @@ $(document).ready(function (){
         $(this).parent().addClass("hidden");
     });
 
-    listarReservas();
 //Si se clicka un día se abre una ventana con las horas.
         listarReservas();
         var date = new Date();
@@ -270,25 +269,51 @@ $(".reservaPista").click(function(){
     var nombre = $(this).attr('name');
     console.log(id);
     console.log("Pista de "+nombre);
+
+    $.ajax("http://reservasfernandovi.esy.es/reservas/listarReserva", {
+        type: "POST",
+        data: {'num': id},
+        success: function(data){
+            console.log("Enviamos nº de aula para recoger reservas");
+        }
+    });
+
     $("#pistade").html("Pista de "+nombre);
     $("#pistade").attr('name',id);
-    $("#datepicker").datepicker({
-        dateFormat: 'yy-mm-dd',
-        constrainInput: true,
-        closeText: "Cerrar",
-        prevText: "Ant",
-        nextText: "Sig",
-        currentText: "Hoy",
-        monthNames: [ "enero","febrero","marzo","abril","mayo","junio",
-            "julio","agosto","septiembre","octubre","noviembre","diciembre" ],
-        monthNamesShort: [ "ene","feb","mar","abr","may","jun",
-            "jul","ago","sep","oct","nov","dic" ],
-        dayNames: [ "domingo","lunes","martes","miércoles","jueves","viernes","sábado" ],
-        dayNamesShort: [ "dom","lun","mar","mié","jue","vie","sáb" ],
-        dayNamesMin: [ "D","L","M","X","J","V","S" ],
-        beforeShowDay: $.datepicker.noWeekends,
-        firstDay: 1
+    $("#datepicker").click(function() {
+        var diasReservados=[];
+        $.ajax("http://reservasfernandovi.esy.es/reservas/listarReservaPost", {
+            type: "POST",
+            success: function(data) {
+                console.log("hemos llegado a listarreservapost");
+                var length = data.length;
+                for (i = 0; i < length; i++) {
+                    var post = data[i];
+                    diasReservados.push(post.fecha);
+                    CONSOLE.log(post.fecha);
+                }
+            }
+        });
     });
+
+
+    $("#datepicker").datepicker({
+            dateFormat: 'yy-mm-dd',
+            constrainInput: true,
+            closeText: "Cerrar",
+            prevText: "Ant",
+            nextText: "Sig",
+            currentText: "Hoy",
+            monthNames: ["enero", "febrero", "marzo", "abril", "mayo", "junio",
+                "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"],
+            monthNamesShort: ["ene", "feb", "mar", "abr", "may", "jun",
+                "jul", "ago", "sep", "oct", "nov", "dic"],
+            dayNames: ["domingo", "lunes", "martes", "miércoles", "jueves", "viernes", "sábado"],
+            dayNamesShort: ["dom", "lun", "mar", "mié", "jue", "vie", "sáb"],
+            dayNamesMin: ["D", "L", "M", "X", "J", "V", "S"],
+            beforeShowDay: $.datepicker.noWeekends,
+            firstDay: 1
+        });
 });
 
 $(".submitReservaAlumno").click(function(){

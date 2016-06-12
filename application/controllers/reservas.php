@@ -103,19 +103,16 @@ class reservas extends CI_Controller
 		$_SESSION['num']=$numAula;
 		echo $numAula;
 	}
-
-	/**
+	/*
 	 * Para listar las reservas en el calendario
 	 */
 	public function listarReservaPost(){
-
 		$aulaElegida=isset($_SESSION['num']) ? $_SESSION['num']:null;
 		$this->load->model('Model_Reserva', 'mr');
 		$reservas= $this->mr->getTodasReservas($aulaElegida);
 		$datos['reservas']= $reservas;
 		$this->load->view('reservas/listarReservaPost', $datos);
 	}
-
 	/*
      * Si nadie utiliza estos borrados se pueden eliminar
      */
