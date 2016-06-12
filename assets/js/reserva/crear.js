@@ -20,7 +20,9 @@ $(document).ready(function (){
                 complete: function(response){
                     $('#calendar').fullCalendar('destroy');
                     //SE DIBUJA EL CALENDARIO
-                    setTimeout(pintarCalendario(),500);}
+                    setTimeout(pintarCalendario(),500);
+                    $(".calendarioAula").text("Calendario del aula "+num);
+                }
             });
     });
 });

@@ -145,7 +145,7 @@
                 <div class="col-md-2">
                 </div>
                 <div class="col-md-8">
-					<h4>Calendario</h4>
+					<h4 class="calendarioAula">Calendario</h4>
 					<div id='calendar'></div>
 				</div>
                 <div class="col-md-2">
