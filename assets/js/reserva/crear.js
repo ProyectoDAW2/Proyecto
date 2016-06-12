@@ -58,9 +58,9 @@ function pintarCalendario(){
     console.log("Dibujando calendario del aula "+num);
     $('#calendar').fullCalendar({
         header: {
-            left: 'prev,next today',
+            left: 'prev,next',
+            right: '',
             center: 'title',
-            right: 'month,agendaWeek'
         },
         fixedWeekCount: false,
         firstDay: 1,
@@ -212,14 +212,33 @@ $(document).on('click', '.submitReserva', function(){
 
 //Deshabilitar las horas que ya están reservadas ese día.
 $(document).on('click', '.fc-day-header', function(){
+    alert("Clickando el día harás más de una reserva al mismo tiempo");
     var day=$(this).text();
     day=day.toLowerCase();
+    switch (day) {
+        case "l":
+            day = "mon";
+            break;
+        case "m":
+            day = "tue";
+            break;
+        case "x":
+            day = "wed";
+            break;
+        case "j":
+            day = "thu";
+            break;
+        case "v":
+            day = "fri";
+            break;
+    }
     var fc="fc-"+day;
     var arrayDayWeek=[];
 
+    console.log("dia escogido "+fc);
+
     $('td.'+fc+':not(.fc-past, fc-other-month)').each(function() {
         arrayDayWeek.push($(this).attr("data-date"));
-        $(this).css("background-color","grey");
     });
     console.log(arrayDayWeek);
     var modal=$("#bookingModal");
@@ -255,8 +274,8 @@ $(".reservaPista").click(function(){
         dateFormat: 'yy-mm-dd',
         constrainInput: true,
         closeText: "Cerrar",
-        prevText: "&#x3C;Ant",
-        nextText: "Sig&#x3E;",
+        prevText: "Ant",
+        nextText: "Sig",
         currentText: "Hoy",
         monthNames: [ "enero","febrero","marzo","abril","mayo","junio",
             "julio","agosto","septiembre","octubre","noviembre","diciembre" ],
