@@ -13,8 +13,8 @@
 
      <!-- A�adimos archivos de jquery -->
     <script type='text/javascript' src="<?= base_url()?>assets/jquery/jquery-1.12.3.min.js"></script>
-    <script type='text/javascript' src="<?= base_url()?>assets/jquery/jquery-ui.min.js"></script>
     <script type='text/javascript' src="<?= base_url()?>assets/jquery/jquery.min.js"></script>
+    <script type='text/javascript' src="<?= base_url()?>assets/jquery/jquery-ui.min.js"></script>
     <script type='text/javascript' src="<?= base_url()?>assets/jquery/jquery.js"></script>
 
 
@@ -44,7 +44,7 @@
 
 	<!-- SweetAlert --> 
 
-	 <script src="<?= base_url()?>assets/sweetalert-master/dist/sweetalert.min.js"></script> 
+	 <script src="<?= base_url()?>assets/sweetalert-master/dist/sweetalert.min.js"></script>
 
     <link rel="stylesheet" type="text/css" href="<?= base_url()?>assets/sweetalert-master/dist/sweetalert.css">
     
@@ -71,7 +71,7 @@
                     <span class="icon-bar"></span>
                 </button>
 
-                <a class="navbar-brand" href="<?= base_url()?>reservas"><div class="containerLogo"><img id="logoApp" src="<?= base_url()?>assets/img/logo.png"></div></a>
+                <a class="navbar-brand" href="<?= base_url()?>reservas/crear"><div class="containerLogo"></div></a>
 
             </div>
 
@@ -82,8 +82,7 @@
                         <a href="#page-top"></a>
                     </li>
                     <li class="page-scroll">
-
-                        <a href="<?= base_url()?>reservas">Reservas</a>
+                        <a href="<?= base_url()?>reservas/crear">Reservas</a>
                     </li>
                     <li class="page-scroll">
                         <a href="<?= base_url()?>usuario/perfil">Perfil</a>

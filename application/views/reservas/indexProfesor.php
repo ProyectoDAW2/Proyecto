@@ -108,7 +108,6 @@
 							<h4>Filtrado</h4>
 							<hr class="star-primary">
 							<p>
-
 								<label>Categor&iacute;a</label>
 								<select class="selectpicker" name="categoria" id="categoria" data-style="btn btn-primary active" >
 									<option value="todas" selected>Todas</option>

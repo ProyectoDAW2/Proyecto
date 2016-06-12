@@ -50,8 +50,7 @@
 		<div class="form-group">
 		  <label class="col-md-4 control-label" for="passwordCambio">Nueva contrase&ntilde;a</label>
 		  <div class="col-md-4">
-		    <input id="passwordNueva" name="passwordNueva" type="password" class="form-control input-md">
-		    
+		    <input id="passwordNueva" name="passwordNueva" type="password" class="form-control input-md" placeholder="Campo obligatorio">
 		  </div>
 		</div>
 		
@@ -59,7 +58,7 @@
 		<div class="form-group">
 		  <label class="col-md-4 control-label" for="passwordCambio2">Repite nueva contrase&ntilde;a</label>
 		  <div class="col-md-4">
-		    <input id="passwordNueva2" name="passwordNueva2" type="password" class="form-control input-md">
+		    <input id="passwordNueva2" name="passwordNueva2" type="password" class="form-control input-md" placeholder="Campo obligatorio">
 		    
 		  </div>
 		</div>
@@ -84,7 +83,6 @@
 		    <input type="submit" id="guardar" name="guardar" class="colorFondoBoton letraBoton botonPerfil btn"  value="Guardar cambios" onclick="modify()">
 		  </div>
 		</div>
-		
 		</fieldset>
 	</form>
 </div>

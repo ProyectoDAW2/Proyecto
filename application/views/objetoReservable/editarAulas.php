@@ -177,7 +177,6 @@
 				  		});
 					<?php endif; ?>
 					</script>
-
 		</div>
 	</div>
 	

@@ -3,31 +3,25 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-12 text-center">
-                <h2>INICIO</h2>
-                <hr class="star-primary">
+                </br>
+                </br>
+                </br>
+                </br>
+                </br>
             </div>
         </div>
         <div class="row">
+            <div class="col-sm-3 portfolio-item"></div>
             <div class="col-sm-6 portfolio-item">
                 <a href="#reservasAulas" class="portfolio-link" data-toggle="modal">
                     <div class="caption">
                         <div class="caption-content">
                             <i class="fa fa-search-plus fa-3x"></i>
                         </div>
-                    </div> <img src="http://reservasfernandovi.esy.es/assets/templateBootstrap/img/portfolio/cabin.png" class="img-responsive" alt="">
+                    </div> <img src="http://reservasfernandovi.esy.es/assets/imagenes/pluma2.png" class="img-responsive" alt="">
                 </a>
             </div>
-            <div class="col-sm-6 portfolio-item">
-                <a href="#listarReservas" class="portfolio-link"
-                   data-toggle="modal">
-                    <div class="caption">
-                        <div class="caption-content">
-                            <i class="fa fa-search-plus fa-3x"></i>
-                        </div>
-                    </div> <img src="http://reservasfernandovi.esy.es/assets/templateBootstrap/img/portfolio/cake.png" class="img-responsive" alt="">
-                </a>
-            </div>
-
+            <div class="col-sm-3 portfolio-item"></div>
         </div>
     </div>
 </section>
@@ -209,76 +203,3 @@
         </div>
     </div>
 </div>
-
-
-<div class="portfolio-modal modal fade" id="listarReservas" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-content">
-        <div class="close-modal" data-dismiss="modal">
-            <div class="lr">
-                <div class="rl">
-                </div>
-            </div>
-        </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <h2>Sus Aposentos</h2>
-                    <hr class="star-primary">
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-8 col-lg-offset-2">
-                    <div class="col-sm-8 col-sm-offset-2">
-                        <div class="table-responsive">
-                            <table class="table table-bordered table-striped bs-events-table">
-                                <thead>
-                                <tr>
-
-
-                                    <th>Fecha</th>
-                                    <th>Hora</th>
-                                    <th>Objeto Reservado</th>
-                                    <th>Eliminar</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <?php foreach($reservas as $reserva):?>
-                                    <tr>
-                                        <!--Campo oculto para despues borrar a trav�s del id-->
-
-                                        <td><?= $reserva->fecha?></td>
-                                        <td><?= $reserva->hora?></td>
-                                        <td><?= $reserva->ornombre?></td>
-                                        <th>
-                                            <a href="http://reservasfernandovi.esy.es/reservas/borrarUnaReserva?id=<?= $reserva->id?>" class="botonPerfil btn btn-danger btn-sm">Borrar</a></th>
-
-
-                                    </tr>
-                                <?php endforeach;?>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <script type="text/javascript">
-        <?php if(isset($borradoIncorrecto)):?>
-        swal({
-            title: "",
-            text: "No se ha podido borrar la reserva. Por favor, int�ntelo m�s tarde",
-            type: "error",
-            confirmButtonText: "Aceptar"
-        });
-        <?php endif;?>
-        <?php if($borradoCorrecto):?>
-        swal({
-            title: "",
-            text: "Reserva borrada correctamente",
-            type: "success",
-            confirmButtonText: "Continuar"
-        });
-        <?php endif; ?>
-
-    </script>

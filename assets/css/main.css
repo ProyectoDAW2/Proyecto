@@ -219,3 +219,11 @@
     background-color: #fff;
     cursor: default;
 }
+
+.containerLogo{
+    background-image: url("http://reservasfernandovi.esy.es/assets/imagenes/pluma.png");
+    background-size:contain;
+}
+section #registro{
+    padding: 0;
+}

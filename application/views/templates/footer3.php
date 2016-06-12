@@ -1,7 +1,5 @@
 <!-- jQuery -->
-
 <script src="<?= base_url()?>assets/jquery/jquery-2.2.3.min.js"></script>
-
 <!-- Plugin JavaScript -->
 
 <script src="<?= base_url()?>assets/templateBootstrap/js/classie.js"></script>
@@ -25,7 +23,6 @@
 <script  src="<?= base_url()?>assets/js/fullcalendar/moment.js"></script>
 <script  src="<?= base_url()?>assets/js/fullcalendar/fullcalendar.min.js"></script>
 
-
 <!-- Perfil -->
 <script src="<?= base_url()?>assets/js/usuario/perfil.js" type="text/javascript"></script>
 <script src="<?= base_url()?>assets/js/usuario/imagenPerfil.js" type="text/javascript"></script>
@@ -48,10 +45,7 @@
 <!-- Contacto -->
 <script src="<?= base_url()?>assets/templateBootstrap/js/contact_me.js"></script>
 
-<script src="http://reservasfernandovi.esy.es/assets/jquery/jquery-2.2.3.min.js" type='text/javascript'></script>
 <script src='http://reservasfernandovi.esy.es/assets/jquery/jquery-ui.min.js' type='text/javascript'></script>
 <script src='http://reservasfernandovi.esy.es/assets/jquery/jquery-ui.js' type='text/javascript'></script>
-<script src='http://reservasfernandovi.esy.es/assets/js/reserva/crear.js' type='text/javascript'></script>
-
 </body>
 </html>

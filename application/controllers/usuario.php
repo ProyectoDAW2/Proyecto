@@ -85,18 +85,11 @@ class Usuario extends CI_Controller
             $datos['reservas']= $reservas;
             if($id==true){
             	if($id == 1){
-					$this->load->model('Model_Usuario', 'mu');
-					$profesores= $this->mu->getProfesor();
-					$datos['profesores']= $profesores;
-
 					$this->load->view('templates/headerAdmin');
             		$this->load->view('reservas/indexAdmin');
             		$this->load->view('templates/footer3');
             	}
                 else{
-                	/*$this->load->view ('templates/headerPerfil');
-                	$this->load->view ('usuario/perfil2');
-                	$this->load->view ('templates/footerPerfil');*/
                 	$rol= $this->mu->buscarPorRol($id);
                 	
                 	if($rol=="profesor"){
@@ -109,7 +102,7 @@ class Usuario extends CI_Controller
                 	}
                 	if($rol=="alumno"){
                 		$this->load->view ('templates/header3');
-                		$this->load->view ('reservas/indexAlumno');
+						$this->load->view('reservas/indexAlumno');
                 		$this->load->view ('templates/footer3');
                 	}
                 }
@@ -121,9 +114,9 @@ class Usuario extends CI_Controller
         }
         else{
         	$datos['loginIncorrecto']= "si";
-        	$this->load->view('templates/headerLogin');
-            $this->load->view('usuario/login', $datos);
-            $this->load->view('templates/footer');
+			$this->load->view('templates/headerSinCabecera');
+			$this->load->view ('usuario/login');
+			$this->load->view ('templates/footer2');
         }
     }
 
@@ -214,7 +207,6 @@ class Usuario extends CI_Controller
 			$passwordCorrecta= $this->mu->encontrarUsuarioPorPassword($passActual);
 			
 			if($passwordCorrecta){
-				
 				if($idUsuario!=0 || $idUsuario!=null) {
 					if (isset ( $_FILES ['imagenPerfil'] ) && $_FILES ['imagenPerfil'] ['error'] == 0) {
 						
@@ -297,17 +289,15 @@ class Usuario extends CI_Controller
 			    $nick= $separacion[0];
 			    $password= $separacion[1];
 				$correo= $separacion[2];
-					
+
 				$datos['nickUsuario']= $nick;
 				$datos['passwordUsuario']= $password;
 				$datos['correoUsuario']= $correo;
-					
+
 	            $this->load->view('templates/headerPerfil');
 	            $this->load->view('usuario/perfil2', $datos);
 	            $this->load->view('templates/footerPerfil');
 	        }
-			
-			
 		}
 		else {
             $this->load->view ('templates/header3');
@@ -316,9 +306,7 @@ class Usuario extends CI_Controller
         }
 		
 	}
-
     /*----- Recuperar contraseña de la cuenta -----*/
-
 	public function recuperar() {
 		$this->load->view('templates/headerSinCabecera');
 		$this->load->view('usuario/recuperar');
@@ -381,8 +369,6 @@ class Usuario extends CI_Controller
 			$this->load->view ('usuario/contacto', $datos);
 			$this->load->view ('templates/footer3');
 		}
-		
-		
 	}
 	
 	public function contacto2(){
@@ -404,7 +390,6 @@ class Usuario extends CI_Controller
 			$this->load->view('templates/footer3');*/
 			redirect ( base_url ( 'usuario/contacto' ), 'refresh' );
 		}
-		
 	}
 	
 	public function sendMail($emailReceiver, $message, $subject) {
@@ -519,5 +504,8 @@ class Usuario extends CI_Controller
 		redirect ( base_url ( ), 'refresh' );
 	}
 
+	public function getProfesor(){
+		return R::getAll("SELECT * FROM usuario WHERE rol='profesor'");
+	}
 }
 ?>

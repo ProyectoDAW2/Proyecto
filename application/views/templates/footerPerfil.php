@@ -6,24 +6,20 @@ $(document).on('change', '.btn-file :file', function() {
 	      console.log(label);
 	      console.log(numFiles);
 	  input.trigger('fileselect', [numFiles, label]);
-	  
- 	});
+});
 
-	$(document).ready( function() {
-	  	
-	    $('.btn-file :file').on('fileselect', function(event, numFiles, label) {
-	        
-	        var input = $(this).parents('.input-group').find(':text'),
-	            log = numFiles > 1 ? numFiles + ' files selected' : label;
-	        
-	        if( input.length ) {
-	            input.val(log);
-	        } else {
-	            if( log ) alert(log);
-	        }
-	        
-	    });
+$(document).ready( function() {
+
+	$('.btn-file :file').on('fileselect', function(event, numFiles, label) {
+		var input = $(this).parents('.input-group').find(':text'),
+			log = numFiles > 1 ? numFiles + ' files selected' : label;
+		if( input.length ) {
+			input.val(log);
+		} else {
+			if( log ) alert(log);
+		}
 	});
+});
 
   	<?php if(isset($imagen)): ?>
   		swal({
@@ -37,10 +33,10 @@ $(document).on('change', '.btn-file :file', function() {
 
   	<?php if(isset($passIncorrecta)):?>
 		swal({
-  	     title: "Revisa los datos",
-  		 text: "Recuerda que la contrase\u00f1a actual es obligatoria",
-  		 type: "error",
-  		 confirmButtonText: "Aceptar"
+			 title: "Revisa los datos",
+			 text: "Recuerda que la contraseña nueva debe de tener dos números",
+			 type: "error",
+			 confirmButtonText: "Aceptar"
   		});
 	<?php endif; ?>
     </script>
