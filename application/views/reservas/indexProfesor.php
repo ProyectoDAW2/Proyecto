@@ -177,7 +177,7 @@
 						<p>
 							<label> <input type="checkbox" name="hours[]" id="1" class="hours" value="13:25-14:20"> 13:25-14:20</label>
 						</p>
-						<p><button class="submitReserva">Confirmar reserva</button></p>
+						<p><button class="submitReserva colorFondoBoton letraBoton btn">Confirmar reserva</button></p>
 					</div>
 				</div>
 			</div>

@@ -187,7 +187,7 @@
                         </p>
 
                         <p>
-                            <button class="submitReservaAdmin">Confirmar reserva</button>
+                            <button class="submitReservaAdmin colorFondoBoton letraBoton btn">Confirmar reserva</button>
 
                         </p>
 

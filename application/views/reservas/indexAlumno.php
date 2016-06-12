@@ -74,7 +74,7 @@
 		<div class="customModal">
 			<h2 id="pistade"></h2>
 			<input type="text" id="datepicker" placeholder="AAAA-MM-DD" class="form-control input-md">
-			<button class="submitReservaAlumno">Confirmar reserva</button>
+			<button class="submitReservaAlumno colorFondoBoton letraBoton botonPerfil btn">Confirmar reserva</button>
 		</div>
 	</div>
 
