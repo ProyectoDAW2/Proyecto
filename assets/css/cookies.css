@@ -1,0 +1,63 @@
+.container-cookie{
+                background-color: rgb(17, 17, 17); 
+                z-index: 999999; 
+                opacity: 1; 
+                position: fixed; 
+                padding: 15px; 
+                width: 300px;
+                height: 123px; 
+                font-size: 13px; 
+                font-weight: normal; 
+                text-align: left;
+                color: rgb(255, 255, 255); 
+                font-family: Arial,sans-serif; 
+                line-height: 20px; 
+                letter-spacing: normal; 
+                box-shadow: 0px 0px 8px rgb(0, 0, 0); 
+                border-radius: 5px; 
+                bottom: 20px; 
+                right: 20px;
+                display:block;
+            }
+            .tituloCookie{
+                background-color: rgb(17, 17, 17); 
+                z-index: 999999; 
+                padding: 0px 0px 7px; 
+                text-align: center; 
+                color: rgb(255, 255, 255);
+                font-family: Arial,sans-serif; 
+                display: block; 
+                font-size: 15px;
+                font-weight: bold; 
+                margin: 0px;
+            }
+            .aceptarCookies{
+                border-radius: 5px; 
+                border: 0px none; 
+                padding: 6px 10px; 
+                font-weight: bold; 
+                cursor: pointer; 
+                margin: 5px 10px; 
+                transition: all 0.25s ease 0s; 
+                text-shadow: 0px 0px 2px rgb(0, 0, 0); 
+                background-color: rgb(91, 183, 91); 
+                color: rgb(255, 255, 255); 
+                float: left;
+            }
+            .leerMas{
+                border-radius: 5px; 
+                border: 0px none; 
+                padding: 6px 10px; 
+                font-weight: bold; 
+                cursor: pointer; 
+                margin: 5px 10px; 
+                transition: all 0.25s ease 0s; 
+                text-shadow: 0px 0px 2px rgb(0, 0, 0); 
+                background-color: rgb(105, 118, 119); 
+                color: rgb(255, 255, 255); 
+                float: right;
+            }
+            .enlaceCookie{
+                text-decoration: none;
+                color: greenyellow;
+            }
