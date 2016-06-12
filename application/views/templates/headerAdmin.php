@@ -32,6 +32,7 @@
 
 	<!-- SweetAlert --> 
     <link rel="stylesheet" type="text/css" href="<?= base_url()?>assets/sweetalert-master/dist/sweetalert.css">
+    <script src="<?= base_url()?>assets/sweetalert-master/dist/sweetalert.min.js"></script>
     
     <!-- Select Buttons -->
     <link rel="stylesheet" href="<?= base_url()?>assets/Select-Bootstrap/dist/css/bootstrap-select.css">
