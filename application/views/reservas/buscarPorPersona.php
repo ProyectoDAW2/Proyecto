@@ -12,7 +12,7 @@
 			<div class="row control-group">
                             <div class="form-group col-xs-8 col-xs-offset-2 floating-label-form-group controls">
                                 <label>Introduce nombre y apellidos, nick o correo del Usuario</label>
-                                <input type="text" id="nombre" class="form-control" name="nombre" />
+                                <input type="text" id="nombre" class="form-control" name="nombre" placeholder="Introduce nombre y apellidos, nick o correo del Usuario" />
                                 <p class="help-block text-danger"></p>
                             </div>
                         </div>    

@@ -12,7 +12,7 @@
 			<div class="row control-group">
                             <div class="form-group col-xs-8 col-xs-offset-2 floating-label-form-group controls">
                                 <label>Introduce el nombre o n&uacute;mero de Aula</label>
-                                <input type="text" id="numaula" name="numaula" onchange="numAulaNumerico(this.value)"/>
+                                <input type="text" id="numaula" class="form-control" name="numaula" onchange="numAulaNumerico(this.value)" placeholder="Introduce el n&uacute;mero de Aula"/>
                                 <p class="help-block text-danger"></p>
                             </div>
                         </div>

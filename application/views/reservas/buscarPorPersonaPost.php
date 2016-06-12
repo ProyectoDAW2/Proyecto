@@ -8,7 +8,7 @@
 				</div>
 					<div class="col-md-10 col-md-offset-1 table-responsive">
 						<table data-toggle="table" id="listaAulas" name="listaAulas" class="table table-bordered table-striped bs-events-table">
-							<thead><tr><th data-field="fruit" data-sortable="true">Usuario</th><th>Correo</th><th>Rol</th><th>Aula</th><th>N&uacute;m. Aula</th><th>Fecha</th><th>Hora</th></tr></thead>
+							<thead><tr><th >Usuario</th><th>Correo</th><th>Rol</th><th>Aula</th><th>N&uacute;m. Aula</th><th>Fecha</th><th>Hora</th></tr></thead>
 								<tbody>
 								<tr>
 								<?php foreach ($reservasUsuarios as $reservaUsuario): ?>

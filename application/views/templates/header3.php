@@ -43,6 +43,7 @@
     <link rel="stylesheet" href="<?= base_url()?>assets/css/usuario/perfil.css">
 
 	<!-- SweetAlert --> 
+	 <script src="<?= base_url()?>assets/sweetalert-master/dist/sweetalert.min.js"></script> 
     <link rel="stylesheet" type="text/css" href="<?= base_url()?>assets/sweetalert-master/dist/sweetalert.css">
     
     <!-- Select Buttons -->
