@@ -46,16 +46,16 @@
 					<h3>Acerca de Nosotros</h3>
 					<ul class="list-inline">
 						<li><a href="https://www.facebook.com/reyfernandovi.ies?ref=br_rs"
-							class="btn-social btn-outline"><i class="fa fa-fw fa-facebook"></i></a>
+							   class="btn-social btn-outline"><i class="fa fa-fw fa-facebook"></i></a>
 						</li>
 						<li><a href="#" class="btn-social btn-outline"><i
-								class="fa fa-fw fa-google-plus"></i></a></li>
+									class="fa fa-fw fa-google-plus"></i></a></li>
 						<li><a href="#" class="btn-social btn-outline"><i
-								class="fa fa-fw fa-twitter"></i></a></li>
+									class="fa fa-fw fa-twitter"></i></a></li>
 						<li><a href="#" class="btn-social btn-outline"><i
-								class="fa fa-fw fa-linkedin"></i></a></li>
+									class="fa fa-fw fa-linkedin"></i></a></li>
 						<li><a href="#" class="btn-social btn-outline"><i
-								class="fa fa-fw fa-dribbble"></i></a></li>
+									class="fa fa-fw fa-dribbble"></i></a></li>
 					</ul>
 				</div>
 				<div class="footer-col col-md-4">
@@ -90,9 +90,12 @@
 <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) -->
 <div class="scroll-top page-scroll visible-xs visible-sm">
 	<a class="btn btn-primary" href="#page-top"> <i
-		class="fa fa-chevron-up"></i>
+			class="fa fa-chevron-up"></i>
 	</a>
 </div>
 </div>
 </div>
 
+<script type="text/javascript">
+
+</script>

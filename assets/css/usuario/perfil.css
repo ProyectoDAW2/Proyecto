@@ -61,7 +61,7 @@
 input[readonly] {
   background-color: white !important;
   cursor: text !important;
-  width: 40%;
+  width: 100%;
 }
 
 .tamanio{

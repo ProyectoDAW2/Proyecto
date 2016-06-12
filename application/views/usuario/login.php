@@ -1,3 +1,10 @@
+<div class="row">
+    <img class="image col-md-1.5 col-xs-1.5" src="<?= base_url()?>/assets/img/logo.png"/>
+</div>
+
+<div class="row">
+    <h3 class="titleApp">Reserva de aulas IES REY FERNANDO VI</h3>
+</div>
 
 <section id="registro">
     <div class="container">

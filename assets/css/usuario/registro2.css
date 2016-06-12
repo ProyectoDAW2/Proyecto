@@ -13,14 +13,17 @@ body{
 
 .letraBoton{
 	color: white;
+	border: 1px solid #2c3e50;
+}
+
+.letraBoton{
+	color: white;	
 }
 
 a{
 	font-size: 1.5em;
-
 }
 
 .container{
-	margin-top: -90px;
 	margin-bottom: -95px;
 }

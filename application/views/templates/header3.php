@@ -11,7 +11,7 @@
 
     <title>Gestor de Espacios</title>
 
-     <!-- Añadimos archivos de jquery -->
+     <!-- Aï¿½adimos archivos de jquery -->
     <script type='text/javascript' src="<?= base_url()?>assets/jquery/jquery-1.12.3.min.js"></script>
     <script type='text/javascript' src="<?= base_url()?>assets/jquery/jquery-ui.min.js"></script>
     <script type='text/javascript' src="<?= base_url()?>assets/jquery/jquery.min.js"></script>
@@ -43,12 +43,15 @@
     <link rel="stylesheet" href="<?= base_url()?>assets/css/usuario/perfil.css">
 
 	<!-- SweetAlert --> 
+
+	 <script src="<?= base_url()?>assets/sweetalert-master/dist/sweetalert.min.js"></script> 
+
     <link rel="stylesheet" type="text/css" href="<?= base_url()?>assets/sweetalert-master/dist/sweetalert.css">
     
     <!-- Select Buttons -->
     <link rel="stylesheet" href="<?= base_url()?>assets/Select-Bootstrap/dist/css/bootstrap-select.css">
 
-	<!-- Estilos añadidos a elementos de esta cabecera -->
+	<!-- Estilos aï¿½adidos a elementos de esta cabecera -->
 	<link rel="stylesheet" href="<?= base_url()?>assets/templateBootstrap/css/cabecera.css">
 
 	

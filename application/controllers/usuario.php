@@ -4,7 +4,6 @@ class Usuario extends CI_Controller
 {
 	public function index(){
 		$this->login();
-		//$this->load->view('usuario/pruebaEmail');
 	}
 	
     /*----- Registrar usuarios -----*/
@@ -33,12 +32,10 @@ class Usuario extends CI_Controller
         if($digitoRol==1){
             $rol= "profesor";
         }
-
         else{
             $rol= "alumno";
         }
-        
-        $this->load->model ('Model_Usuario', 'mu');
+		$this->load->model ('Model_Usuario', 'mu');
         $existeClave= $this->mu->comprobarClave($clave);
 		
         if($existeClave!="") {
@@ -88,11 +85,18 @@ class Usuario extends CI_Controller
             $datos['reservas']= $reservas;
             if($id==true){
             	if($id == 1){
-            		$this->load->view('templates/header3');
+					$this->load->model('Model_Usuario', 'mu');
+					$profesores= $this->mu->getProfesor();
+					$datos['profesores']= $profesores;
+
+					$this->load->view('templates/headerAdmin');
             		$this->load->view('reservas/indexAdmin');
             		$this->load->view('templates/footer3');
             	}
                 else{
+                	/*$this->load->view ('templates/headerPerfil');
+                	$this->load->view ('usuario/perfil2');
+                	$this->load->view ('templates/footerPerfil');*/
                 	$rol= $this->mu->buscarPorRol($id);
                 	
                 	if($rol=="profesor"){
@@ -101,7 +105,6 @@ class Usuario extends CI_Controller
                 		$datos['categorias']= $categorias;
                 		$this->load->view ('templates/header3');
                 		$this->load->view ('reservas/indexProfesor');
-
                 		$this->load->view ('templates/footer3');
                 	}
                 	if($rol=="alumno"){
@@ -170,6 +173,7 @@ class Usuario extends CI_Controller
         	$pantalla= "perfil";
 	        $this->load->model('Model_Usuario', 'mu');
 	        $resultado= $this->mu->obtenerNombreYCorreo($id, $pantalla);
+	        $resultado= $this->mu->obtenerDatosPerfil($id);
 	        $avatar= $this->mu->obtenerAvatar($id);
 	        
 	        $separacion= explode(" ", $resultado);
@@ -177,6 +181,11 @@ class Usuario extends CI_Controller
 			$correo= $separacion[1];
 			
 			$datos['nickUsuario']= $nick;
+	       	$password= $separacion[1];
+			$correo= $separacion[2];
+			
+			$datos['nickUsuario']= $nick;
+			$datos['passwordUsuario']= $password;
 			$datos['correoUsuario']= $correo;
 			$datos['imagenUsuario']= $avatar;
 			/*if($avatar!=null){
@@ -229,13 +238,20 @@ class Usuario extends CI_Controller
 			        	$separacion= explode(" ", $resultado);
 			       		$nick= $separacion[0];
 						$correo= $separacion[1];
-					
+						$resultado= $this->mu->obtenerDatosPerfil($_SESSION['idUsuario']);
+	        
+			        	$separacion= explode(" ", $resultado);
+			       		$nick= $separacion[0];
+			       		$password= $separacion[1];
+						$correo= $separacion[2];
+
 						$id= $idUsuario;
 						
 						$nombreAvatar= $this->mu->obtenerAvatar($id);
 						$datos['imagenUsuario']= $nombreAvatar;
 						$datos['imagen']= "si";
 						$datos['nickUsuario']= $nick;
+						$datos['passwordUsuario']= $password;
 						$datos['correoUsuario']= $correo;
 						
 		                $this->load->view ('templates/headerPerfil');
@@ -251,6 +267,15 @@ class Usuario extends CI_Controller
 					$correo= $separacion[1];
 					
 					$datos['nickUsuario']= $nick;
+	                $resultado= $this->mu->obtenerDatosPerfil($_SESSION['idUsuario']);
+	        
+			        $separacion= explode(" ", $resultado);
+			       	$nick= $separacion[0];
+			       	$password= $separacion[1];
+					$correo= $separacion[2];
+					
+					$datos['nickUsuario']= $nick;
+					$datos['passwordUsuario']= $password;
 					$datos['correoUsuario']= $correo;
 					
 					$this->load->view('templates/headerPerfil');
@@ -266,7 +291,16 @@ class Usuario extends CI_Controller
 				$correo= $separacion[1];
 					
 				$datos['nickUsuario']= $nick;
-				$datos['correoUsuario']= $correo;  
+	            $resultado= $this->mu->obtenerDatosPerfil($_SESSION['idUsuario']);
+	        
+			    $separacion= explode(" ", $resultado);
+			    $nick= $separacion[0];
+			    $password= $separacion[1];
+				$correo= $separacion[2];
+					
+				$datos['nickUsuario']= $nick;
+				$datos['passwordUsuario']= $password;
+				$datos['correoUsuario']= $correo;
 					
 	            $this->load->view('templates/headerPerfil');
 	            $this->load->view('usuario/perfil2', $datos);
@@ -360,6 +394,7 @@ class Usuario extends CI_Controller
 		//$messageInicial = nl2br($_REQUEST['mensaje']);
 		$subject= $name." tiene una consulta";
 		$message= $messageInicialRetocado."<br><br>Para poder contactar con este usuario y solucionar su consulta, le facilitamos su correo electr�nico: ".$emailReceiver;
+		$message= $messageInicialRetocado."<br><br>Para poder contactar con este usuario y solucionar su consulta, le facilitamos su correo electr�nico: ".$emailReceiver;
 		$email= $this->sendMail($emailReceiver, $message, $subject);
 
 		if($email){
@@ -439,6 +474,7 @@ class Usuario extends CI_Controller
                     'smtp_host' => 'ssl://smtp.gmail.com',
                     'smtp_port' => 465,
                     'smtp_user' => $adminEmail, // correo desde el cual se envia
+
                     'smtp_pass' => $adminPass, // contrase�a del correo
                     'mailtype' => 'html',
                     'charset' => 'utf-8',

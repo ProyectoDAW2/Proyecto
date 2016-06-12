@@ -3,7 +3,6 @@ var conexion;
 function accionAJAX() {
 	document.getElementById("aulas").innerHTML=conexion;
 }
-
 $(function() {
 	noUiSlider.create(document.getElementById('sliderEquipos'), {
 		start: 0,
@@ -32,6 +31,8 @@ $(function() {
 	});
 	var red = "NO";
 	var proyector = "NO";
+	var red = "NO";
+	var proyector = "NO";
 
 	if (document.getElementById('red').checked) {
 		red = document.getElementById('red').value;
@@ -46,6 +47,10 @@ $(function() {
 		equipos = document.getElementById('sliderEquipos').noUiSlider.get();
 		capacidad = document.getElementById('sliderCapacidad').noUiSlider.get();
 		console.log("Capacidad del slider "+capacidad);
+		var categoria = document.getElementById('categoria').value;
+		equipos = document.getElementById('sliderEquipos').noUiSlider.get();
+		capacidad = document.getElementById('sliderCapacidad').noUiSlider.get();
+		console.log(capacidad);
 		$.ajax("http://reservasfernandovi.esy.es/reservas/filtrarPost", {
 			type: "POST",
 			data: {

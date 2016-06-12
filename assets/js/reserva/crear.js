@@ -4,24 +4,30 @@ $(document).ready(function(){
     });
 });
 
-
 //Si se clicka un día se abre una ventana con las horas.
 $(document).ready(function (){
     listarReservas();
-    $("#aulas").on("click",".result", function(){
-        num=$(this).text();
-        id=$(this).val();
-        $.ajax("http://reservasfernandovi.esy.es/reservas/listarReserva", {
-            type: "POST",
-            contentType: "application/x-www-form-urlencoded",
-            dataType: 'text',
-            data: {'num': num},
-            complete: function(response){
-                $('#calendar').fullCalendar('destroy');
-                setTimeout(pintarCalendario(),500);}
+//Si se clicka un día se abre una ventana con las horas.
+    $(document).ready(function (){
+        listarReservas();
+        var date = new Date();
+        $("#aulas").on("click",".result", function(){
+            num=$(this).text();
+            id=$(this).val();
+            $.ajax("http://reservasfernandovi.esy.es/reservas/listarReserva", {
+                type: "POST",
+                contentType: "application/x-www-form-urlencoded",
+                dataType: 'text',
+                data: {'num': num},
+                complete: function(response){
+                    $('#calendar').fullCalendar('destroy');
+                    //SE DIBUJA EL CALENDARIO
+                    setTimeout(pintarCalendario(),500);}
+            });
         });
     });
-});
+
+//<------$(this).click(function(){
 
 //Función para dibujar en el calendario las reservas hechas
 $('#calendar').on('click','.fc-day',function() {
@@ -199,11 +205,21 @@ $(document).on('click', '.submitReserva', function(){
                     $('#calendar').fullCalendar('destroy');
                     pintarCalendario();
                     listarReservas();
+                    //DESDE AQUI LLAMO A LA FUNCIÓN QUE MONTA LOS DATOS DE RESERVA
                 },500) ;
              }
         });
     }
 });
+
+function listarReservas(){
+	$.ajax("http://reservasfernandovi.esy.es/reservas/listarPost", {
+        type: "POST",
+        success: function(data){
+        $(".listarReservas").html(data);
+        }
+    });
+}
 
 //Deshabilitar las horas que ya están reservadas ese día.
 $(document).on('click', '.fc-day-header', function(){
@@ -269,13 +285,13 @@ $(".reservaPista").click(function(){
 });
 
 $(".submitReservaAlumno").click(function(){
-    var idAula=$("#pistade").attr('name');
-    var date=$("#datepicker").val();
-    var hoursParsed=["11:00-11:35"];
+    var idAula = $("#pistade").attr('name');
+    var date = $("#datepicker").val();
+    var hoursParsed = ["11:00-11:35"];
     console.log("== Vamos a comprobar los datos ==");
-    console.log("Nº de aula : "+idAula);
-    console.log("Fecha : "+date);
-    console.log("Horas : "+hoursParsed);
+    console.log("Nº de aula : " + idAula);
+    console.log("Fecha : " + date);
+    console.log("Horas : " + hoursParsed);
     $.ajax("http://reservasfernandovi.esy.es/reservas/createPost", {
         type: "POST",
         data: {
@@ -289,4 +305,4 @@ $(".submitReservaAlumno").click(function(){
         }
     });
 });
-//===================Crear reservas ALUMNO===================\\
+});

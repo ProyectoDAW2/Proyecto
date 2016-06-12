@@ -1,4 +1,3 @@
-
 <section id="registro">
     <div class="container">
         <div class="row">

@@ -12,7 +12,7 @@
 			<div class="row control-group">
                             <div class="form-group col-xs-8 col-xs-offset-2 floating-label-form-group controls">
                                 <label>Introduce el nombre o n&uacute;mero de Aula</label>
-                                <input type="text" id="numaula" name="numaula" onchange="numAulaNumerico(this.value)"/>
+                                <input type="text" id="numaula" class="form-control" name="numaula" onchange="numAulaNumerico(this.value)" placeholder="Introduce el n&uacute;mero de Aula"/>
                                 <p class="help-block text-danger"></p>
                             </div>
                         </div>
@@ -97,7 +97,7 @@
 		<?php if(isset($borradoIncorrecto)):?>
 			swal({
 	  	     	title: "",
-	  		 	text: "No se ha podido borrar el aula. Por favor, inténtelo más tarde",
+	  		 	text: "No se ha podido borrar el aula. Por favor, intï¿½ntelo mï¿½s tarde",
 	  		 	type: "error",
 	  		 	confirmButtonText: "Aceptar"
 	  		});
@@ -130,7 +130,7 @@
 						<div class="modal-body">
 							<form action="<?= base_url()?>objetoreservable/modificar" method="post">
 							<!--<h4>Datos del aula</h4>-->
-								<!-- Es útil por si cambian el numero de aula, porque asi sabes cual era el numero original -->
+								<!-- Es ï¿½til por si cambian el numero de aula, porque asi sabes cual era el numero original -->
 								<input type="text" id="numAulaOriginal" name="numAulaOriginal" value="<?= $numeroAula ?>" hidden>
 								<p><label for="numAula">N&uacute;mero de aula</label></p>
 								<p><input type="text" id="numAula" name="numAula" value="<?= $numeroAula ?>"></p>

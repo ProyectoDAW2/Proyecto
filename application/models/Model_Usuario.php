@@ -122,23 +122,26 @@ class Model_Usuario extends RedBean_SimpleModel{
 		array(':datos' => $datoUsuario));
 	}
 
-	
 	public function obtenerNombreYCorreo($id, $pantalla){
-		$usuario= R::load('usuario', $id);
-		if($pantalla=="contacto"){
+		$usuario = R::load('usuario', $id);
+		if ($pantalla == "contacto") {
 			//devolvemos el nombre completo del usuario y su correo
-			return $usuario->nombre." ".$usuario->apellidos."/".$usuario->correo;
+			return $usuario->nombre . " " . $usuario->apellidos . "/" . $usuario->correo;
 		}
-		if($pantalla=="perfil"){
+		if ($pantalla == "perfil") {
 			//devolvemos el nick del usuario y su correo
-			return $usuario->nick." ".$usuario->correo;
+			return $usuario->nick . " " . $usuario->correo;
 		}
+	}
+
+	public function obtenerDatosPerfil($id){
+		$usuario= R::load('usuario', $id);
+		return $usuario->nick." ".$usuario->password." ".$usuario->correo;
 	}
 
 	public function borrarAvatar($idUsuario){
 		$usuario= R::load('usuario', $idUsuario);
-		
-        $avatar = $usuario->avatar;
+		$avatar = $usuario->avatar;
         if ($avatar != 'default.jpg') {
             $file = 'assets/imagenes/perfil/'.$avatar;
             $do = unlink ($file);
@@ -161,5 +164,8 @@ class Model_Usuario extends RedBean_SimpleModel{
 		return $usuario->avatar;
 	}
 
+	public function getProfesor(){
+		return R::getAll("SELECT id,nombre,apellidos,nick FROM usuario where rol='profesor'");
+	}
 }
 ?>

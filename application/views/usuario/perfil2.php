@@ -42,8 +42,7 @@
 		<div class="form-group">
 		  <label class="col-md-4 control-label" for="passwordActual">Contrase&ntilde;a actual</label>
 		  <div class="col-md-4">
-		    <input id="passwordActual" name="passwordActual" type="password" class="form-control input-md" require data-validation-required-message="Campo obligatorio para cualquier cambio">
-		    
+			  <input id="passwordActual" name="passwordActual" type="password" class="form-control input-md" value="<?= $passwordUsuario ?>" readonly require data-validation-required-message="Campo obligatorio para cualquier cambio">
 		  </div>
 		</div>
 		
