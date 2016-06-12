@@ -172,14 +172,16 @@ class Usuario extends CI_Controller
         if($id!=null){
         	$pantalla= "perfil";
 	        $this->load->model('Model_Usuario', 'mu');
-	        $resultado= $this->mu->obtenerNombreYCorreo($id, $pantalla);
+	        $resultado= $this->mu->obtenerDatosPerfil($id);
 	        $avatar= $this->mu->obtenerAvatar($id);
 	        
 	        $separacion= explode(" ", $resultado);
 	       	$nick= $separacion[0];
-			$correo= $separacion[1];
+	       	$password= $separacion[1];
+			$correo= $separacion[2];
 			
 			$datos['nickUsuario']= $nick;
+			$datos['passwordUsuario']= $password;
 			$datos['correoUsuario']= $correo;
 			$datos['imagenUsuario']= $avatar;
 			/*if($avatar!=null){
@@ -227,11 +229,12 @@ class Usuario extends CI_Controller
 					}
 					
 						$this->mu->cambiarPerfil($idUsuario, $nick, $password, $correo);
-						$resultado= $this->mu->obtenerNombreYCorreo($_SESSION['idUsuario'], "perfil");
+						$resultado= $this->mu->obtenerDatosPerfil($_SESSION['idUsuario']);
 	        
 			        	$separacion= explode(" ", $resultado);
 			       		$nick= $separacion[0];
-						$correo= $separacion[1];
+			       		$password= $separacion[1];
+						$correo= $separacion[2];
 					
 						$id= $idUsuario;
 						
@@ -239,6 +242,7 @@ class Usuario extends CI_Controller
 						$datos['imagenUsuario']= $nombreAvatar;
 						$datos['imagen']= "si";
 						$datos['nickUsuario']= $nick;
+						$datos['passwordUsuario']= $password;
 						$datos['correoUsuario']= $correo;
 						
 		                $this->load->view ('templates/headerPerfil');
@@ -247,13 +251,15 @@ class Usuario extends CI_Controller
 	            }
 				else{
 					$datos['passIncorrecta']= "password";
-	                $resultado= $this->mu->obtenerNombreYCorreo($_SESSION['idUsuario'], "perfil");
+	                $resultado= $this->mu->obtenerDatosPerfil($_SESSION['idUsuario']);
 	        
 			        $separacion= explode(" ", $resultado);
 			       	$nick= $separacion[0];
-					$correo= $separacion[1];
+			       	$password= $separacion[1];
+					$correo= $separacion[2];
 					
 					$datos['nickUsuario']= $nick;
+					$datos['passwordUsuario']= $password;
 					$datos['correoUsuario']= $correo;
 					
 					$this->load->view('templates/headerPerfil');
@@ -262,13 +268,15 @@ class Usuario extends CI_Controller
 	            }
 			}
 			else{
-	            $resultado= $this->mu->obtenerNombreYCorreo($_SESSION['idUsuario'], "perfil");
+	            $resultado= $this->mu->obtenerDatosPerfil($_SESSION['idUsuario']);
 	        
 			    $separacion= explode(" ", $resultado);
 			    $nick= $separacion[0];
-				$correo= $separacion[1];
+			    $password= $separacion[1];
+				$correo= $separacion[2];
 					
 				$datos['nickUsuario']= $nick;
+				$datos['passwordUsuario']= $password;
 				$datos['correoUsuario']= $correo;  
 					
 	            $this->load->view('templates/headerPerfil');
@@ -337,8 +345,7 @@ class Usuario extends CI_Controller
 		
 		if($id!=null){
 			$this->load->model('Model_Usuario', 'mu');
-			$pantalla= "contacto";
-			$resultado= $this->mu->obtenerNombreYCorreo($id, $pantalla);
+			$resultado= $this->mu->obtenerNombreYCorreo($id);
 			$separacion= explode("/", $resultado);
 			$nombreCompleto= $separacion[0];
 			$correo= $separacion[1];

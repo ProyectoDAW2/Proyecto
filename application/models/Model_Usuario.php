@@ -123,16 +123,17 @@ class Model_Usuario extends RedBean_SimpleModel{
 	}
 
 	
-	public function obtenerNombreYCorreo($id, $pantalla){
+	public function obtenerNombreYCorreo($id){
 		$usuario= R::load('usuario', $id);
-		if($pantalla=="contacto"){
-			//devolvemos el nombre completo del usuario y su correo
-			return $usuario->nombre." ".$usuario->apellidos."/".$usuario->correo;
-		}
-		if($pantalla=="perfil"){
-			//devolvemos el nick del usuario y su correo
-			return $usuario->nick." ".$usuario->correo;
-		}
+		
+		//devolvemos el nombre completo del usuario y su correo
+		return $usuario->nombre." ".$usuario->apellidos."/".$usuario->correo;
+	}
+	
+	public function obtenerDatosPerfil($id){
+		$usuario= R::load('usuario', $id);
+		
+		return $usuario->nick." ".$usuario->password." ".$usuario->correo;
 	}
 
 	public function borrarAvatar($idUsuario){
