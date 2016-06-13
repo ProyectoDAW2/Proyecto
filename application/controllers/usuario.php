@@ -165,15 +165,12 @@ class Usuario extends CI_Controller
         if($id!=null){
         	$pantalla= "perfil";
 	        $this->load->model('Model_Usuario', 'mu');
-	        $resultado= $this->mu->obtenerNombreYCorreo($id, $pantalla);
+	        
 	        $resultado= $this->mu->obtenerDatosPerfil($id);
 	        $avatar= $this->mu->obtenerAvatar($id);
 	        
 	        $separacion= explode(" ", $resultado);
 	       	$nick= $separacion[0];
-			$correo= $separacion[1];
-			
-			$datos['nickUsuario']= $nick;
 	       	$password= $separacion[1];
 			$correo= $separacion[2];
 			
@@ -181,9 +178,6 @@ class Usuario extends CI_Controller
 			$datos['passwordUsuario']= $password;
 			$datos['correoUsuario']= $correo;
 			$datos['imagenUsuario']= $avatar;
-			/*if($avatar!=null){
-				$datos['imagen']= "si";
-			}*/
 	        
 	        $this->load->view ('templates/headerPerfil');
 	        $this->load->view ('usuario/perfil2', $datos);
@@ -252,13 +246,7 @@ class Usuario extends CI_Controller
 	            }
 				else{
 					$datos['passIncorrecta']= "password";
-	                $resultado= $this->mu->obtenerNombreYCorreo($_SESSION['idUsuario'], "perfil");
-	        
-			        $separacion= explode(" ", $resultado);
-			       	$nick= $separacion[0];
-					$correo= $separacion[1];
-					
-					$datos['nickUsuario']= $nick;
+	                
 	                $resultado= $this->mu->obtenerDatosPerfil($_SESSION['idUsuario']);
 	        
 			        $separacion= explode(" ", $resultado);
@@ -276,20 +264,16 @@ class Usuario extends CI_Controller
 	            }
 			}
 			else{
-	            $resultado= $this->mu->obtenerNombreYCorreo($_SESSION['idUsuario'], "perfil");
-	        
-			    $separacion= explode(" ", $resultado);
-			    $nick= $separacion[0];
-				$correo= $separacion[1];
-					
-				$datos['nickUsuario']= $nick;
+	            
 	            $resultado= $this->mu->obtenerDatosPerfil($_SESSION['idUsuario']);
-	        
+	        	$avatar= $this->mu->obtenerAvatar($_SESSION['idUsuario']);
+	            
 			    $separacion= explode(" ", $resultado);
 			    $nick= $separacion[0];
 			    $password= $separacion[1];
 				$correo= $separacion[2];
 
+				$datos['imagenUsuario']= $avatar;
 				$datos['nickUsuario']= $nick;
 				$datos['passwordUsuario']= $password;
 				$datos['correoUsuario']= $correo;
@@ -300,13 +284,29 @@ class Usuario extends CI_Controller
 	        }
 		}
 		else {
-            $this->load->view ('templates/header3');
-            $this->load->view ('errors/noModificarPerfil');
-            $this->load->view ('templates/footer3');
+			$this->load->model('Model_Usuario', 'mu');
+			
+			$resultado= $this->mu->obtenerDatosPerfil($_SESSION['idUsuario']);
+			$avatar= $this->mu->obtenerAvatar($_SESSION['idUsuario']);
+			
+			$separacion= explode(" ", $resultado);
+			$nick= $separacion[0];
+			$password= $separacion[1];
+			$correo= $separacion[2];
+
+			$datos['imagenUsuario']= $avatar;
+			$datos['nickUsuario']= $nick;
+			$datos['passwordUsuario']= $password;
+			$datos['correoUsuario']= $correo;
+			
+            $this->load->view ('templates/headerPerfil');
+            $this->load->view('usuario/perfil2', $datos);
+            //$this->load->view ('errors/noModificarPerfil');
+            $this->load->view ('templates/footerPerfil');
         }
 		
 	}
-    /*----- Recuperar contraseÃ±a de la cuenta -----*/
+    /*----- Recuperar contraseña de la cuenta -----*/
 	public function recuperar() {
 		$this->load->view('templates/headerSinCabecera');
 		$this->load->view('usuario/recuperar');

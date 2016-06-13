@@ -48,17 +48,17 @@
 		
 		<!-- Nueva password-->
 		<div class="form-group">
-		  <label class="col-md-4 control-label" for="passwordCambio">Nueva contrase&ntilde;a</label>
+		  <label class="col-md-4 control-label" for="passwordNueva">Nueva contrase&ntilde;a</label>
 		  <div class="col-md-4">
-		    <input id="passwordNueva" name="passwordNueva" type="password" class="form-control input-md" placeholder="Campo obligatorio">
+		    <input id="passwordNueva" name="passwordNueva" type="password" class="form-control input-md" placeholder="Nueva contrase&ntilde;a">
 		  </div>
 		</div>
 		
 		<!-- Repetir password-->
 		<div class="form-group">
-		  <label class="col-md-4 control-label" for="passwordCambio2">Repite nueva contrase&ntilde;a</label>
+		  <label class="col-md-4 control-label" for="passwordNueva2">Repite nueva contrase&ntilde;a</label>
 		  <div class="col-md-4">
-		    <input id="passwordNueva2" name="passwordNueva2" type="password" class="form-control input-md" placeholder="Campo obligatorio">
+		    <input id="passwordNueva2" name="passwordNueva2" type="password" class="form-control input-md" placeholder="Repite nueva contrase&ntilde;a">
 		    
 		  </div>
 		</div>
@@ -80,7 +80,7 @@
 		  <label class="col-md-4 control-label" for="guardar"></label>
 		  <div class="col-md-4">
 		    <!-- <button id="guardar" name="guardar" class="botonPerfil btn btn-danger" onclick="modify()">Guardar cambios</button> -->
-		    <input type="submit" id="guardar" name="guardar" class="colorFondoBoton letraBoton botonPerfil btn"  value="Guardar cambios" onclick="modify()">
+		    <input type="submit" id="guardar" name="guardar" class="colorFondoBoton letraBoton botonPerfil btn" value="Guardar cambios" onclick="modify()">
 		  </div>
 		</div>
 		</fieldset>
