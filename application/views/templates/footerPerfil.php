@@ -39,6 +39,15 @@ $(document).ready( function() {
 			 confirmButtonText: "Aceptar"
   		});
 	<?php endif; ?>
+
+	<?php if(isset($noModificar)):?>
+		swal({
+			title: "",
+	        text: "No se ha podido modificar su perfil",
+	        type: "error",
+	        confirmButtonText: "Aceptar"
+		});
+<?php endif; ?>
     </script>
 </body>
 </html>

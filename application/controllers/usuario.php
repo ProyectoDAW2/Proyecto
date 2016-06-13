@@ -294,6 +294,7 @@ class Usuario extends CI_Controller
 			$password= $separacion[1];
 			$correo= $separacion[2];
 
+			$datos['noModificar']= "si";
 			$datos['imagenUsuario']= $avatar;
 			$datos['nickUsuario']= $nick;
 			$datos['passwordUsuario']= $password;
