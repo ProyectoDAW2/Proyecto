@@ -108,16 +108,16 @@
 							<h4>Filtrado</h4>
 							<hr class="star-primary">
 							<p>
-								<label>Categor&iacute;a</label>
-								<select class="selectpicker" name="categoria" id="categoria" data-style="btn btn-primary active" >
-									<option value="todas" selected>Todas</option>
-									<?php foreach ($categorias as $categoria):?>
-										<?php foreach($categoria as $categ=>$nombre): ?>
-											<option value="<?= $nombre ?>"><?= $nombre?>
-											</option>
-										<?php endforeach; ?>
-									<?php endforeach;?>
-								</select>
+								Categor&iacute;a
+                                <select class="selectpicker" name="categoria" id="categoria" data-style="btn-info" >
+                                    <option value="todas" selected>Todas</option>
+                                    <?php foreach ($categorias as $categoria):?>
+                                        <?php foreach($categoria as $categ=>$nombre): ?>
+                                            <option value="<?= $nombre ?>"><?= $nombre?>
+                                            </option>
+                                        <?php endforeach; ?>
+                                    <?php endforeach;?>
+                                </select>
 							</p>
 							<label class="btn btn-primary active">
 								<input type="checkbox" name="red" id="red"/> Red

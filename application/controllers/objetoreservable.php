@@ -109,7 +109,7 @@ class ObjetoReservable extends CI_Controller{
 		}
 		else{
 			$datos['numeroExistente']= true;
-			$this->load->view('templates/header3');
+			$this->load->view('templates/headerAdmin');
 			$this->load->view('objetoReservable/editarAulas', $datos);
 			$this->load->view('templates/footer3');
 		}
@@ -117,14 +117,15 @@ class ObjetoReservable extends CI_Controller{
 	}
 	public function borrar(){
 	
-		$numAula= $_REQUEST['numeroAula'];
+		$numAula= $_GET['numeroAula'];
+
 		
 		$this->load->model('Model_ObjetoReservable', 'mo');
 		$respuesta= $this->mo->borrar($numAula);
 		
 		if($respuesta){
 			$datos['borradoCorrecto']= $respuesta;
-			$this->load->view('templates/header3');
+			$this->load->view('templates/headerAdmin');
 			$this->load->view('objetoreservable/editarAulas', $datos);
 			$this->load->view('templates/footer3');
 		}
@@ -156,7 +157,7 @@ class ObjetoReservable extends CI_Controller{
 	}
 	
 	public function editarAulas(){
-		$this->load->view('templates/headerAdmin');
+		$this->load->view('templates/headerAdmin2');
 		$this->load->view('objetoReservable/editarAulas');
 		$this->load->view('templates/footer2');
 	}
@@ -182,7 +183,7 @@ class ObjetoReservable extends CI_Controller{
 			$datos['datosAula']= $datosAula;
 		}
 		
-		$this->load->view('templates/headerAdmin');
+		$this->load->view('templates/headerAdmin2');
 		$this->load->view('objetoReservable/editarAulas', $datos);
 		$this->load->view('templates/footer2');
 	}

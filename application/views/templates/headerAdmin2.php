@@ -18,6 +18,7 @@
 
     <!-- Bootstrap Core CSS - Uses Bootswatch Flatly Theme: http://bootswatch.com/flatly/ -->
     <link href="<?= base_url()?>assets/templateBootstrap/css/bootstrap2.min.css" rel="stylesheet">
+    <script src="<?= base_url() ?>assets/templateBootstrap/js/bootstrap.min.js"></script>
 
     <!-- Custom CSS -->
     <link href="<?= base_url()?>assets/templateBootstrap/css/freelancer.css" rel="stylesheet">

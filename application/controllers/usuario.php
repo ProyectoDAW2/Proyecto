@@ -97,7 +97,7 @@ class Usuario extends CI_Controller
                 		$categorias= $this->mo->getCategoria();
                 		$datos['categorias']= $categorias;
                 		$this->load->view ('templates/header3');
-                		$this->load->view ('reservas/indexProfesor');
+                		$this->load->view ('reservas/indexProfesor', $datos);
                 		$this->load->view ('templates/footer3');
                 	}
                 	if($rol=="alumno"){
